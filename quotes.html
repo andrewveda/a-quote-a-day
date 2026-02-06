@@ -211,48 +211,6 @@ html, body {
   transition: opacity 0.3s;
 }
 
-/* ─── REACTION BAR ─── */
-.reactions {
-  display: flex;
-  gap: 10px;
-  margin-top: 28px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.rxn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 24px;
-  padding: 7px 14px;
-  cursor: pointer;
-  transition: background 0.22s, border-color 0.22s, transform 0.18s;
-  user-select: none;
-  -webkit-user-select: none;
-}
-.rxn:hover { background: rgba(255,255,255,0.10); transform: translateY(-1px); }
-.rxn:active { transform: scale(0.92); }
-.rxn.active {
-  background: rgba(212,175,55,0.15);
-  border-color: rgba(212,175,55,0.45);
-}
-.rxn-icon { font-size: 18px; line-height: 1; }
-.rxn-count {
-  font-family: 'DM Mono', monospace;
-  font-size: 13px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.7);
-  min-width: 18px;
-  text-align: center;
-}
-.rxn.pop .rxn-icon { animation: pop 0.35s cubic-bezier(.4,0,.2,1); }
-@keyframes pop {
-  0%   { transform: scale(1); }
-  40%  { transform: scale(1.55); }
-  100% { transform: scale(1); }
-}
 
 /* ─── NAV ARROWS ─── */
 .nav-arrows {
@@ -1182,14 +1140,6 @@ body.t-brutalist .dir-row-avatar { border-radius: 4px; }
    ══════════════════════════════════════════════ */
 const QUOTES_URL = "https://raw.githubusercontent.com/AndrewVeda/a-quote-a-day/main/QUOTES.md";
 
-const REACTIONS = [
-  { key:'heart',  emoji:'❤️',  label:'Love' },
-  { key:'clap',   emoji:'👏',  label:'Clap' },
-  { key:'fire',   emoji:'🔥',  label:'Fire' },
-  { key:'wow',    emoji:'🤯',  label:'Mind-blown' },
-  { key:'save',   emoji:'🔖',  label:'Save' },
-  { key:'share',  emoji:'✨',  label:'Inspire' }
-];
 
 const THEMES = ['minimal','academia','cyber','brutalist','wellness','retro','glass','poster'];
 
@@ -1338,11 +1288,7 @@ function updateDots() {
   });
 }
 
-/* ══════════════════════════════════════════════
-   REACTIONS  —  shared via window.storage
-   ══════════════════════════════════════════════ */
 
-/* key helpers ─────────────────────────────────── */
 function sharedKey(i) { return `qd-rxn:${i}`; }          // shared counters per quote
 const   USER_KEY      = 'qd-my-rxns';                     // personal: which ones I've tapped
 
