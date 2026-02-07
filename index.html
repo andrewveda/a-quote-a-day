@@ -1123,6 +1123,11 @@ body.t-wellness {
   -webkit-backdrop-filter: none !important;
   filter: none !important;
 }
+#shareCard, #shareCard * {
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 
 </style>
@@ -1612,11 +1617,15 @@ async function shareAsImage() {
 
     const node = document.getElementById('shareCard');
 
-    // Render to canvas
-    const canvas = await html2canvas(node, {
-      scale: 2,
-      backgroundColor: '#0f1629'
-    });
+   
+   const dpr = window.devicePixelRatio || 2;
+
+const canvas = await html2canvas(node, {
+  scale: dpr,
+  useCORS: true,
+  backgroundColor: '#0f1629'
+});
+
 
     const blob = await new Promise(res =>
       canvas.toBlob(res, 'image/png')
@@ -1659,10 +1668,10 @@ async function shareAsImage() {
   font-family: 'Cormorant Garamond', serif;
 ">
   <div id="sc-quote"
-       style="font-size:64px; line-height:1.35; font-weight:300;"></div>
+       style="font-size:68px; line-height:1.35; font-weight:300;"></div>
 
   <div id="sc-author"
-       style="margin-top:48px; font-size:22px; letter-spacing:3px; font-family:'Raleway',sans-serif; color:#60a5fa;">
+       style="margin-top:48px; font-size:32px; letter-spacing:3px; font-family:'Raleway',sans-serif; color:#60a5fa;">
   </div>
 
   <div id="sc-about"
@@ -1670,7 +1679,7 @@ async function shareAsImage() {
   </div>
 
   <div id="sc-contrib"
-       style="margin-top:60px; font-size:20px; opacity:0.6; font-family:'Raleway',sans-serif;">
+       style="margin-top:60px; font-size:30px; opacity:0.6; font-family:'Raleway',sans-serif;">
   </div>
 
   <div style="
