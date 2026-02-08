@@ -4,148 +4,209 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Submit a Quote · A Quote A Day</title>
+
   <style>
+    :root {
+      --bg-main: #0b0710;
+      --bg-card: rgba(40, 24, 56, 0.55);
+      --bg-soft: rgba(212, 175, 55, 0.08);
+
+      --gold: #d4af37;
+      --gold-dim: rgba(212,175,55,0.45);
+
+      --text-main: #f2edf7;
+      --text-soft: rgba(242,237,247,0.7);
+      --text-dim: rgba(242,237,247,0.45);
+
+      --border-soft: rgba(212,175,55,0.25);
+    }
+
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: #0b0b0b;
-      color: #f0efe8;
-      line-height: 1.6;
+      background:
+        radial-gradient(circle at top, #24102f 0%, transparent 60%),
+        radial-gradient(circle at bottom, #120815 0%, transparent 55%),
+        var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.65;
     }
 
     .container {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 48px 24px 64px;
+      padding: 56px 24px 72px;
     }
 
     h1 {
-      font-size: 28px;
-      margin-bottom: 12px;
+      font-size: 30px;
+      font-weight: 600;
       letter-spacing: 1px;
+      margin-bottom: 10px;
+      color: var(--gold);
     }
 
     h2 {
-      font-size: 18px;
-      margin-top: 36px;
+      font-size: 17px;
+      margin-top: 42px;
       margin-bottom: 12px;
-      color: #d4af37;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
+      color: var(--gold);
     }
 
     p {
       margin: 12px 0;
-      color: #ddd;
+      color: var(--text-soft);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      padding: 22px 24px;
+      margin-top: 18px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
 
     code, pre {
-      background: #161616;
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
-      padding: 12px;
       display: block;
-      overflow-x: auto;
-      color: #e8dcc8;
+      background: rgba(0,0,0,0.45);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: #f6f0dc;
       font-size: 14px;
+      overflow-x: auto;
     }
+
+    pre { margin-top: 14px; }
 
     .note {
-      background: rgba(212,175,55,0.08);
-      border-left: 4px solid #d4af37;
-      padding: 12px 16px;
-      margin: 20px 0;
+      background: var(--bg-soft);
+      border-left: 4px solid var(--gold);
+      padding: 14px 18px;
+      margin: 22px 0;
+      border-radius: 10px;
       font-size: 14px;
-    }
-
-    ol {
-      padding-left: 20px;
-    }
-
-    li {
-      margin-bottom: 10px;
+      color: var(--text-soft);
     }
 
     .cta {
-      margin-top: 48px;
+      margin-top: 56px;
       text-align: center;
     }
 
     .cta a {
       display: inline-block;
-      padding: 14px 28px;
-      border-radius: 28px;
-      background: #d4af37;
-      color: #0a0a0a;
+      padding: 16px 36px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, #f0d77a, #d4af37);
+      color: #120815;
       text-decoration: none;
       font-weight: 600;
-      letter-spacing: 1px;
-      transition: transform 0.15s, box-shadow 0.15s;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
     .cta a:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(212,175,55,0.4);
+      box-shadow: 0 10px 28px rgba(212,175,55,0.45);
     }
 
     footer {
-      margin-top: 64px;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #666;
+      margin-top: 72px;
       text-align: center;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 26px; }
+      .container { padding: 42px 20px 60px; }
     }
   </style>
 </head>
-<body>
 
+<body>
   <div class="container">
+
     <h1>Submit a Quote</h1>
     <p>
-      Thank you for contributing to <strong>A Quote A Day!</strong> ✨  
-      This page explains how to submit your quote correctly using a pull request.
+      This page explains <strong>exactly</strong> how to submit your quote to
+      <strong>A Quote A Day</strong> using GitHub✨
     </p>
 
-    <h2>1. Filename (Required)</h2>
-    <p>
-      Your quote will appear on the site <strong>only if the filename starts with a date</strong>.
-    </p>
+    <h2>Step 1 · Create a New Quote File</h2>
+    <div class="card">
+      <p>
+        Click the button at the bottom of this page.  
+        GitHub will automatically:
+      </p>
 
-    <div class="note">
-      <strong>Files without a date in the filename are ignored by the quote-processing system.</strong>
+      <ul>
+        <li>Create a copy (fork) of the project for you</li>
+        <li>Let you add a new quote file</li>
+        <li>Guide you to open a Pull Request</li>
+      </ul>
+
+    <h2>Step 2 · Filename Rules (Very Important)</h2>
+    <div class="card">
+      <p>
+        Your quote is processed <strong>only if the filename starts with a date</strong>.
+      </p>
+
+      <code>YYYY-MM-DD_name_department.md</code>
+
+      <p style="margin-top:12px;">Example:</p>
+      <code>2026-02-04_meenz_cyber-security.md</code>
+
+      <div class="note">
+        The date must be exactly in <strong>YYYY-MM-DD</strong> format  
+        (year-month-day, zero-padded).
+      </div>
     </div>
 
-    <code>YYYY-MM-DD_name_department.md</code>
+    <h2>Step 3 · Paste This Template Inside the File</h2>
+    <div class="card">
+      <p>
+        Copy the template below and <strong>fill in all relevant fields</strong>.
+      </p>
 
-    <p>Example:</p>
-    <code>2026-02-04_meenz_cyber-security.md</code>
-
-    <h2>2. File Content Format</h2>
-    <p>
-      Copy and paste the following template into your file and fill it in.
-    </p>
-
-    <pre>---
-quote:
-author:
-contributor:
-department:
-source:
-tags:
-about:
+<pre>---
+quote: 
+author: 
+contributor: 
+department: 
+source: Book / Film / Speech (optional)
+tags: life, courage
+about: Write why this quote matters to you
 ---</pre>
 
+      <div class="note">
+        Empty or incomplete files may be ignored during processing.
+      </div>
+    </div>
+
     <div class="cta">
-      <a href="https://github.com/AndrewVeda/a-quote-a-day/new/main/quotes" target="_blank" rel="noopener">
-        ✏️ Submit your quote and create Pull Request
+      <a
+        href="https://github.com/AndrewVeda/a-quote-a-day/new/main/quotes"
+        target="_blank"
+        rel="noopener">
+        Create Quote File on GitHub
       </a>
     </div>
 
     <footer>
       A Quote A Day · Student Contributions
     </footer>
-  </div>
 
+  </div>
 </body>
 </html>
