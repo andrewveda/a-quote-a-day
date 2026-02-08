@@ -8,7 +8,7 @@
 > — added by Lyqorrr(DK) (Cyber Security) | about: It explains why fiction and art matter, as they create shared emotional experiences that build empathy beyond direct lived reality.
 
 > "Life doesn’t give us purpose. We give life purpose.” — Barry Allen (Flash)
-> — added by Barry (Pacman) (Cyber Security)| about : It means meaning isn’t handed to you by fate — you create it through your choices and actions.
+> — added by Barry (Pacman) (Cyber Security)| about: It means meaning isn’t handed to you by fate — you create it through your choices and actions.
 
 > "The more you fear something happening, the more likely it is to occur." - Murphy's Law (The quote a.k.a "Anything that can go wrong, will go wrong.")
-> — Added by Cath (CSE) | about : Fear and overthinking can increase mistakes, making what we dread more likely to happen. Instead of worrying, calm preparation and adaptability help turn possible failures into learning opportunities.
+> — Added by Cath (CSE)| about: Fear and overthinking can increase mistakes, making what we dread more likely to happen. Instead of worrying, calm preparation and adaptability help turn possible failures into learning opportunities.
