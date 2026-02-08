@@ -7,129 +7,284 @@
 
   <style>
     :root {
-      --bg-main: #0b0710;
-      --bg-card: rgba(40, 24, 56, 0.55);
-      --bg-soft: rgba(212, 175, 55, 0.08);
-
+      --bg-main: #0a0a0a;
+      --bg-gradient-top: #1a1410;
+      --bg-gradient-bottom: #0d0d0d;
+      
       --gold: #d4af37;
-      --gold-dim: rgba(212,175,55,0.45);
+      --gold-light: #f4d56f;
+      --gold-dark: #b8941f;
+      --gold-soft: rgba(212, 175, 55, 0.12);
+      --gold-border: rgba(212, 175, 55, 0.3);
 
-      --text-main: #f2edf7;
-      --text-soft: rgba(242,237,247,0.7);
-      --text-dim: rgba(242,237,247,0.45);
+      --text-main: #f5f5f0;
+      --text-soft: #d4d0c8;
+      --text-dim: #9a968e;
 
-      --border-soft: rgba(212,175,55,0.25);
+      --card-bg: rgba(26, 20, 16, 0.6);
+      --code-bg: #1a1410;
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background:
-        radial-gradient(circle at top, #24102f 0%, transparent 60%),
-        radial-gradient(circle at bottom, #120815 0%, transparent 55%),
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: 
+        radial-gradient(ellipse at top, var(--bg-gradient-top) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, #1a1410 0%, transparent 60%),
         var(--bg-main);
       color: var(--text-main);
-      line-height: 1.65;
+      line-height: 1.7;
+      min-height: 100vh;
     }
 
     .container {
-      max-width: 760px;
+      max-width: 820px;
       margin: 0 auto;
-      padding: 56px 24px 72px;
+      padding: 64px 28px 80px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--gold-border);
     }
 
     h1 {
-      font-size: 30px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
+      font-size: 42px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
       color: var(--gold);
+      font-family: 'Georgia', serif;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: var(--text-soft);
+      font-style: italic;
+      font-weight: 300;
     }
 
     h2 {
-      font-size: 17px;
-      margin-top: 42px;
-      margin-bottom: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
+      font-size: 20px;
+      margin-top: 52px;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      color: var(--gold-light);
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2::before {
+      content: '';
+      width: 32px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
     }
 
     p {
-      margin: 12px 0;
+      margin: 16px 0;
       color: var(--text-soft);
+      font-size: 16px;
     }
 
     .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-soft);
-      border-radius: 18px;
-      padding: 22px 24px;
-      margin-top: 18px;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-
-    code, pre {
-      display: block;
-      background: rgba(0,0,0,0.45);
-      border: 1px solid var(--border-soft);
+      background: var(--card-bg);
+      border: 1px solid var(--gold-border);
       border-radius: 12px;
-      padding: 14px 16px;
-      color: #f6f0dc;
-      font-size: 14px;
-      overflow-x: auto;
+      padding: 28px 32px;
+      margin-top: 20px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
     }
 
-    pre { margin-top: 14px; }
+    .card p:first-child {
+      margin-top: 0;
+    }
+
+    ul {
+      color: var(--text-soft);
+      line-height: 1.9;
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    code {
+      display: block;
+      background: var(--code-bg);
+      border: 1px solid var(--gold-border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      color: var(--gold-light);
+      font-size: 15px;
+      font-family: 'Courier New', monospace;
+      overflow-x: auto;
+      margin: 16px 0;
+    }
+
+    pre {
+      display: block;
+      background: var(--code-bg);
+      border: 1px solid var(--gold-border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      color: var(--text-main);
+      font-size: 14px;
+      font-family: 'Courier New', monospace;
+      overflow-x: auto;
+      margin: 16px 0;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .template-container {
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--gold);
+      color: var(--bg-main);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    .copy-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .copy-btn:active {
+      transform: translateY(0);
+    }
+
+    .copy-btn.copied {
+      background: #4a9d5f;
+      color: white;
+    }
 
     .note {
-      background: var(--bg-soft);
+      background: var(--gold-soft);
       border-left: 4px solid var(--gold);
-      padding: 14px 18px;
-      margin: 22px 0;
-      border-radius: 10px;
-      font-size: 14px;
+      padding: 18px 24px;
+      margin: 24px 0;
+      border-radius: 6px;
+      font-size: 15px;
       color: var(--text-soft);
     }
 
+    .note strong {
+      color: var(--gold-light);
+    }
+
+    .sample-section {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.02));
+      border: 2px solid var(--gold-border);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 32px 0;
+    }
+
+    .sample-section h3 {
+      color: var(--gold);
+      font-size: 22px;
+      margin-top: 0;
+      margin-bottom: 24px;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    .sample-file {
+      background: var(--code-bg);
+      border: 1px solid var(--gold-border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 16px 0;
+    }
+
+    .sample-file .filename {
+      color: var(--gold-light);
+      font-weight: 600;
+      margin-bottom: 12px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+    }
+
+    .sample-file .content {
+      color: var(--text-soft);
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      line-height: 1.8;
+      white-space: pre-wrap;
+    }
+
     .cta {
-      margin-top: 56px;
+      margin-top: 64px;
       text-align: center;
     }
 
     .cta a {
       display: inline-block;
-      padding: 16px 36px;
-      border-radius: 32px;
-      background: linear-gradient(135deg, #f0d77a, #d4af37);
-      color: #120815;
+      padding: 18px 42px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: var(--bg-main);
       text-decoration: none;
       font-weight: 600;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      transition: all 0.3s ease;
+      font-size: 15px;
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+      font-family: system-ui, -apple-system, sans-serif;
     }
 
     .cta a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(212,175,55,0.45);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
+      background: linear-gradient(135deg, #ffeaa7, var(--gold-light));
     }
 
     footer {
-      margin-top: 72px;
+      margin-top: 80px;
       text-align: center;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 2px;
       color: var(--text-dim);
+      padding-top: 32px;
+      border-top: 1px solid var(--gold-border);
+      font-family: system-ui, -apple-system, sans-serif;
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 26px; }
-      .container { padding: 42px 20px 60px; }
+      h1 { font-size: 32px; }
+      .container { padding: 48px 20px 64px; }
+      .card { padding: 20px 24px; }
+      .copy-btn { 
+        position: static;
+        display: block;
+        width: 100%;
+        margin-top: 12px;
+      }
     }
   </style>
 </head>
@@ -137,49 +292,79 @@
 <body>
   <div class="container">
 
-    <h1>Submit a Quote</h1>
+    <div class="header">
+      <h1>Submit a Quote</h1>
+      <p class="subtitle">Share wisdom that inspires you with the community</p>
+    </div>
+
     <p>
-      This page explains <strong>exactly</strong> how to submit your quote to
-      <strong>A Quote A Day</strong> using GitHub✨
+      Welcome! This guide will walk you through submitting your favorite quote to
+      <strong>A Quote A Day</strong>. The process is simple and uses GitHub to ensure
+      every contribution is carefully reviewed.
     </p>
 
     <h2>Step 1 · Create a New Quote File</h2>
     <div class="card">
       <p>
-        Click the button at the bottom of this page.  
-        GitHub will automatically:
+        Click the golden button at the bottom of this page. GitHub will automatically:
       </p>
 
       <ul>
-        <li>Create a copy (fork) of the project for you</li>
-        <li>Let you add a new quote file</li>
-        <li>Guide you to open a Pull Request</li>
+        <li>Create your own copy (fork) of the project</li>
+        <li>Open an editor where you can add your quote</li>
+        <li>Guide you through submitting your contribution</li>
       </ul>
-
-    <h2>Step 2 · Filename Rules (Very Important)</h2>
-    <div class="card">
-      <p>
-        Your quote is processed <strong>only if the filename starts with a date</strong>.
-      </p>
-
-      <code>YYYY-MM-DD_name_department.md</code>
-
-      <p style="margin-top:12px;">Example:</p>
-      <code>2026-02-04_meenz_cyber-security.md</code>
-
+      
       <div class="note">
-        The date must be exactly in <strong>YYYY-MM-DD</strong> format  
-        (year-month-day, zero-padded).
+        <strong>New to GitHub?</strong> Don't worry! The process is beginner-friendly and you'll be guided through each step.
       </div>
     </div>
 
-    <h2>Step 3 · Paste This Template Inside the File</h2>
+    <h2>Step 2 · Name Your File Correctly</h2>
     <div class="card">
       <p>
-        Copy the template below and <strong>fill in all relevant fields</strong>.
+        The filename must start with a date in this exact format:
       </p>
 
-<pre>---
+      <code>YYYY-MM-DD_yourname_department.md</code>
+
+      <p style="margin-top:16px;">For example:</p>
+      <code>2026-02-04_meenz_cyber-security.md</code>
+
+      <div class="note">
+        <strong>Important:</strong> The date must be in <strong>YYYY-MM-DD</strong> format 
+        (year-month-day, with leading zeros). Files without proper dates won't be processed.
+      </div>
+    </div>
+
+    <h2>Step 3 · Add Your Quote Content</h2>
+    
+    <div class="sample-section">
+      <h3>✨ Complete Example</h3>
+      
+      <div class="sample-file">
+        <div class="filename">📄 Filename: 2026-02-04_meenz_cyber-security.md</div>
+        <div class="content">---
+quote: As long as I live, there are infinite chances.
+author: Monkey D. Luffy
+contributor: Meenz
+department: Cyber Security
+source: One Piece
+tags: hope, perseverance, adventure
+about: Life itself gives endless opportunities. This quote reminds me that no matter how many setbacks we face, every new day brings another chance to pursue our dreams and overcome challenges.
+---</div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <p>
+        Copy the template below and fill in your quote details. Every field helps us 
+        share your contribution meaningfully.
+      </p>
+
+      <div class="template-container">
+        <button class="copy-btn" onclick="copyTemplate()">Copy Template</button>
+<pre id="template">---
 quote: 
 author: 
 contributor: 
@@ -188,9 +373,10 @@ source: Book / Film / Speech (optional)
 tags: life, courage
 about: Write why this quote matters to you
 ---</pre>
+      </div>
 
       <div class="note">
-        Empty or incomplete files may be ignored during processing.
+        Please complete all fields. Incomplete submissions may not be included in the daily rotation.
       </div>
     </div>
 
@@ -199,14 +385,37 @@ about: Write why this quote matters to you
         href="https://github.com/AndrewVeda/a-quote-a-day/new/main/quotes"
         target="_blank"
         rel="noopener">
-        Create Quote File on GitHub
+        Create Your Quote File on GitHub
       </a>
     </div>
 
     <footer>
-      A Quote A Day · Student Contributions
+      A Quote A Day · Empowering Student Voices
     </footer>
 
   </div>
+
+  <script>
+    function copyTemplate() {
+      const template = document.getElementById('template').textContent;
+      const button = event.target;
+      
+      navigator.clipboard.writeText(template).then(() => {
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        
+        setTimeout(() => {
+          button.textContent = 'Copy Template';
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+        button.textContent = 'Failed to copy';
+        setTimeout(() => {
+          button.textContent = 'Copy Template';
+        }, 2000);
+      });
+    }
+  </script>
 </body>
 </html>
