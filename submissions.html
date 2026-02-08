@@ -25,139 +25,128 @@
       --code-bg: #1a1410;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      margin: 0;
-      font-family: 'Georgia', 'Times New Roman', serif;
-      background: 
-        radial-gradient(ellipse at top, var(--bg-gradient-top) 0%, transparent 50%),
-        radial-gradient(ellipse at bottom right, #1a1410 0%, transparent 60%),
-        var(--bg-main);
+      font-family: Georgia, 'Times New Roman', serif;
+      background: radial-gradient(ellipse at top, var(--bg-gradient-top) 0%, transparent 50%), radial-gradient(ellipse at bottom right, #1a1410 0%, transparent 60%), var(--bg-main);
       color: var(--text-main);
-      line-height: 1.7;
+      line-height: 1.6;
       min-height: 100vh;
     }
 
     .container {
       max-width: 820px;
       margin: 0 auto;
-      padding: 64px 28px 80px;
+      padding: 40px 16px 60px;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 48px;
-      padding-bottom: 32px;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
       border-bottom: 1px solid var(--gold-border);
     }
 
     h1 {
-      font-size: 42px;
+      font-size: 28px;
       font-weight: 400;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
       color: var(--gold);
-      font-family: 'Georgia', serif;
     }
 
     .subtitle {
-      font-size: 18px;
+      font-size: 15px;
       color: var(--text-soft);
       font-style: italic;
       font-weight: 300;
+      line-height: 1.5;
     }
 
     h2 {
-      font-size: 20px;
-      margin-top: 52px;
-      margin-bottom: 18px;
-      letter-spacing: 1px;
+      font-size: 18px;
+      margin: 40px 0 14px;
+      letter-spacing: 0.8px;
       color: var(--gold-light);
       font-weight: 400;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     h2::before {
       content: '';
-      width: 32px;
+      width: 24px;
       height: 2px;
       background: linear-gradient(90deg, var(--gold), transparent);
+      flex-shrink: 0;
     }
 
     p {
-      margin: 16px 0;
+      margin: 12px 0;
       color: var(--text-soft);
-      font-size: 16px;
+      font-size: 15px;
     }
 
     .card {
       background: var(--card-bg);
       border: 1px solid var(--gold-border);
-      border-radius: 12px;
-      padding: 28px 32px;
-      margin-top: 20px;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 16px;
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
     }
 
-    .card p:first-child {
-      margin-top: 0;
-    }
+    .card p:first-child { margin-top: 0; }
 
     ul {
       color: var(--text-soft);
-      line-height: 1.9;
-      padding-left: 24px;
+      line-height: 1.7;
+      padding-left: 20px;
+      margin: 12px 0;
     }
 
-    li {
-      margin: 10px 0;
-    }
+    li { margin: 8px 0; }
 
     code {
       display: block;
       background: var(--code-bg);
       border: 1px solid var(--gold-border);
-      border-radius: 8px;
-      padding: 14px 18px;
+      border-radius: 6px;
+      padding: 12px 14px;
       color: var(--gold-light);
-      font-size: 15px;
+      font-size: 13px;
       font-family: 'Courier New', monospace;
       overflow-x: auto;
-      margin: 16px 0;
+      margin: 12px 0;
     }
 
     pre {
       display: block;
       background: var(--code-bg);
       border: 1px solid var(--gold-border);
-      border-radius: 8px;
-      padding: 20px 24px;
+      border-radius: 6px;
+      padding: 16px;
       color: var(--text-main);
-      font-size: 14px;
+      font-size: 13px;
       font-family: 'Courier New', monospace;
       overflow-x: auto;
-      margin: 16px 0;
-      line-height: 1.6;
-      position: relative;
+      margin: 12px 0;
+      line-height: 1.5;
     }
 
-    .template-container {
-      position: relative;
-    }
+    .template-container { position: relative; }
 
     .copy-btn {
-      position: absolute;
-      top: 12px;
-      right: 12px;
+      display: block;
+      width: 100%;
       background: var(--gold);
       color: var(--bg-main);
       border: none;
-      padding: 8px 16px;
+      padding: 12px 16px;
       border-radius: 6px;
       font-size: 12px;
       font-weight: 600;
@@ -166,15 +155,12 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       font-family: system-ui, -apple-system, sans-serif;
-    }
-
-    .copy-btn:hover {
-      background: var(--gold-light);
-      transform: translateY(-1px);
+      margin-bottom: 12px;
     }
 
     .copy-btn:active {
-      transform: translateY(0);
+      background: var(--gold-light);
+      transform: scale(0.98);
     }
 
     .copy-btn.copied {
@@ -184,31 +170,28 @@
 
     .note {
       background: var(--gold-soft);
-      border-left: 4px solid var(--gold);
-      padding: 18px 24px;
-      margin: 24px 0;
-      border-radius: 6px;
-      font-size: 15px;
+      border-left: 3px solid var(--gold);
+      padding: 14px 16px;
+      margin: 16px 0;
+      border-radius: 4px;
+      font-size: 14px;
       color: var(--text-soft);
     }
 
-    .note strong {
-      color: var(--gold-light);
-    }
+    .note strong { color: var(--gold-light); }
 
     .sample-section {
       background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.02));
       border: 2px solid var(--gold-border);
-      border-radius: 12px;
-      padding: 32px;
-      margin: 32px 0;
+      border-radius: 10px;
+      padding: 24px 20px;
+      margin: 24px 0;
     }
 
     .sample-section h3 {
       color: var(--gold);
-      font-size: 22px;
-      margin-top: 0;
-      margin-bottom: 24px;
+      font-size: 19px;
+      margin-bottom: 20px;
       font-weight: 400;
       text-align: center;
     }
@@ -216,75 +199,102 @@
     .sample-file {
       background: var(--code-bg);
       border: 1px solid var(--gold-border);
-      border-radius: 8px;
-      padding: 20px 24px;
-      margin: 16px 0;
+      border-radius: 6px;
+      padding: 16px;
+      margin: 12px 0;
     }
 
     .sample-file .filename {
       color: var(--gold-light);
       font-weight: 600;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       font-family: 'Courier New', monospace;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .sample-file .content {
       color: var(--text-soft);
       font-family: 'Courier New', monospace;
-      font-size: 14px;
-      line-height: 1.8;
+      font-size: 13px;
+      line-height: 1.6;
       white-space: pre-wrap;
     }
 
     .cta {
-      margin-top: 64px;
+      margin-top: 48px;
       text-align: center;
     }
 
     .cta a {
       display: inline-block;
-      padding: 18px 42px;
+      padding: 16px 32px;
       border-radius: 8px;
       background: linear-gradient(135deg, var(--gold-light), var(--gold));
       color: var(--bg-main);
       text-decoration: none;
       font-weight: 600;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
       transition: all 0.3s ease;
-      font-size: 15px;
-      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+      font-size: 13px;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
       font-family: system-ui, -apple-system, sans-serif;
     }
 
-    .cta a:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
-      background: linear-gradient(135deg, #ffeaa7, var(--gold-light));
+    .cta a:active {
+      transform: scale(0.98);
+      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
     }
 
     footer {
-      margin-top: 80px;
+      margin-top: 60px;
       text-align: center;
-      font-size: 13px;
-      letter-spacing: 2px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
       color: var(--text-dim);
-      padding-top: 32px;
+      padding-top: 24px;
       border-top: 1px solid var(--gold-border);
       font-family: system-ui, -apple-system, sans-serif;
     }
 
-    @media (max-width: 600px) {
-      h1 { font-size: 32px; }
-      .container { padding: 48px 20px 64px; }
-      .card { padding: 20px 24px; }
-      .copy-btn { 
-        position: static;
-        display: block;
-        width: 100%;
-        margin-top: 12px;
+    @media (min-width: 600px) {
+      .container { padding: 64px 28px 80px; }
+      h1 { font-size: 42px; letter-spacing: 2px; margin-bottom: 16px; }
+      .subtitle { font-size: 18px; }
+      h2 { font-size: 20px; margin-top: 52px; margin-bottom: 18px; letter-spacing: 1px; gap: 12px; }
+      h2::before { width: 32px; }
+      p { font-size: 16px; margin: 16px 0; }
+      .card { padding: 28px 32px; margin-top: 20px; }
+      ul { line-height: 1.9; padding-left: 24px; }
+      li { margin: 10px 0; }
+      code { padding: 14px 18px; font-size: 15px; margin: 16px 0; }
+      pre { padding: 20px 24px; font-size: 14px; margin: 16px 0; line-height: 1.6; }
+      .copy-btn {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: auto;
+        padding: 8px 16px;
+        margin-bottom: 0;
       }
+      .copy-btn:hover {
+        background: var(--gold-light);
+        transform: translateY(-1px);
+      }
+      .note { padding: 18px 24px; margin: 24px 0; font-size: 15px; border-left-width: 4px; }
+      .sample-section { padding: 32px; margin: 32px 0; }
+      .sample-section h3 { font-size: 22px; margin-bottom: 24px; }
+      .sample-file { padding: 20px 24px; margin: 16px 0; }
+      .sample-file .filename { font-size: 14px; margin-bottom: 12px; }
+      .sample-file .content { font-size: 14px; line-height: 1.8; }
+      .cta { margin-top: 64px; }
+      .cta a { padding: 18px 42px; font-size: 15px; letter-spacing: 1.5px; box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3); }
+      .cta a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
+        background: linear-gradient(135deg, #ffeaa7, var(--gold-light));
+      }
+      footer { margin-top: 80px; font-size: 13px; letter-spacing: 2px; padding-top: 32px; }
     }
   </style>
 </head>
