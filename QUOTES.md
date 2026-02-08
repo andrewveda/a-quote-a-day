@@ -12,6 +12,7 @@
 
 > "The more you fear something happening, the more likely it is to occur." — Murphy's Law 
 > — added by Cath (CSE) | about: Anything that can go wrong, will go wrong. Fear and overthinking can increase mistakes, making what we dread more likely to happen. Calm preparation and adaptability turn possible failures into learning opportunities.
-Not every journey becomes a chapter of life, but each one leaves us with memories and lessons that shape our present and guide our future.
-by simon Peter
-> 
+
+> Not every journey becomes a chapter of life, but each one leaves us with memories and lessons that shape our present and guide our future.
+by Simon Peter
+> — added by Anesh (Cyber Security)
