@@ -1173,6 +1173,46 @@ body.no-blur *::after {
 .dir-list {
   overscroll-behavior: contain;
 }
+ 
+@media (min-width: 900px) {
+
+  .stage {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .card-wrap {
+    max-height: calc(100dvh - 140px); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card {
+    max-height: calc(100dvh - 180px);
+    overflow: hidden; /* IMPORTANT */
+    padding: 48px 52px 40px;
+  }
+
+  .q-text {
+    font-size: clamp(20px, 2.6vw, 34px);
+    line-height: 1.45;
+  }
+.q-author {
+    margin-top: 18px;
+  }
+
+  .q-contrib {
+    margin-top: 10px;
+  }
+
+  .q-about {
+    margin-top: 8px;
+    font-size: 15px;
+    max-height: 3.2em;
+    overflow: hidden;
+  }
+}
+
 </style>
 </head>
 <body class="t-glass">
