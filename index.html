@@ -1100,7 +1100,6 @@ body.t-wellness {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* ─── QUICK DIRECTORY TABS ─── */
 .quick-tabs {
   display: flex;
   gap: 6px;
@@ -1133,6 +1132,47 @@ body.t-wellness {
 }
 
 #sc-quote { word-break: break-word; }
+  .shell {
+  min-height: 100dvh;
+  height: auto;
+}
+
+.stage {
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px 0 80px;
+}
+
+.card-wrap {
+  margin: 0 auto;
+  min-height: max-content;
+}
+.dir-panel {
+  height: 100dvh;
+  max-height: 100dvh;
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+body.no-blur *,
+body.no-blur *::before,
+body.no-blur *::after {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.q-text {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.dir-list {
+  overscroll-behavior: contain;
+}
 </style>
 </head>
 <body class="t-glass">
