@@ -1,8 +1,8 @@
 ---
-quote: "In three words I can sum up everything I've learned about life: It goes on"
-author: Robert Frost 
-what_it_means_to_me: He remainds us that no matter how hard life is and how many challenges arise, life goes on. Other's opinions and thoughts doesn't matter. Resilience, endurance, consistency and stoic appearance helps us to understand and win in life, which matters the most. 
-contributor: SUNANDA V K 
+quote: Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning.
+author: Albert Einstein
+what_it_means_to_me: The act of asking 'why' or 'how' pushes the boundaries of human understanding. It helps us question and improve our critical thinking. Whatever happens in our life, we need to learn from it, whether it is a mistake, a success, or both.
+contributor: SUNANDA V K
 department: EIE 
 source: 
 tags: 
