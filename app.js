@@ -807,3 +807,112 @@ async function shareToWhatsApp(idx) {
     btn.innerHTML = orig;
     btn.disabled  = false;
 }
+
+// ==========================================
+// EXPORT TO HTML & PDF FUNCTIONALITY
+// ==========================================
+
+function downloadQuoteAsHTML(quoteElement, dateString) {
+    const quoteClone = quoteElement.cloneNode(true);
+    
+    const htmlContent = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Quote - ${dateString}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Cormorant Garamond', serif;
+                background-color: #f4f1ea; 
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                margin: 0;
+                padding: 2rem;
+            }
+            .export-card {
+                background: #fff;
+                padding: 3rem;
+                border: 1px solid #d3cec4;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+                max-width: 600px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="export-card">
+            ${quoteClone.innerHTML}
+        </div>
+    </body>
+    </html>`;
+
+    const blob = new Blob([htmlContent], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    
+    a.href = url;
+    a.download = `Quote_${dateString}.html`;
+    document.body.appendChild(a);
+    a.click();
+    
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+async function downloadQuoteAsPDF(quoteElement, dateString) {
+    quoteElement.classList.add('pdf-export-mode');
+
+    try {
+        const canvas = await html2canvas(quoteElement, {
+            scale: 2, 
+            useCORS: true,
+            backgroundColor: '#ffffff'
+        });
+
+        const imgData = canvas.toDataURL('image/png');
+        const { jsPDF } = window.jspdf;
+        
+        const pdf = new jsPDF({
+            orientation: canvas.width > canvas.height ? 'landscape' : 'portrait',
+            unit: 'px',
+            format: [canvas.width, canvas.height]
+        });
+
+        pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+        pdf.save(`Quote_${dateString}.pdf`);
+        
+    } catch (error) {
+        console.error("PDF Generation failed:", error);
+        alert("Failed to generate PDF. Please try again.");
+    } finally {
+        quoteElement.classList.remove('pdf-export-mode');
+    }
+}
+
+// ─── EVENT LISTENERS ─────────────────────────
+
+document.getElementById('btnDownloadHtml').addEventListener('click', () => {
+    // Looks for the active slide (assuming you add an 'active' class to the current card)
+    // Fallback: takes the first element if no active class is used
+    const activeQuoteCard = document.querySelector('.deck-track .active') 
+                            || document.querySelector('.deck-track').firstElementChild; 
+                            
+    if (!activeQuoteCard) return;
+
+    const dateString = activeQuoteCard.dataset.date || new Date().toISOString().split('T')[0];
+    downloadQuoteAsHTML(activeQuoteCard, dateString);
+});
+
+document.getElementById('btnDownloadPdf').addEventListener('click', () => {
+    const activeQuoteCard = document.querySelector('.deck-track .active') 
+                            || document.querySelector('.deck-track').firstElementChild; 
+                            
+    if (!activeQuoteCard) return;
+                            
+    const dateString = activeQuoteCard.dataset.date || new Date().toISOString().split('T')[0];
+    downloadQuoteAsPDF(activeQuoteCard, dateString);
+});
