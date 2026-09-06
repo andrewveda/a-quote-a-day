@@ -63,8 +63,36 @@
                 <button class="filter-sheet-tab" data-tab="contributors">By Contributor</button>
                 <button class="filter-sheet-tab" data-tab="departments">By Dept</button>
             </div>
+
+            <div class="filter-sheet-divider"></div>
+
+            <div class="filter-sheet-title">Download by Date</div>
+            <div class="filter-sheet-download">
+                <input type="date" id="sheetDateInput" class="filter-date-input" aria-label="Select a date to download"/>
+                <div class="filter-download-actions">
+                    <button class="filter-download-btn" id="sheetDownloadHtmlBtn">Download HTML</button>
+                    <button class="filter-download-btn" id="sheetDownloadPdfBtn">Download PDF</button>
+                </div>
+            </div>
         </div>
     </div>
+
+    <style>
+        .filter-sheet-divider{height:1px;background:var(--gold-border,#d3cec4);margin:20px 0 16px;}
+        .filter-sheet-download{display:flex;flex-direction:column;gap:12px;}
+        .filter-date-input{
+            width:100%;box-sizing:border-box;padding:12px 14px;border-radius:10px;
+            border:1px solid var(--gold-border,#d3cec4);font-family:var(--sans,inherit);
+            font-size:15px;background:#fff;color:#1c1a16;
+        }
+        .filter-download-actions{display:flex;gap:10px;}
+        .filter-download-btn{
+            flex:1;padding:12px 10px;border-radius:30px;border:1px solid var(--gold-border,#d3cec4);
+            background:var(--gold,#b8913a);color:#fff;font-family:var(--sans,inherit);
+            font-size:13px;font-weight:600;letter-spacing:0.3px;cursor:pointer;
+        }
+        .filter-download-btn:active{opacity:0.85;}
+    </style>
 
     <!-- ═══ MAIN CONTENT ═══ -->
     <main class="newspaper-body" id="mainContent">
