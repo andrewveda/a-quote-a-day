@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+    <title>A Quote A Day | English Dept Archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=IM+Fell+English:ital@0;1&family=DM+Mono:wght@300;400;500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+
+    <!-- ═══ MASTHEAD ═══ -->
+    <header class="masthead" id="masthead">
+        <div class="masthead-rule top-rule"></div>
+        <div class="masthead-inner">
+            <div class="masthead-meta">
+                <span id="mastDateline" class="meta-pill">LOADING...</span>
+                <div class="masthead-title-block">
+                    <div class="masthead-eyebrow"></div>
+                    <h1 class="masthead-title">A Quote A Day</h1>
+                    <div class="masthead-subtitle">English Department Wisdom Archive</div>
+                </div>
+                <span id="mastCount" class="meta-pill">0 Quotes</span>
+            </div>
+        </div>
+        <div class="masthead-rule bottom-rule"></div>
+        <nav class="nav-bar" id="navBar">
+            <button class="quick-tab active" data-tab="all">All Quotes</button>
+            <button class="quick-tab" data-tab="authors">By Author</button>
+            <button class="quick-tab" data-tab="contributors">By Contributor</button>
+            <button class="quick-tab" data-tab="departments">By Dept</button>
+            <div class="search-wrap">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search quotes, authors…" autocomplete="off"/>
+                <span class="search-icon">⌕</span>
+            </div>
+        </nav>
+
+        <!-- Compact bar — visible only when scrolled on mobile -->
+        <div class="masthead-compact-bar" id="compactBar">
+            <span class="masthead-compact-title">A Quote A Day</span>
+            <div class="masthead-compact-actions">
+                <button class="compact-icon-btn" id="compactSearchBtn" aria-label="Search">⌕</button>
+                <button class="compact-icon-btn" id="compactFilterBtn" aria-label="Filter">≡</button>
+            </div>
+        </div>
+
+        <!-- Compact search — slides in below compact bar -->
+        <div class="compact-search-bar" id="compactSearchBar">
+            <input type="text" id="compactSearchInput" placeholder="Search quotes, authors…" autocomplete="off"/>
+        </div>
+    </header>
+
+    <!-- ═══ FILTER BOTTOM SHEET (outside header so it overlays everything) ═══ -->
+    <div class="filter-sheet-backdrop" id="filterSheetBackdrop">
+        <div class="filter-sheet">
+            <div class="filter-sheet-handle"></div>
+            <div class="filter-sheet-title">View</div>
+            <div class="filter-sheet-tabs" id="filterSheetTabs">
+                <button class="filter-sheet-tab active" data-tab="all">All Quotes</button>
+                <button class="filter-sheet-tab" data-tab="authors">By Author</button>
+                <button class="filter-sheet-tab" data-tab="contributors">By Contributor</button>
+                <button class="filter-sheet-tab" data-tab="departments">By Dept</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <main class="newspaper-body" id="mainContent">
+        <div id="loader" class="loader-state">
+            <div class="loader-ornament">❦</div>
+            <p class="loader-text">Typesetting Wisdom…</p>
+        </div>
+    </main>
+
+    <!-- ═══ DECK OVERLAY ═══ -->
+    <div class="deck-overlay" id="deckOverlay" role="dialog" aria-modal="true" aria-label="Quote viewer">
+        <div class="deck-topbar">
+            <!-- Wrapped buttons in a left-aligned container for better spacing -->
+            <div class="deck-actions-left" style="display: flex; gap: 8px;">
+                <button class="deck-nav-btn" id="deckClose" aria-label="Close">✕</button>
+                <button class="deck-nav-btn" id="btnDownloadHtml" aria-label="Download HTML">HTML</button>
+                <button class="deck-nav-btn" id="btnDownloadPdf" aria-label="Download PDF">PDF</button>
+            </div>
+            <div class="deck-progress-wrap" id="deckProgressWrap"></div>
+            <div id="deckCounter" class="deck-counter">1 / 1</div>
+        </div>
+        <div class="deck-nav-arrows">
+            <button class="arrow-btn" id="arrowPrev" aria-label="Previous">&#8592;</button>
+            <button class="arrow-btn" id="arrowNext" aria-label="Next">&#8594;</button>
+        </div>
+        <div class="deck-track-wrap">
+            <div class="deck-track" id="deckTrack"></div>
+        </div>
+    </div>
+
+    <!-- ═══ DIRECTORY PANEL ═══ -->
+    <div class="dir-backdrop" id="dirBackdrop"></div>
+    <aside class="dir-panel" id="dirPanel" role="complementary">
+        <div class="dir-header">
+            <h2 id="dirTitle" class="dir-title">Directory</h2>
+            <button id="dirClose" class="dir-close-btn" aria-label="Close directory">✕</button>
+        </div>
+        <div id="dirList" class="dir-list"></div>
+    </aside>
+
+    <!-- ═══ SHARE CANVAS (offscreen) ═══ -->
+    <div id="share-canvas-container" style="position:fixed;left:-9999px;top:0;z-index:-1;"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
