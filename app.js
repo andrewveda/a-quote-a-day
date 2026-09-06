@@ -3,6 +3,7 @@
    - Scroll-to-top fix on tab switch
    - Contributor Hall of Fame + profile cards
    - Compact mobile masthead
+   - Download all quotes for a date (HTML & PDF)
 ═══════════════════════════════════════════ */
 
 const CONFIG = {
@@ -264,7 +265,7 @@ function getInitials(name) {
     return name.trim().split(/\s+/).map(w => w[0].toUpperCase()).slice(0, 2).join('');
 }
 
-// Stable warm accent per contributor (cycles through a curated set)
+// Stable warm accent per contributor
 const CONTRIB_ACCENTS = [
     { bg: '#b8913a', fg: '#fff' },
     { bg: '#6b0f1a', fg: '#fff' },
@@ -286,7 +287,6 @@ function renderContributors() {
     const container = document.getElementById('mainContent');
     container.innerHTML = '';
 
-    // Build contributor index
     const index = {};
     DB.forEach(item => {
         if (!index[item.contributor]) {
@@ -325,7 +325,6 @@ function renderContributors() {
     const podiumRow = document.createElement('div');
     podiumRow.className = 'hof-podium';
 
-    // Reorder for visual podium: 2nd · 1st · 3rd
     const podiumOrder = [1, 0, 2];
     podiumOrder.forEach((rank, pos) => {
         const c = contributors[rank];
@@ -375,6 +374,7 @@ function renderContributors() {
         grid.className = 'contrib-grid';
 
         contributors.forEach((c, i) => {
+            if (i < 3) return; // Skip top 3
             const accent   = accentForName(c.name);
             const initials = getInitials(c.name);
             const latest   = c.quotes[0];
@@ -809,110 +809,139 @@ async function shareToWhatsApp(idx) {
 }
 
 // ==========================================
-// EXPORT TO HTML & PDF FUNCTIONALITY
+// EXPORT FULL DATE TO HTML & PDF
 // ==========================================
 
-function downloadQuoteAsHTML(quoteElement, dateString) {
-    const quoteClone = quoteElement.cloneNode(true);
-    
+// Build the raw HTML string using data from DB directly
+function generateDateTemplate(dateString) {
+    const dateQuotes = DB.filter(q => q.dateStr === dateString);
+    if (dateQuotes.length === 0) return null;
+
+    let quotesHtml = '';
+    dateQuotes.forEach(q => {
+        const reflection = q.about ? `
+            <div style="background:#1c1a16; color:#f5f0e8; padding:1.5rem; margin-top:1.5rem; border-left: 3px solid #b8913a;">
+                <div style="font-family:'DM Mono',monospace; font-size:10px; color:#b8913a; text-transform:uppercase; letter-spacing:2px; margin-bottom:0.5rem;">What this means to me</div>
+                <div style="font-style:italic;">"${q.about}"</div>
+            </div>
+        ` : '';
+
+        quotesHtml += `
+            <div style="margin-bottom:3rem; page-break-inside:avoid;">
+                <div style="font-family:'DM Mono',monospace; font-size:12px; color:#b8913a; text-transform:uppercase; letter-spacing:2px; margin-bottom:1rem;">Quote #${q.id}</div>
+                <div style="font-size:24px; font-weight:600; font-style:italic; line-height:1.4; color:#1c1a16; margin-bottom:1.5rem;">"${q.quote}"</div>
+                <div>
+                    <strong style="font-size:18px;">${q.author}</strong><br>
+                    <span style="font-family:'DM Mono',monospace; font-size:11px; text-transform:uppercase; color:#6b3f10; letter-spacing:1px;">Contributed by ${q.contributor} &bull; ${q.department}</span>
+                </div>
+                ${reflection}
+            </div>
+            <hr style="border:0; border-top:1px dashed #d3cec4; margin:3rem 0;">
+        `;
+    });
+
+    return `
+        <div style="background:#fff; padding:4rem; max-width:800px; margin:0 auto; font-family:'Cormorant Garamond',Georgia,serif; color:#1c1a16; box-shadow:0 10px 30px rgba(0,0,0,0.05);">
+            <div style="text-align:center; border-bottom:2px solid #b8913a; padding-bottom:1rem; margin-bottom:3rem;">
+                <h1 style="margin:0; font-style:italic; font-size:36px;">A Quote A Day</h1>
+                <div style="font-family:'DM Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:3px; color:#6b3f10; margin-top:0.5rem;">Edition: ${dateString}</div>
+            </div>
+            ${quotesHtml}
+            <div style="text-align:center; font-family:'DM Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:2px; color:#888;">
+                andrewveda.github.io/a-quote-a-day
+            </div>
+        </div>
+    `;
+}
+
+function downloadDateAsHTML(dateString) {
+    const bodyHtml = generateDateTemplate(dateString);
+    if (!bodyHtml) return alert('No quotes found for this date.');
+
     const htmlContent = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Quote - ${dateString}</title>
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+        <title>Quotes - ${dateString}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
         <style>
-            body {
-                font-family: 'Cormorant Garamond', serif;
-                background-color: #f4f1ea; 
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-height: 100vh;
-                margin: 0;
-                padding: 2rem;
-            }
-            .export-card {
-                background: #fff;
-                padding: 3rem;
-                border: 1px solid #d3cec4;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-                max-width: 600px;
-                text-align: center;
-            }
+            body { background-color:#f5f0e8; padding:3rem 1rem; margin:0; }
         </style>
     </head>
     <body>
-        <div class="export-card">
-            ${quoteClone.innerHTML}
-        </div>
+        ${bodyHtml}
     </body>
     </html>`;
 
     const blob = new Blob([htmlContent], { type: 'text/html' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    
     a.href = url;
-    a.download = `Quote_${dateString}.html`;
+    a.download = `Quotes_${dateString}.html`;
     document.body.appendChild(a);
     a.click();
-    
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 }
 
-async function downloadQuoteAsPDF(quoteElement, dateString) {
-    quoteElement.classList.add('pdf-export-mode');
+async function downloadDateAsPDF(dateString) {
+    const bodyHtml = generateDateTemplate(dateString);
+    if (!bodyHtml) return alert('No quotes found for this date.');
+
+    // 1. Create off-screen container matching the HTML structure exactly
+    const container = document.createElement('div');
+    container.style.position = 'absolute';
+    container.style.left = '-9999px';
+    container.style.top = '0';
+    container.style.width = '800px'; 
+    container.innerHTML = bodyHtml;
+    
+    document.body.appendChild(container);
 
     try {
-        const canvas = await html2canvas(quoteElement, {
+        // Wait a tiny bit for fonts inside the new DOM node to apply
+        await new Promise(r => setTimeout(r, 100));
+
+        const canvas = await html2canvas(container.firstElementChild, {
             scale: 2, 
             useCORS: true,
-            backgroundColor: '#ffffff'
+            backgroundColor: '#f5f0e8'
         });
 
         const imgData = canvas.toDataURL('image/png');
         const { jsPDF } = window.jspdf;
         
-        const pdf = new jsPDF({
-            orientation: canvas.width > canvas.height ? 'landscape' : 'portrait',
-            unit: 'px',
-            format: [canvas.width, canvas.height]
-        });
-
-        pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
-        pdf.save(`Quote_${dateString}.pdf`);
+        // A4 Paper proportions
+        const pdf = new jsPDF('p', 'pt', 'a4'); 
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+        
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save(`Quotes_${dateString}.pdf`);
         
     } catch (error) {
         console.error("PDF Generation failed:", error);
-        alert("Failed to generate PDF. Please try again.");
+        alert("Failed to generate PDF.");
     } finally {
-        quoteElement.classList.remove('pdf-export-mode');
+        document.body.removeChild(container);
     }
 }
 
 // ─── EVENT LISTENERS ─────────────────────────
 
 document.getElementById('btnDownloadHtml').addEventListener('click', () => {
-    // Looks for the active slide (assuming you add an 'active' class to the current card)
-    // Fallback: takes the first element if no active class is used
-    const activeQuoteCard = document.querySelector('.deck-track .active') 
-                            || document.querySelector('.deck-track').firstElementChild; 
-                            
-    if (!activeQuoteCard) return;
-
-    const dateString = activeQuoteCard.dataset.date || new Date().toISOString().split('T')[0];
-    downloadQuoteAsHTML(activeQuoteCard, dateString);
+    // Identify the date of the quote currently open in the deck
+    const currentQuote = currentView[deckIdx];
+    if (currentQuote) {
+        downloadDateAsHTML(currentQuote.dateStr);
+    }
 });
 
 document.getElementById('btnDownloadPdf').addEventListener('click', () => {
-    const activeQuoteCard = document.querySelector('.deck-track .active') 
-                            || document.querySelector('.deck-track').firstElementChild; 
-                            
-    if (!activeQuoteCard) return;
-                            
-    const dateString = activeQuoteCard.dataset.date || new Date().toISOString().split('T')[0];
-    downloadQuoteAsPDF(activeQuoteCard, dateString);
+    // Identify the date of the quote currently open in the deck
+    const currentQuote = currentView[deckIdx];
+    if (currentQuote) {
+        downloadDateAsPDF(currentQuote.dateStr);
+    }
 });
