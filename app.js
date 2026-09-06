@@ -733,6 +733,38 @@ function setupCompactMasthead() {
             }
         });
     });
+
+    /* ── Download-by-date (hamburger menu) ── */
+    const sheetDateInput  = document.getElementById('sheetDateInput');
+    const sheetHtmlBtn    = document.getElementById('sheetDownloadHtmlBtn');
+    const sheetPdfBtn     = document.getElementById('sheetDownloadPdfBtn');
+
+    if (sheetDateInput && DB.length) {
+        // Default to the most recent quote's date
+        sheetDateInput.value = DB[0].dateStr;
+    }
+
+    if (sheetHtmlBtn) {
+        sheetHtmlBtn.addEventListener('click', () => {
+            if (!sheetDateInput || !sheetDateInput.value) {
+                alert('Please choose a date first.');
+                return;
+            }
+            downloadDateAsHTML(sheetDateInput.value);
+            closeFilterSheet();
+        });
+    }
+
+    if (sheetPdfBtn) {
+        sheetPdfBtn.addEventListener('click', () => {
+            if (!sheetDateInput || !sheetDateInput.value) {
+                alert('Please choose a date first.');
+                return;
+            }
+            downloadDateAsPDF(sheetDateInput.value);
+            closeFilterSheet();
+        });
+    }
 }
 
 /* ─── SHARE / EXPORT ─── */
