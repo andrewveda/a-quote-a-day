@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A Quote A Day</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>✨ A Quote A Day ✨</h1>
+
+        <div class="quote-box">
+            <p id="quote">"Believe in yourself and keep moving forward."</p>
+            <h3 id="author">— Unknown</h3>
+
+            <button onclick="newQuote()">New Quote</button>
+        </div>
+    </div>
+
+    <script>
+        const quotes = [
+            {
+                quote: "Believe in yourself and keep moving forward.",
+                author: "Unknown"
+            },
+            {
+                quote: "Dream big. Work hard. Stay humble.",
+                author: "Unknown"
+            },
+            {
+                quote: "Every day is a new beginning.",
+                author: "Unknown"
+            },
+            {
+                quote: "Success comes to those who never give up.",
+                author: "Unknown"
+            },
+            {
+                quote: "Your only limit is your mind.",
+                author: "Unknown"
+            }
+        ];
+
+        function newQuote() {
+            let random = Math.floor(Math.random() * quotes.length);
+
+            document.getElementById("quote").innerText =
+                '"' + quotes[random].quote + '"';
+
+            document.getElementById("author").innerText =
+                "— " + quotes[random].author;
+        }
+    </script>
+
+</body>
+</html>
