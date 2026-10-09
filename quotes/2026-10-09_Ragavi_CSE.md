@@ -7,3 +7,5 @@ contributor: Ragavi
 department: CSE
 source: "Edison: His Life and Inventions (1910), Volume II, page 607"
 tags: [motivation, hard-work, learning]
+
+---
