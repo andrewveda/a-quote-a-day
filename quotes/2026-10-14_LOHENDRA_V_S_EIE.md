@@ -1,5 +1,4 @@
-```yaml
----
+
 quote: "What matters most is how well you walk through the fire."
 
 author: "Charles Bukowski"
