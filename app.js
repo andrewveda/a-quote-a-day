@@ -1,6 +1,6 @@
 const CONFIG = {
     REPO: "AndrewVeda/a-quote-a-day",
-    DIR:  "quotes",
+    DATA_FILE: "quotes.json",
 };
 
 let DB          = [];
@@ -73,26 +73,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (quoteId) jumpToQuote(quoteId);
 });
 
-/* ─── FETCH & PARSE ─── */
+/* ─── FETCH ─── */
 async function fetchArchive() {
     try {
-        const response = await fetch(
-            `https://api.github.com/repos/${CONFIG.REPO}/contents/${CONFIG.DIR}`
-        );
-        if (!response.ok) throw new Error('Network error');
+        const response = await fetch(CONFIG.DATA_FILE, { cache: 'no-cache' });
+        if (!response.ok) throw new Error('Could not load ' + CONFIG.DATA_FILE);
 
-        const files   = await response.json();
-        const mdFiles = files.filter(f => f.name.endsWith('.md'));
+        const rows = await response.json();
 
-        const promises = mdFiles.map(async (file, i) => {
-            try {
-                const raw = await fetch(file.download_url).then(r => r.text());
-                return parseEntry(raw, file.name, i + 1);
-            } catch { return null; }
-        });
-
-        DB = (await Promise.all(promises)).filter(Boolean);
-        DB.sort((a, b) => b.date - a.date);
+        DB = rows.map(normalizeEntry).filter(Boolean);
+        // Newest date first; within the same date, highest id first
+        DB.sort((a, b) => (b.date - a.date) || (Number(b.id) - Number(a.id)));
 
         if (DB.length === 0) throw new Error('Empty archive');
 
@@ -114,28 +105,18 @@ async function fetchArchive() {
     }
 }
 
-function parseEntry(md, filename, fallbackId) {
-    const match = md.match(/---([\s\S]*?)---/);
-    if (!match) return null;
-
-    const data = {};
-    match[1].split('\n').forEach(line => {
-        const i = line.indexOf(':');
-        if (i !== -1) {
-            data[line.substring(0,i).trim()] = line.substring(i+1).trim();
-        }
-    });
-
-    const dateMatch = filename.match(/^(\d{4}-\d{2}-\d{2})/);
+function normalizeEntry(r) {
+    if (!r || !r.quote) return null;
+    const dateStr = /^\d{4}-\d{2}-\d{2}$/.test(r.dateStr || '') ? r.dateStr : 'Unknown';
     return {
-        id:          data.id || fallbackId,
-        quote:       data.quote       || 'Text missing.',
-        author:      data.author      || 'Unknown',
-        contributor: data.contributor || 'Anonymous',
-        department:  data.department  || 'English',
-        about:       data.what_it_means_to_me || data.about || '',
-        date:        new Date(dateMatch ? dateMatch[1] : 0),
-        dateStr:     dateMatch ? dateMatch[1] : 'Unknown',
+        id:          r.id,
+        quote:       r.quote,
+        author:      r.author      || 'Unknown',
+        contributor: r.contributor || 'Anonymous',
+        department:  r.department  || 'English',
+        about:       r.about || r.what_it_means_to_me || '',
+        date:        new Date(dateStr === 'Unknown' ? 0 : dateStr),
+        dateStr,
     };
 }
 
