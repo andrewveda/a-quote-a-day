@@ -138,11 +138,6 @@ function renderGrid(quotes) {
 
     container.innerHTML = '';
 
-    const header = document.createElement('div');
-    header.className = 'results-header';
-    header.textContent = `${quotes.length} ${quotes.length === 1 ? 'Quote' : 'Quotes'}`;
-    container.appendChild(header);
-
     const grid = document.createElement('div');
     grid.className = 'col-grid';
 
