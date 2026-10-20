@@ -542,38 +542,42 @@ function updateDeckPosition() {
     const body = document.getElementById('quoteBody');
 
     body.innerHTML = `
-        <div class="qs-section">
-            <div class="qs-quote">"${q.quote}"</div>
-            <div class="qs-byline">
-                <div class="qs-author">${q.author}</div>
-                <div class="qs-role">Quoted Author</div>
+        <div class="qs-main">
+            <div class="qs-section">
+                <div class="qs-quote">"${q.quote}"</div>
+                <div class="qs-byline">
+                    <div class="qs-author">${q.author}</div>
+                    <div class="qs-role">Quoted Author</div>
+                </div>
+            </div>
+
+            <div class="qs-section qs-meta">
+                <div class="qs-label">Contributed by</div>
+                <div class="qs-contrib">${q.contributor}</div>
+                <div class="qs-dept">${q.department}</div>
+            </div>
+
+            ${hasReflection ? `
+            <div class="qs-section">
+                <div class="qs-label">What this means to me</div>
+                <div class="qs-reflection">"${q.about}"</div>
+            </div>` : ''}
+
+            <div class="qs-section qs-actions">
+                <button class="btn-premium-action btn-whatsapp" onclick="shareToWhatsApp(${deckIdx})">📲 Share</button>
+                <a href="https://andrewveda.github.io/a-quote-a-day/submissions"
+                   target="_blank" rel="noopener" class="btn-premium-action btn-submit">✏️ Add a Quote</a>
             </div>
         </div>
 
-        <div class="qs-section qs-meta">
-            <div class="qs-label">Contributed by</div>
-            <div class="qs-contrib">${q.contributor}</div>
-            <div class="qs-dept">${q.department}</div>
-        </div>
-
-        ${hasReflection ? `
-        <div class="qs-section">
-            <div class="qs-label">What this means to me</div>
-            <div class="qs-reflection">"${q.about}"</div>
-        </div>` : ''}
-
-        <div class="qs-section qs-actions">
-            <button class="btn-premium-action btn-whatsapp" onclick="shareToWhatsApp(${deckIdx})">📲 Share</button>
-            <a href="https://andrewveda.github.io/a-quote-a-day/submissions"
-               target="_blank" rel="noopener" class="btn-premium-action btn-submit">✏️ Add a Quote</a>
-        </div>
-
-        <div class="qs-section qs-comments">
+        <div class="qs-side">
             <div class="qs-label">Discussion</div>
             <div class="giscus-mount" id="giscus-slot"></div>
         </div>
     `;
+    // Reset every scroll area (single column on mobile, two columns on desktop)
     body.scrollTop = 0;
+    body.querySelectorAll('.qs-main, .qs-side').forEach(el => { el.scrollTop = 0; });
 
     document.getElementById('quoteCounter').textContent = `${deckIdx + 1} / ${currentView.length}`;
     document.getElementById('quotePrev').disabled = deckIdx === 0;
