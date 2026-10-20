@@ -770,7 +770,8 @@ body {
 .qs-reflection { font-family: var(--sans); font-style: italic; font-size: 15px; line-height: 1.75; color: var(--ink-mid); overflow-wrap: anywhere; }
 
 .qs-actions { display: flex; gap: 10px; flex-wrap: wrap; }
-.qs-comments { border-bottom: none; }
+.qs-side { padding: 26px 28px 32px; border-top: 1px solid var(--gold-border); }
+.qs-main .qs-section:last-child { border-bottom: none; }
 .giscus-mount { padding: 0; min-height: 40px; }
 
 /* Prev / next footer stays pinned */
@@ -801,6 +802,47 @@ body {
 
 /* Compact bar + search + filter sheet are mobile-only */
 .masthead-compact-bar, .compact-search-bar, .filter-sheet-backdrop { display: none; }
+
+/* ── Quote popup on desktop: quote on the left, discussion on the right ── */
+@media (min-width: 768px) {
+    #quoteBackdrop { background: rgba(8, 7, 5, 0.72); }
+
+    .quote-panel {
+        top: 50%; left: 50%; right: auto;
+        width: min(1180px, 94vw);
+        height: min(88vh, 860px);
+        border: 1px solid var(--gold-border);
+        border-radius: 22px;
+        box-shadow: var(--sh-lg);
+        opacity: 0;
+        transform: translate(-50%, -47%) scale(0.97);
+        transition: transform 0.4s var(--spring), opacity 0.3s var(--ease), visibility 0s linear 0.4s;
+    }
+    .quote-panel.open { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+    .quote-panel .dir-header { padding: 22px 32px 18px; }
+    .quote-panel .dir-title { font-size: 28px; }
+
+    /* The two columns scroll independently of each other */
+    .quote-panel .quote-body { display: flex; overflow: hidden; }
+    .qs-main, .qs-side {
+        min-height: 0;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-width: thin;
+        scrollbar-color: var(--gold-border) transparent;
+    }
+    .qs-main { flex: 0 0 62%; border-right: 1px solid var(--gold-border); }
+    .qs-side { flex: 1 1 auto; border-top: none; padding: 28px 28px 36px; background: var(--surface-alt); }
+
+    .qs-main .qs-section { padding: 30px 40px; }
+    .qs-main .qs-quote { font-size: clamp(24px, 2.4vw, 32px); padding-left: 24px; border-left-width: 4px; }
+    .qs-main .qs-author { font-size: 30px; }
+    .qs-main .qs-reflection { font-size: 16px; }
+    .qs-main .qs-actions .btn-premium-action { flex: 0 1 auto; min-width: 170px; }
+
+    .quote-footer { padding: 12px 32px; }
+}
 
 /* ─── 10. MOBILE ─── */
 @media (max-width: 767px) {
