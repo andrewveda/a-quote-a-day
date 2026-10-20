@@ -1,5 +1,19 @@
 [
   {
+  "id": 207,
+  "quote": "The journey of a thousand miles begins with one step.",
+  "author": "Lao Tzu",
+  "contributor": "Ragavi",
+  "department": "CSE 2",
+  "about": "This quote reminds me that every big achievement begins with a small first step. I should start working towards my goals and keep moving forward.",
+  "tags": [
+    "motivation",
+    "learning",
+    "growth"
+  ],
+  "dateStr": "2026-10-20"
+},
+  {
     "id": 204,
     "quote": "The dawn is not distant.",
     "author": "J.R.R. Tolkien",
