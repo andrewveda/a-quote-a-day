@@ -582,7 +582,7 @@ function updateDeckPosition() {
             <div class="qs-section qs-actions">
                 <button class="btn-premium-action btn-whatsapp" onclick="shareToWhatsApp(${deckIdx})">📲 Share</button>
                 <a href="${puzzleUrl(q)}" target="_blank" rel="noopener" class="btn-premium-action btn-puzzle">🧩 Solve as Puzzle</a>
-                <a href="https://andrewveda.github.io/a-quote-a-day/submissions"
+                <a href="https://andrewveda.com/a-quote-a-day/submissions"
                    target="_blank" rel="noopener" class="btn-premium-action btn-submit">✏️ Add a Quote</a>
             </div>
         </div>
@@ -809,7 +809,7 @@ async function shareToWhatsApp(idx) {
                 </div>
                 ${reflectionBlock}
                 <div style="background:#1c1a16;padding:12px 32px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;z-index:1;">
-                    <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(184,145,58,0.45);">andrewveda.github.io/a-quote-a-day</div>
+                    <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(184,145,58,0.45);">andrewveda.com/a-quote-a-day</div>
                     <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1px;color:rgba(184,145,58,0.3);">${q.dateStr}</div>
                 </div>
                 <div style="background:#1c1a16;padding:0 32px 12px;flex-shrink:0;z-index:1;">
@@ -821,7 +821,7 @@ async function shareToWhatsApp(idx) {
         const blob   = await new Promise(res => canvas.toBlob(res, 'image/jpeg', 0.92));
         const file   = new File([blob], `Quote-${q.id}.jpg`, { type: 'image/jpeg' });
 
-        const shareUrl  = `https://andrewveda.github.io/a-quote-a-day/?id=${q.id}`;
+        const shareUrl  = `https://andrewveda.com/a-quote-a-day/?id=${q.id}`;
         const shareText = `Check out this reflection by ${q.contributor.toUpperCase()} on SRM VEC English Archive.\n\n🔗 ${shareUrl}\n🧩 Solve it as a puzzle: ${puzzleUrl(q)}`;
 
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
@@ -919,7 +919,7 @@ function generateRangeTemplate(fromStr, toStr) {
             </div>
             ${sectionsHtml}
             <div style="text-align:center; font-family:'DM Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:2px; color:#888;">
-                andrewveda.github.io/a-quote-a-day
+                andrewveda.com/a-quote-a-day
             </div>
         </div>
     `;
