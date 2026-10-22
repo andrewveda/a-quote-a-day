@@ -111,6 +111,23 @@ async function fetchArchive() {
     }
 }
 
+/* ─── PUZZLE LINKS (🧩) ─── */
+const PUZZLE_BASE = 'https://andrewveda.com/verve/jigsaw';
+function puzzleUrl(q)      { return `${PUZZLE_BASE}?id=quote-${q.id}`; }
+function puzzleUrlShort(q) { return `andrewveda.com/verve/jigsaw?id=quote-${q.id}`; }
+
+(function injectPuzzleStyles() {
+    const st = document.createElement('style');
+    st.textContent = `
+        .q-card-puzzle{display:inline-flex;align-items:center;gap:4px;margin-top:6px;padding:3px 9px;
+            border:1px solid var(--gold-border,#d3cec4);border-radius:20px;font-size:11px;font-weight:600;
+            color:var(--gold,#b8913a);text-decoration:none;background:transparent;}
+        .q-card-puzzle:hover,.q-card-puzzle:focus{background:rgba(184,145,58,0.12);}
+        .btn-puzzle{text-decoration:none;text-align:center;}
+    `;
+    document.head.appendChild(st);
+})();
+
 function normalizeEntry(r) {
     if (!r || !r.quote) return null;
     const dateStr = /^\d{4}-\d{2}-\d{2}$/.test(r.dateStr || '') ? r.dateStr : 'Unknown';
@@ -159,12 +176,14 @@ function renderGrid(quotes) {
                 <div>
                     <div class="q-card-author">${q.author} <span class="q-card-contrib">via ${q.contributor}</span></div>
                     <div class="q-card-dept">${q.department}</div>
+                    <a class="q-card-puzzle" href="${puzzleUrl(q)}" target="_blank" rel="noopener" title="Solve this quote as a jigsaw puzzle">🧩 Puzzle</a>
                 </div>
                 <div class="q-card-arrow">→</div>
             </div>
         `;
-        card.addEventListener('click', () => openDeck(quotes, i));
+        card.addEventListener('click', e => { if (e.target.closest('.q-card-puzzle')) return; openDeck(quotes, i); });
         card.addEventListener('keydown', e => {
+            if (e.target.closest('.q-card-puzzle')) return;
             if (e.key === 'Enter' || e.key === ' ') openDeck(quotes, i);
         });
         grid.appendChild(card);
@@ -439,12 +458,14 @@ function renderGroupedGrid(groupBy) {
                     <div>
                         <div class="q-card-author">${q.author} <span class="q-card-contrib">via ${q.contributor}</span></div>
                         <div class="q-card-dept">${q.department}</div>
+                        <a class="q-card-puzzle" href="${puzzleUrl(q)}" target="_blank" rel="noopener" title="Solve this quote as a jigsaw puzzle">🧩 Puzzle</a>
                     </div>
                     <div class="q-card-arrow">→</div>
                 </div>
             `;
-            card.addEventListener('click', () => openDeck(groupQuotes, i));
+            card.addEventListener('click', e => { if (e.target.closest('.q-card-puzzle')) return; openDeck(groupQuotes, i); });
             card.addEventListener('keydown', e => {
+                if (e.target.closest('.q-card-puzzle')) return;
                 if (e.key === 'Enter' || e.key === ' ') openDeck(groupQuotes, i);
             });
             grid.appendChild(card);
@@ -560,6 +581,7 @@ function updateDeckPosition() {
 
             <div class="qs-section qs-actions">
                 <button class="btn-premium-action btn-whatsapp" onclick="shareToWhatsApp(${deckIdx})">📲 Share</button>
+                <a href="${puzzleUrl(q)}" target="_blank" rel="noopener" class="btn-premium-action btn-puzzle">🧩 Solve as Puzzle</a>
                 <a href="https://andrewveda.github.io/a-quote-a-day/submissions"
                    target="_blank" rel="noopener" class="btn-premium-action btn-submit">✏️ Add a Quote</a>
             </div>
@@ -790,6 +812,9 @@ async function shareToWhatsApp(idx) {
                     <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(184,145,58,0.45);">andrewveda.github.io/a-quote-a-day</div>
                     <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1px;color:rgba(184,145,58,0.3);">${q.dateStr}</div>
                 </div>
+                <div style="background:#1c1a16;padding:0 32px 12px;flex-shrink:0;z-index:1;">
+                    <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(184,145,58,0.7);">🧩 Solve it as a puzzle: ${puzzleUrlShort(q)}</div>
+                </div>
             </div>`;
 
         const canvas = await html2canvas(document.getElementById('poster-export'), { scale: 2, useCORS: true });
@@ -797,7 +822,7 @@ async function shareToWhatsApp(idx) {
         const file   = new File([blob], `Quote-${q.id}.jpg`, { type: 'image/jpeg' });
 
         const shareUrl  = `https://andrewveda.github.io/a-quote-a-day/?id=${q.id}`;
-        const shareText = `Check out this reflection by ${q.contributor.toUpperCase()} on SRM VEC English Archive.\n\n🔗 ${shareUrl}`;
+        const shareText = `Check out this reflection by ${q.contributor.toUpperCase()} on SRM VEC English Archive.\n\n🔗 ${shareUrl}\n🧩 Solve it as a puzzle: ${puzzleUrl(q)}`;
 
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
             await navigator.share({ files: [file], text: shareText });
@@ -853,6 +878,9 @@ function quoteBlockHTML(q) {
                 <span style="font-family:'DM Mono',monospace; font-size:11px; text-transform:uppercase; color:#6b3f10; letter-spacing:1px;">Contributed by ${q.contributor} &bull; ${q.department}</span>
             </div>
             ${reflection}
+            <div style="margin-top:1.25rem;">
+                <a href="${puzzleUrl(q)}" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#b8913a; text-decoration:none; border:1px solid #b8913a; border-radius:20px; padding:6px 14px; display:inline-block;">🧩 Solve this as a puzzle</a>
+            </div>
         </div>
         <hr style="border:0; border-top:1px dashed #d3cec4; margin:3rem 0;">
     `;
@@ -952,7 +980,11 @@ function buildQuotePageEl(q) {
             </div>
         </div>
         ${reflection}
+        <div style="margin-top:2rem;">
+            <a class="puzzle-link" href="${puzzleUrl(q)}" style="display:inline-block;font-family:'DM Mono',monospace; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#b8913a; text-decoration:none; border:1px solid #b8913a; border-radius:20px; padding:7px 16px;">🧩 Solve this as a puzzle &rarr; ${puzzleUrlShort(q)}</a>
+        </div>
     `;
+    div.dataset.puzzleUrl = puzzleUrl(q);
     return div;
 }
 
@@ -1014,12 +1046,24 @@ async function downloadRangeAsPDF(fromStr, toStr) {
             const imgW = pdfWidth;
             const imgH = (canvas.height * imgW) / canvas.width;
 
+            let offX = 0, offY = 0, drawW = imgW, drawH = imgH;
             if (imgH <= pdfHeight) {
-                pdf.addImage(imgData, 'PNG', 0, (pdfHeight - imgH) / 2, imgW, imgH);
+                offY = (pdfHeight - imgH) / 2;
             } else {
-                const scaledH = pdfHeight;
-                const scaledW = (canvas.width * scaledH) / canvas.height;
-                pdf.addImage(imgData, 'PNG', (pdfWidth - scaledW) / 2, 0, scaledW, scaledH);
+                drawH = pdfHeight;
+                drawW = (canvas.width * drawH) / canvas.height;
+                offX = (pdfWidth - drawW) / 2;
+            }
+            pdf.addImage(imgData, 'PNG', offX, offY, drawW, drawH);
+
+            // Make the 🧩 button on quote pages clickable inside the PDF
+            const linkEl = pages[i].querySelector('a.puzzle-link');
+            if (linkEl) {
+                const pr = pages[i].getBoundingClientRect();
+                const lr = linkEl.getBoundingClientRect();
+                const k  = drawW / pr.width;
+                pdf.link(offX + (lr.left - pr.left) * k, offY + (lr.top - pr.top) * k,
+                         lr.width * k, lr.height * k, { url: pages[i].dataset.puzzleUrl });
             }
         }
 
