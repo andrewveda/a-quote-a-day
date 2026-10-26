@@ -1,5 +1,19 @@
 [
 {
+  "id": 211,
+  "quote": "You don't need to see the whole staircase to take the next step.",
+  "author": "Unknown",
+  "contributor": "Kavitha",
+  "department": "CSE-2",
+  "about": "This quote reminds me that I don't need to know everything about my future. I just need to take the next step with courage, keep learning, and trust the process.",
+  "tags": [
+    "growth",
+    "courage",
+    "perseverance"
+  ],
+  "dateStr": "2026-10-25"
+},
+{
   "id": 210,
   "quote": "Great things are done by a series of small things brought together.",
   "author": "Vincent van Gogh",
