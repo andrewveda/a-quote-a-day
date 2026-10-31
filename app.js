@@ -600,7 +600,9 @@ function updateDeckPosition() {
     document.getElementById('quotePrev').disabled = deckIdx === 0;
     document.getElementById('quoteNext').disabled = deckIdx === currentView.length - 1;
 
-    window.history.replaceState(null, null, `?id=${q.id}`);
+    const params = new URLSearchParams(window.location.search);
+    params.set('id', q.id);
+    window.history.replaceState(null, null, `?${params.toString()}`);
     loadGiscus();
 }
 
@@ -618,7 +620,8 @@ function loadGiscus() {
     script.setAttribute('data-category',    'General');
     script.setAttribute('data-category-id', 'DIC_kwDORI8-y84C1-Jq');
     script.setAttribute('data-mapping',     'specific');
-    script.setAttribute('data-term',        `${q.author} — ${q.contributor}`);
+   script.setAttribute('data-term', `${q.author} — ${q.contributor} — ${q.dateStr}`);
+script.setAttribute('data-strict', '1');
     script.setAttribute('data-theme',       'light');
     script.crossOrigin = 'anonymous';
     script.async = true;
