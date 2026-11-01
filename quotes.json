@@ -1,4 +1,19 @@
 [
+{
+  "id": 214,
+  "quote": "To thine own self be true.",
+  "author": "William Shakespeare",
+  "contributor": "Nethra S",
+  "department": "CSE 2",
+  "about": "Always be true to yourself. Never change who you are just to impress others. Believe in your values, respect yourself, and follow your own path.",
+  "tags": [
+    "self-respect",
+    "honesty",
+    "confidence",
+    "individuality"
+  ],
+  "dateStr": "2026-10-31"
+},
   {
   "id": 213,
   "quote": "A ship in harbour is safe, but that is not what ships are built for.",
