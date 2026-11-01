@@ -158,6 +158,28 @@
       border-left: 3px solid var(--gold);
     }
 
+    .fork-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.25s ease;
+      margin: 10px 0;
+    }
+
+    .fork-btn:hover {
+      border-color: var(--gold);
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(201,168,76,0.15);
+    }
+
     .copy-btn {
       background: linear-gradient(135deg, var(--gold), var(--gold-light));
       color: white;
@@ -220,12 +242,22 @@
       <strong>A Quote A Day</strong>.
     </p>
 
-    <h2>Step 1 · Create a New Quote File</h2>
+    <h2>Step 1 · Fork the Repository</h2>
+    <div class="card">
+      <p>First, create your own copy (fork) of the project on GitHub.</p>
+      <a href="https://github.com/andrewveda/a-quote-a-day/fork" target="_blank" class="fork-btn">
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor">
+          <path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"></path>
+        </svg>
+        Fork on GitHub
+      </a>
+    </div>
+
+    <h2>Step 2 · Create a New Quote File</h2>
     <div class="card">
       <p>Click the golden button at the bottom of this page. GitHub will:</p>
       <ul>
-        <li>Create your own copy (fork) of the project</li>
-        <li>Open an editor where you can add your quote</li>
+        <li>Open an editor where you can add your quote in your forked repository</li>
         <li>Guide you through submitting your contribution</li>
       </ul>
 
@@ -234,7 +266,7 @@
       </div>
     </div>
 
-    <h2>Step 2 · Add Your Quote Content</h2>
+    <h2>Step 3 · Add Your Quote Content</h2>
     <div class="card">
       <p>Copy the template below and fill in your details.</p>
 
@@ -255,7 +287,7 @@ tags:
       </div>
     </div>
 
-    <h2>Step 3 · Name Your File Correctly</h2>
+    <h2>Step 4 · Name Your File Correctly</h2>
     <div class="card">
       <p>The filename must follow this format:</p>
       <code>YYYY-MM-DD_yourname_department.md</code>
@@ -264,7 +296,7 @@ tags:
       <code>2026-02-04_meenz_cyber-security.md</code>
 
       <div class="note important-note">
-        <strong>Please follow this naming procedure exactly.</strong><br><br>
+        <strong>Please follow this naming procedure exactly.YYYY-MM-DD is the date of submission (NOT date of birth)</strong><br><br>
         Our system automatically organises quotes based on filenames.  
         Files that do not follow the prescribed format cannot be processed.
       </div>

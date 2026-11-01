@@ -1,13 +1,6 @@
-/* ═══════════════════════════════════════════
-   A QUOTE A DAY — app.js
-   - Scroll-to-top fix on tab switch
-   - Contributor Hall of Fame + profile cards
-   - Compact mobile masthead
-═══════════════════════════════════════════ */
-
 const CONFIG = {
     REPO: "AndrewVeda/a-quote-a-day",
-    DIR:  "quotes",
+    DATA_FILE: "quotes.json",
 };
 
 let DB          = [];
@@ -17,21 +10,24 @@ let currentTab  = 'all';
 
 /* ─── MASTHEAD SCROLL ─── */
 const mastheadEl = document.getElementById('masthead');
-const COMPACT_THRESHOLD = 80;
 
 window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    mastheadEl.classList.toggle('scrolled', y > 20);
-    if (window.innerWidth < 768) {
-        mastheadEl.classList.toggle('masthead--compact', y > COMPACT_THRESHOLD);
-    } else {
-        mastheadEl.classList.remove('masthead--compact');
-    }
+    mastheadEl.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
-window.addEventListener('resize', () => {
-    if (window.innerWidth >= 768) mastheadEl.classList.remove('masthead--compact');
-}, { passive: true });
+/* ─── SIDEBAR HELPERS ─── */
+const quotePanel    = document.getElementById('quotePanel');
+const quoteBackdrop = document.getElementById('quoteBackdrop');
+const dirPanel      = document.getElementById('dirPanel');
+const dirBackdrop   = document.getElementById('dirBackdrop');
+
+// Page scroll is locked while any sidebar (or the mobile filter sheet) is open
+function syncScrollLock() {
+    const filterOpen = document.getElementById('filterSheetBackdrop').classList.contains('open');
+    const locked = quotePanel.classList.contains('open') ||
+                   dirPanel.classList.contains('open') || filterOpen;
+    document.body.style.overflow = locked ? 'hidden' : '';
+}
 
 /* ─── DATELINE ─── */
 document.getElementById('mastDateline').innerText =
@@ -39,9 +35,13 @@ document.getElementById('mastDateline').innerText =
 
 /* ─── KEYBOARD ENGINE ─── */
 document.addEventListener('keydown', e => {
-    const overlay = document.getElementById('deckOverlay');
-    if (!overlay.classList.contains('open')) return;
-    if (e.key === 'Escape')     closeDeck();
+    if (e.key === 'Escape') {
+        if (quotePanel.classList.contains('open')) closeDeck();
+        else if (dirPanel.classList.contains('open')) closeDirectory();
+        return;
+    }
+    if (!quotePanel.classList.contains('open')) return;
+    if (e.target.closest && e.target.closest('input, textarea')) return;
     if (e.key === 'ArrowRight') moveDeck(1);
     if (e.key === 'ArrowLeft')  moveDeck(-1);
 });
@@ -53,18 +53,17 @@ function moveDeck(dir) {
     updateDeckPosition();
 }
 
-/* ─── CLOSE DECK ─── */
+/* ─── CLOSE QUOTE SIDEBAR ─── */
 function closeDeck() {
-    document.getElementById('deckOverlay').classList.remove('open');
-    document.body.style.overflow = '';
+    quotePanel.classList.remove('open');
+    quoteBackdrop.classList.remove('open');
+    syncScrollLock();
     window.history.replaceState(null, null, window.location.pathname);
 }
 
 /* ─── SCROLL TO TOP (instant, no jank) ─── */
 function resetScroll() {
     window.scrollTo({ top: 0, behavior: 'instant' });
-    // Also force-remove compact state so masthead re-appears immediately
-    mastheadEl.classList.remove('masthead--compact');
 }
 
 /* ─── INIT ─── */
@@ -80,30 +79,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (quoteId) jumpToQuote(quoteId);
 });
 
-/* ─── FETCH & PARSE ─── */
+/* ─── FETCH ─── */
 async function fetchArchive() {
     try {
-        const response = await fetch(
-            `https://api.github.com/repos/${CONFIG.REPO}/contents/${CONFIG.DIR}`
-        );
-        if (!response.ok) throw new Error('Network error');
+        const response = await fetch(CONFIG.DATA_FILE, { cache: 'no-cache' });
+        if (!response.ok) throw new Error('Could not load ' + CONFIG.DATA_FILE);
 
-        const files   = await response.json();
-        const mdFiles = files.filter(f => f.name.endsWith('.md'));
+        const rows = await response.json();
 
-        const promises = mdFiles.map(async (file, i) => {
-            try {
-                const raw = await fetch(file.download_url).then(r => r.text());
-                return parseEntry(raw, file.name, i + 1);
-            } catch { return null; }
-        });
-
-        DB = (await Promise.all(promises)).filter(Boolean);
-        DB.sort((a, b) => b.date - a.date);
+        DB = rows.map(normalizeEntry).filter(Boolean);
+        // Newest date first; within the same date, highest id first
+        DB.sort((a, b) => (b.date - a.date) || (Number(b.id) - Number(a.id)));
 
         if (DB.length === 0) throw new Error('Empty archive');
 
-        document.getElementById('mastCount').innerText = `${DB.length} Quotes`;
+        document.getElementById('mastCount').textContent = `${DB.length} Quotes`;
         renderGrid(DB);
 
     } catch (err) {
@@ -121,28 +111,35 @@ async function fetchArchive() {
     }
 }
 
-function parseEntry(md, filename, fallbackId) {
-    const match = md.match(/---([\s\S]*?)---/);
-    if (!match) return null;
+/* ─── PUZZLE LINKS (🧩) ─── */
+const PUZZLE_BASE = 'https://andrewveda.com/verve/jigsaw';
+function puzzleUrl(q)      { return `${PUZZLE_BASE}?id=quote-${q.id}`; }
+function puzzleUrlShort(q) { return `andrewveda.com/verve/jigsaw?id=quote-${q.id}`; }
 
-    const data = {};
-    match[1].split('\n').forEach(line => {
-        const i = line.indexOf(':');
-        if (i !== -1) {
-            data[line.substring(0,i).trim()] = line.substring(i+1).trim();
-        }
-    });
+(function injectPuzzleStyles() {
+    const st = document.createElement('style');
+    st.textContent = `
+        .q-card-puzzle{display:inline-flex;align-items:center;gap:4px;margin-top:6px;padding:3px 9px;
+            border:1px solid var(--gold-border,#d3cec4);border-radius:20px;font-size:11px;font-weight:600;
+            color:var(--gold,#b8913a);text-decoration:none;background:transparent;}
+        .q-card-puzzle:hover,.q-card-puzzle:focus{background:rgba(184,145,58,0.12);}
+        .btn-puzzle{text-decoration:none;text-align:center;}
+    `;
+    document.head.appendChild(st);
+})();
 
-    const dateMatch = filename.match(/^(\d{4}-\d{2}-\d{2})/);
+function normalizeEntry(r) {
+    if (!r || !r.quote) return null;
+    const dateStr = /^\d{4}-\d{2}-\d{2}$/.test(r.dateStr || '') ? r.dateStr : 'Unknown';
     return {
-        id:          data.id || fallbackId,
-        quote:       data.quote       || 'Text missing.',
-        author:      data.author      || 'Unknown',
-        contributor: data.contributor || 'Anonymous',
-        department:  data.department  || 'English',
-        about:       data.what_it_means_to_me || data.about || '',
-        date:        new Date(dateMatch ? dateMatch[1] : 0),
-        dateStr:     dateMatch ? dateMatch[1] : 'Unknown',
+        id:          r.id,
+        quote:       r.quote,
+        author:      r.author      || 'Unknown',
+        contributor: r.contributor || 'Anonymous',
+        department:  r.department  || 'English',
+        about:       r.about || r.what_it_means_to_me || '',
+        date:        new Date(dateStr === 'Unknown' ? 0 : dateStr),
+        dateStr,
     };
 }
 
@@ -157,11 +154,6 @@ function renderGrid(quotes) {
     }
 
     container.innerHTML = '';
-
-    const header = document.createElement('div');
-    header.className = 'results-header';
-    header.textContent = `${quotes.length} ${quotes.length === 1 ? 'Quote' : 'Quotes'}`;
-    container.appendChild(header);
 
     const grid = document.createElement('div');
     grid.className = 'col-grid';
@@ -184,12 +176,14 @@ function renderGrid(quotes) {
                 <div>
                     <div class="q-card-author">${q.author} <span class="q-card-contrib">via ${q.contributor}</span></div>
                     <div class="q-card-dept">${q.department}</div>
+                    <a class="q-card-puzzle" href="${puzzleUrl(q)}" target="_blank" rel="noopener" title="Solve this quote as a jigsaw puzzle">🧩 Puzzle</a>
                 </div>
                 <div class="q-card-arrow">→</div>
             </div>
         `;
-        card.addEventListener('click', () => openDeck(quotes, i));
+        card.addEventListener('click', e => { if (e.target.closest('.q-card-puzzle')) return; openDeck(quotes, i); });
         card.addEventListener('keydown', e => {
+            if (e.target.closest('.q-card-puzzle')) return;
             if (e.key === 'Enter' || e.key === ' ') openDeck(quotes, i);
         });
         grid.appendChild(card);
@@ -238,25 +232,26 @@ function setupNavigation() {
             btn.classList.add('active');
 
             if (tab === 'all') {
+                closeDirectory();
                 renderGrid(DB);
             } else if (tab === 'departments') {
                 renderGroupedGrid('department');
+                openDirectory(tab);
             } else if (tab === 'contributors') {
                 renderContributors();
+                openDirectory(tab);
             } else {
                 openDirectory(tab);
             }
         });
     });
 
-    document.getElementById('deckClose').addEventListener('click', closeDeck);
-    document.getElementById('arrowPrev').addEventListener('click', () => moveDeck(-1));
-    document.getElementById('arrowNext').addEventListener('click', () => moveDeck(1));
+    document.getElementById('quoteClose').addEventListener('click', closeDeck);
+    quoteBackdrop.addEventListener('click', closeDeck);
+    document.getElementById('quotePrev').addEventListener('click', () => moveDeck(-1));
+    document.getElementById('quoteNext').addEventListener('click', () => moveDeck(1));
     document.getElementById('dirClose').addEventListener('click', closeDirectory);
-    document.getElementById('dirBackdrop').addEventListener('click', closeDirectory);
-    document.getElementById('deckOverlay').addEventListener('click', e => {
-        if (e.target === e.currentTarget) closeDeck();
-    });
+    dirBackdrop.addEventListener('click', closeDirectory);
 }
 
 /* ─── CONTRIBUTOR INITIALS AVATAR ─── */
@@ -264,7 +259,7 @@ function getInitials(name) {
     return name.trim().split(/\s+/).map(w => w[0].toUpperCase()).slice(0, 2).join('');
 }
 
-// Stable warm accent per contributor (cycles through a curated set)
+// Stable warm accent per contributor
 const CONTRIB_ACCENTS = [
     { bg: '#b8913a', fg: '#fff' },
     { bg: '#6b0f1a', fg: '#fff' },
@@ -286,7 +281,6 @@ function renderContributors() {
     const container = document.getElementById('mainContent');
     container.innerHTML = '';
 
-    // Build contributor index
     const index = {};
     DB.forEach(item => {
         if (!index[item.contributor]) {
@@ -325,7 +319,6 @@ function renderContributors() {
     const podiumRow = document.createElement('div');
     podiumRow.className = 'hof-podium';
 
-    // Reorder for visual podium: 2nd · 1st · 3rd
     const podiumOrder = [1, 0, 2];
     podiumOrder.forEach((rank, pos) => {
         const c = contributors[rank];
@@ -375,6 +368,7 @@ function renderContributors() {
         grid.className = 'contrib-grid';
 
         contributors.forEach((c, i) => {
+            if (i < 3) return; // Skip top 3
             const accent   = accentForName(c.name);
             const initials = getInitials(c.name);
             const latest   = c.quotes[0];
@@ -464,12 +458,14 @@ function renderGroupedGrid(groupBy) {
                     <div>
                         <div class="q-card-author">${q.author} <span class="q-card-contrib">via ${q.contributor}</span></div>
                         <div class="q-card-dept">${q.department}</div>
+                        <a class="q-card-puzzle" href="${puzzleUrl(q)}" target="_blank" rel="noopener" title="Solve this quote as a jigsaw puzzle">🧩 Puzzle</a>
                     </div>
                     <div class="q-card-arrow">→</div>
                 </div>
             `;
-            card.addEventListener('click', () => openDeck(groupQuotes, i));
+            card.addEventListener('click', e => { if (e.target.closest('.q-card-puzzle')) return; openDeck(groupQuotes, i); });
             card.addEventListener('keydown', e => {
+                if (e.target.closest('.q-card-puzzle')) return;
                 if (e.key === 'Enter' || e.key === ' ') openDeck(groupQuotes, i);
             });
             grid.appendChild(card);
@@ -486,7 +482,8 @@ function openDirectory(category) {
     list.innerHTML = '';
 
     const titleMap = { authors: 'Authors', contributors: 'Contributors', departments: 'Departments' };
-    document.getElementById('dirTitle').innerText = titleMap[category] || 'Directory';
+    document.getElementById('dirTitle').textContent = titleMap[category] || 'Directory';
+    closeDeck();
 
     const index = {};
     DB.forEach(item => {
@@ -499,135 +496,123 @@ function openDirectory(category) {
         index[key].push(item);
     });
 
-    Object.keys(index)
-        .sort((a, b) => index[b].length - index[a].length)
-        .forEach(name => {
+    const names = Object.keys(index).sort((a, b) => index[b].length - index[a].length);
+    const noun  = { authors: 'author', contributors: 'contributor', departments: 'department' }[category] || 'entry';
+    document.getElementById('dirSub').textContent =
+        `${names.length} ${noun}${names.length === 1 ? '' : 's'} · ${DB.length} quotes`;
+
+    names.forEach(name => {
             const row = document.createElement('div');
             row.className = 'dir-row';
+            row.setAttribute('tabindex', '0');
+            row.setAttribute('role', 'button');
             row.innerHTML = `
                 <span class="dir-row-name">${name}</span>
                 <span class="dir-badge">${index[name].length}</span>
             `;
-            row.addEventListener('click', () => {
+            const pick = () => {
                 renderGrid(index[name]);
                 closeDirectory();
                 resetScroll();
+            };
+            row.addEventListener('click', pick);
+            row.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); }
             });
             list.appendChild(row);
         });
 
-    document.getElementById('dirPanel').classList.add('open');
-    document.getElementById('dirBackdrop').classList.add('open');
+    list.scrollTop = 0;
+    dirPanel.classList.add('open');
+    dirBackdrop.classList.add('open');
+    syncScrollLock();
 }
 
 function closeDirectory() {
-    document.getElementById('dirPanel').classList.remove('open');
-    document.getElementById('dirBackdrop').classList.remove('open');
+    dirPanel.classList.remove('open');
+    dirBackdrop.classList.remove('open');
+    syncScrollLock();
 }
 
-/* ─── OPEN DECK ─── */
+/* ─── OPEN QUOTE SIDEBAR ─── */
 function openDeck(quotes, startIdx) {
     currentView = quotes;
     deckIdx     = startIdx;
+    closeDirectory();
 
-    const track = document.getElementById('deckTrack');
-    track.innerHTML = '';
-
-    quotes.forEach((q, i) => {
-        const slide = document.createElement('div');
-        slide.className = 'deck-slide';
-        const hasReflection = q.about && q.about.trim().length > 0;
-
-        slide.innerHTML = `
-            <div class="deck-layout">
-                <div class="deck-left">
-                    <div class="deck-card" id="export-target-${i}">
-                        <div class="dc-body">
-                            <div class="dc-kicker">Quote #${q.id} · ${q.dateStr}</div>
-                            <div class="dc-quote">"${q.quote}"</div>
-                            <div class="dc-byline">
-                                <div class="dc-author">${q.author}</div>
-                                <div class="dc-role">Quoted Author</div>
-                            </div>
-                            <div class="dc-envelope">
-                                <div class="dc-env-label">Contributed by</div>
-                                <div class="dc-contrib-name">${q.contributor}</div>
-                                <div class="dc-contrib-dept">${q.department}</div>
-                                ${hasReflection ? `
-                                    <div class="dc-divider"></div>
-                                    <div class="dc-reflection-label">What this means to me</div>
-                                    <div class="dc-reflection">"${q.about}"</div>
-                                ` : ''}
-                            </div>
-                        </div>
-                        <div class="deck-action-row no-export">
-                            <button class="btn-premium-action btn-whatsapp" onclick="shareToWhatsApp(${i})">
-                                📲 Share
-                            </button>
-                            <a href="https://andrewveda.github.io/a-quote-a-day/submissions"
-                               target="_blank" rel="noopener"
-                               class="btn-premium-action btn-submit">
-                                ✏️ Add a Quote
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="deck-right">
-                    <div class="deck-comments-label">Discussion</div>
-                    <div class="giscus-mount" id="giscus-slot-${i}"></div>
-                </div>
-            </div>
-        `;
-        track.appendChild(slide);
-    });
-
-    document.getElementById('deckOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
+    quotePanel.classList.add('open');
+    quoteBackdrop.classList.add('open');
+    syncScrollLock();
     updateDeckPosition(false);
 }
 
-/* ─── UPDATE DECK POSITION ─── */
-function updateDeckPosition(animate = true) {
-    const track = document.getElementById('deckTrack');
-    if (!track) return;
-
-    track.style.transition = animate
-        ? 'transform 0.42s cubic-bezier(0.23, 1, 0.32, 1)'
-        : 'none';
-    track.style.transform = `translateX(${-deckIdx * 100}vw)`;
-
-    const counter = document.getElementById('deckCounter');
-    if (counter) counter.innerText = `${deckIdx + 1} / ${currentView.length}`;
-
-    const prev = document.getElementById('arrowPrev');
-    const next = document.getElementById('arrowNext');
-    if (prev) prev.disabled = deckIdx === 0;
-    if (next) next.disabled = deckIdx === currentView.length - 1;
-
-    const wrap = document.getElementById('deckProgressWrap');
-    if (wrap) {
-        const total   = currentView.length;
-        const maxDots = Math.min(total, 7);
-        wrap.innerHTML = '';
-        for (let i = 0; i < maxDots; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'progress-dot' + (i === Math.min(deckIdx, maxDots - 1) ? ' active' : '');
-            wrap.appendChild(dot);
-        }
-    }
-
+/* ─── RENDER CURRENT QUOTE ─── */
+function updateDeckPosition() {
     const q = currentView[deckIdx];
-    if (q) window.history.replaceState(null, null, `?id=${q.id}`);
+    if (!q) return;
 
-    loadGiscus(deckIdx);
+    document.getElementById('quoteTitle').textContent = `Quote No. ${q.id}`;
+    document.getElementById('quoteSub').textContent   = formatDateLabel(q.dateStr);
+
+    const hasReflection = q.about && q.about.trim().length > 0;
+    const body = document.getElementById('quoteBody');
+
+    body.innerHTML = `
+        <div class="qs-main">
+            <div class="qs-section">
+                <div class="qs-quote">"${q.quote}"</div>
+                <div class="qs-byline">
+                    <div class="qs-author">${q.author}</div>
+                    <div class="qs-role">Quoted Author</div>
+                </div>
+            </div>
+
+            <div class="qs-section qs-meta">
+                <div class="qs-label">Contributed by</div>
+                <div class="qs-contrib">${q.contributor}</div>
+                <div class="qs-dept">${q.department}</div>
+            </div>
+
+            ${hasReflection ? `
+            <div class="qs-section">
+                <div class="qs-label">What this means to me</div>
+                <div class="qs-reflection">"${q.about}"</div>
+            </div>` : ''}
+
+            <div class="qs-section qs-actions">
+                <button class="btn-premium-action btn-whatsapp" onclick="shareToWhatsApp(${deckIdx})">📲 Share</button>
+                <a href="${puzzleUrl(q)}" target="_blank" rel="noopener" class="btn-premium-action btn-puzzle">🧩 Solve as Puzzle</a>
+                <a href="https://andrewveda.com/a-quote-a-day/submissions"
+                   target="_blank" rel="noopener" class="btn-premium-action btn-submit">✏️ Add a Quote</a>
+            </div>
+        </div>
+
+        <div class="qs-side">
+            <div class="qs-label">Discussion</div>
+            <div class="giscus-mount" id="giscus-slot"></div>
+        </div>
+    `;
+    // Reset every scroll area (single column on mobile, two columns on desktop)
+    body.scrollTop = 0;
+    body.querySelectorAll('.qs-main, .qs-side').forEach(el => { el.scrollTop = 0; });
+
+    document.getElementById('quoteCounter').textContent = `${deckIdx + 1} / ${currentView.length}`;
+    document.getElementById('quotePrev').disabled = deckIdx === 0;
+    document.getElementById('quoteNext').disabled = deckIdx === currentView.length - 1;
+
+    const params = new URLSearchParams(window.location.search);
+    params.set('id', q.id);
+    window.history.replaceState(null, null, `?${params.toString()}`);
+    loadGiscus();
 }
 
 /* ─── GISCUS ─── */
-function loadGiscus(idx) {
-    const slot = document.getElementById(`giscus-slot-${idx}`);
-    if (!slot || slot.innerHTML !== '') return;
+function loadGiscus() {
+    const slot = document.getElementById('giscus-slot');
+    const q = currentView[deckIdx];
+    if (!slot || !q) return;
+    slot.innerHTML = '';
 
-    const q = currentView[idx];
     const script = document.createElement('script');
     script.src = 'https://giscus.app/client.js';
     script.setAttribute('data-repo',        CONFIG.REPO);
@@ -635,33 +620,36 @@ function loadGiscus(idx) {
     script.setAttribute('data-category',    'General');
     script.setAttribute('data-category-id', 'DIC_kwDORI8-y84C1-Jq');
     script.setAttribute('data-mapping',     'specific');
-    script.setAttribute('data-term',        `${q.author} — ${q.contributor}`);
-    script.setAttribute('data-theme',       'preferred_color_scheme');
+   script.setAttribute('data-term', `${q.author} — ${q.contributor} — ${q.dateStr}`);
+script.setAttribute('data-strict', '1');
+    script.setAttribute('data-theme',       'light');
     script.crossOrigin = 'anonymous';
     script.async = true;
     slot.appendChild(script);
 }
 
-/* ─── SWIPE ENGINE ─── */
+/* ─── SWIPE ENGINE (horizontal swipe on the quote sidebar = prev/next) ─── */
 function setupSwipeEngine() {
-    let startX = 0, dist = 0, dragging = false;
-    const area = document.getElementById('deckOverlay');
+    let startX = 0, startY = 0, dx = 0, dy = 0, dragging = false;
 
-    area.addEventListener('touchstart', e => {
-        startX   = e.touches[0].clientX;
+    quotePanel.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        dx = dy = 0;
         dragging = true;
     }, { passive: true });
 
-    area.addEventListener('touchmove', e => {
+    quotePanel.addEventListener('touchmove', e => {
         if (!dragging) return;
-        dist = e.touches[0].clientX - startX;
+        dx = e.touches[0].clientX - startX;
+        dy = e.touches[0].clientY - startY;
     }, { passive: true });
 
-    area.addEventListener('touchend', () => {
+    quotePanel.addEventListener('touchend', () => {
         if (!dragging) return;
         dragging = false;
-        if (Math.abs(dist) > 70) moveDeck(dist < 0 ? 1 : -1);
-        dist = 0;
+        // Only count clearly horizontal swipes so vertical scrolling is never hijacked
+        if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.5) moveDeck(dx < 0 ? 1 : -1);
     });
 }
 
@@ -699,7 +687,7 @@ function setupCompactMasthead() {
 
     filterBtn.addEventListener('click', () => {
         sheetBackdrop.classList.add('open');
-        document.body.style.overflow = 'hidden';
+        syncScrollLock();
     });
 
     sheetBackdrop.addEventListener('click', e => {
@@ -708,7 +696,7 @@ function setupCompactMasthead() {
 
     function closeFilterSheet() {
         sheetBackdrop.classList.remove('open');
-        document.body.style.overflow = '';
+        syncScrollLock();
     }
 
     sheetTabs.addEventListener('click', e => {
@@ -733,6 +721,50 @@ function setupCompactMasthead() {
             }
         });
     });
+
+    /* ── Download-by-date-range (hamburger menu) ── */
+    const sheetFromDateInput = document.getElementById('sheetFromDateInput');
+    const sheetToDateInput   = document.getElementById('sheetToDateInput');
+    const sheetHtmlBtn       = document.getElementById('sheetDownloadHtmlBtn');
+    const sheetPdfBtn        = document.getElementById('sheetDownloadPdfBtn');
+
+    if (sheetFromDateInput && sheetToDateInput && DB.length) {
+        // DB is sorted newest-first, so the last entry is the oldest date
+        sheetFromDateInput.value = DB[DB.length - 1].dateStr;
+        sheetToDateInput.value   = DB[0].dateStr;
+    }
+
+    // Reads and validates the from/to inputs. Silently swaps them if the
+    // person picked an end date earlier than the start date.
+    function getSheetDateRange() {
+        if (!sheetFromDateInput || !sheetToDateInput ||
+            !sheetFromDateInput.value || !sheetToDateInput.value) {
+            alert('Please choose both a "from" and "to" date.');
+            return null;
+        }
+        let from = sheetFromDateInput.value;
+        let to   = sheetToDateInput.value;
+        if (from > to) [from, to] = [to, from];
+        return { from, to };
+    }
+
+    if (sheetHtmlBtn) {
+        sheetHtmlBtn.addEventListener('click', () => {
+            const range = getSheetDateRange();
+            if (!range) return;
+            downloadRangeAsHTML(range.from, range.to);
+            closeFilterSheet();
+        });
+    }
+
+    if (sheetPdfBtn) {
+        sheetPdfBtn.addEventListener('click', () => {
+            const range = getSheetDateRange();
+            if (!range) return;
+            downloadRangeAsPDF(range.from, range.to);
+            closeFilterSheet();
+        });
+    }
 }
 
 /* ─── SHARE / EXPORT ─── */
@@ -780,8 +812,11 @@ async function shareToWhatsApp(idx) {
                 </div>
                 ${reflectionBlock}
                 <div style="background:#1c1a16;padding:12px 32px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;z-index:1;">
-                    <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(184,145,58,0.45);">andrewveda.github.io/a-quote-a-day</div>
+                    <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(184,145,58,0.45);">andrewveda.com/a-quote-a-day</div>
                     <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1px;color:rgba(184,145,58,0.3);">${q.dateStr}</div>
+                </div>
+                <div style="background:#1c1a16;padding:0 32px 12px;flex-shrink:0;z-index:1;">
+                    <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(184,145,58,0.7);">🧩 Solve it as a puzzle: ${puzzleUrlShort(q)}</div>
                 </div>
             </div>`;
 
@@ -789,8 +824,8 @@ async function shareToWhatsApp(idx) {
         const blob   = await new Promise(res => canvas.toBlob(res, 'image/jpeg', 0.92));
         const file   = new File([blob], `Quote-${q.id}.jpg`, { type: 'image/jpeg' });
 
-        const shareUrl  = `https://andrewveda.github.io/a-quote-a-day/?id=${q.id}`;
-        const shareText = `Check out this reflection by ${q.contributor.toUpperCase()} on SRM VEC English Archive.\n\n🔗 ${shareUrl}`;
+        const shareUrl  = `https://andrewveda.com/a-quote-a-day/?id=${q.id}`;
+        const shareText = `Check out this reflection by ${q.contributor.toUpperCase()} on SRM VEC English Archive.\n\n🔗 ${shareUrl}\n🧩 Solve it as a puzzle: ${puzzleUrl(q)}`;
 
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
             await navigator.share({ files: [file], text: shareText });
@@ -807,3 +842,258 @@ async function shareToWhatsApp(idx) {
     btn.innerHTML = orig;
     btn.disabled  = false;
 }
+
+// ==========================================
+// EXPORT DATE RANGE TO HTML & PDF
+// ==========================================
+
+// Human-readable label for a YYYY-MM-DD string, e.g. "22 Sep 2026"
+function formatDateLabel(dateStr) {
+    if (!dateStr || dateStr === 'Unknown') return dateStr || 'Unknown';
+    const d = new Date(`${dateStr}T00:00:00`);
+    if (isNaN(d)) return dateStr;
+    return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+}
+
+// All quotes whose dateStr falls within [fromStr, toStr] inclusive,
+// oldest first (ISO date strings compare correctly as plain strings).
+function getQuotesInRange(fromStr, toStr) {
+    return DB
+        .filter(q => q.dateStr !== 'Unknown' && q.dateStr >= fromStr && q.dateStr <= toStr)
+        .sort((a, b) => a.dateStr.localeCompare(b.dateStr) || String(a.id).localeCompare(String(b.id)));
+}
+
+// Reusable single-quote block markup, used inside the combined HTML export
+function quoteBlockHTML(q) {
+    const reflection = q.about ? `
+        <div style="background:#1c1a16; color:#f5f0e8; padding:1.5rem; margin-top:1.5rem; border-left: 3px solid #b8913a;">
+            <div style="font-family:'DM Mono',monospace; font-size:10px; color:#b8913a; text-transform:uppercase; letter-spacing:2px; margin-bottom:0.5rem;">What this means to me</div>
+            <div style="font-style:italic;">"${q.about}"</div>
+        </div>
+    ` : '';
+
+    return `
+        <div style="margin-bottom:3rem; page-break-inside:avoid;">
+            <div style="font-family:'DM Mono',monospace; font-size:12px; color:#b8913a; text-transform:uppercase; letter-spacing:2px; margin-bottom:1rem;">Quote #${q.id}</div>
+            <div style="font-size:24px; font-weight:600; font-style:italic; line-height:1.4; color:#1c1a16; margin-bottom:1.5rem;">"${q.quote}"</div>
+            <div>
+                <strong style="font-size:18px;">${q.author}</strong><br>
+                <span style="font-family:'DM Mono',monospace; font-size:11px; text-transform:uppercase; color:#6b3f10; letter-spacing:1px;">Contributed by ${q.contributor} &bull; ${q.department}</span>
+            </div>
+            ${reflection}
+            <div style="margin-top:1.25rem;">
+                <a href="${puzzleUrl(q)}" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#b8913a; text-decoration:none; border:1px solid #b8913a; border-radius:20px; padding:6px 14px; display:inline-block;">🧩 Solve this as a puzzle</a>
+            </div>
+        </div>
+        <hr style="border:0; border-top:1px dashed #d3cec4; margin:3rem 0;">
+    `;
+}
+
+// Build the raw combined HTML string for a date range, quotes grouped under
+// a heading for each day they were posted on.
+function generateRangeTemplate(fromStr, toStr) {
+    const quotes = getQuotesInRange(fromStr, toStr);
+    if (quotes.length === 0) return null;
+
+    const byDate = {};
+    quotes.forEach(q => {
+        (byDate[q.dateStr] = byDate[q.dateStr] || []).push(q);
+    });
+
+    let sectionsHtml = '';
+    Object.keys(byDate).sort().forEach(dateStr => {
+        sectionsHtml += `
+            <div style="font-family:'DM Mono',monospace; font-size:11px; color:#b8913a; text-transform:uppercase; letter-spacing:3px; border-bottom:1px solid #d3cec4; padding-bottom:0.5rem; margin:2.5rem 0 2rem;">
+                ${formatDateLabel(dateStr)}
+            </div>`;
+        byDate[dateStr].forEach(q => { sectionsHtml += quoteBlockHTML(q); });
+    });
+
+    return `
+        <div style="background:#fff; padding:4rem; max-width:800px; margin:0 auto; font-family:'Cormorant Garamond',Georgia,serif; color:#1c1a16; box-shadow:0 10px 30px rgba(0,0,0,0.05);">
+            <div style="text-align:center; border-bottom:2px solid #b8913a; padding-bottom:1rem; margin-bottom:1rem;">
+                <h1 style="margin:0; font-style:italic; font-size:36px;">A Quote A Day</h1>
+                <div style="font-family:'DM Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:3px; color:#6b3f10; margin-top:0.5rem;">
+                    ${formatDateLabel(fromStr)} &mdash; ${formatDateLabel(toStr)}
+                </div>
+                <div style="font-family:'DM Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:2px; color:#888; margin-top:0.35rem;">
+                    ${quotes.length} ${quotes.length === 1 ? 'Quote' : 'Quotes'}
+                </div>
+            </div>
+            ${sectionsHtml}
+            <div style="text-align:center; font-family:'DM Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:2px; color:#888;">
+                andrewveda.com/a-quote-a-day
+            </div>
+        </div>
+    `;
+}
+
+function downloadRangeAsHTML(fromStr, toStr) {
+    const bodyHtml = generateRangeTemplate(fromStr, toStr);
+    if (!bodyHtml) return alert('No quotes found in that date range.');
+
+    const htmlContent = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Quotes - ${fromStr} to ${toStr}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+        <style>
+            body { background-color:#f5f0e8; padding:3rem 1rem; margin:0; }
+        </style>
+    </head>
+    <body>
+        ${bodyHtml}
+    </body>
+    </html>`;
+
+    const blob = new Blob([htmlContent], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Quotes_${fromStr}_to_${toStr}.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// Standalone "page" element for a single quote, sized to be screenshotted
+// and dropped onto its own PDF page.
+function buildQuotePageEl(q) {
+    const reflection = q.about ? `
+        <div style="border-top:2px solid #b8913a; padding-top:1.25rem; margin-top:1.75rem;">
+            <div style="font-family:'DM Mono',monospace; font-size:10px; color:#b8913a; text-transform:uppercase; letter-spacing:2px; margin-bottom:0.6rem;">What this means to me</div>
+            <div style="font-style:italic; font-size:17px; line-height:1.6; color:#4a4640;">"${q.about}"</div>
+        </div>
+    ` : '';
+
+    const div = document.createElement('div');
+    div.style.cssText = "width:800px;min-height:1131px;box-sizing:border-box;background:#fff;display:flex;flex-direction:column;justify-content:center;padding:5rem 4.5rem;font-family:'Cormorant Garamond',Georgia,serif;color:#1c1a16;";
+    div.innerHTML = `
+        <div style="font-family:'DM Mono',monospace; font-size:11px; color:#b8913a; text-transform:uppercase; letter-spacing:2px; margin-bottom:1.75rem;">
+            Quote #${q.id} &middot; ${formatDateLabel(q.dateStr)}
+        </div>
+        <div style="font-size:32px; font-weight:600; font-style:italic; line-height:1.42; color:#1c1a16; margin-bottom:2.25rem;">"${q.quote}"</div>
+        <div style="border-top:2px solid #b8913a; padding-top:1.25rem;">
+            <div style="font-size:22px; font-weight:700;">${q.author}</div>
+            <div style="font-family:'DM Mono',monospace; font-size:11px; text-transform:uppercase; color:#6b3f10; letter-spacing:1px; margin-top:0.35rem;">
+                Contributed by ${q.contributor} &bull; ${q.department}
+            </div>
+        </div>
+        ${reflection}
+        <div style="margin-top:2rem;">
+            <a class="puzzle-link" href="${puzzleUrl(q)}" style="display:inline-block;font-family:'DM Mono',monospace; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#b8913a; text-decoration:none; border:1px solid #b8913a; border-radius:20px; padding:7px 16px;">🧩 Solve this as a puzzle &rarr; ${puzzleUrlShort(q)}</a>
+        </div>
+    `;
+    div.dataset.puzzleUrl = puzzleUrl(q);
+    return div;
+}
+
+// Cover page for the range PDF
+function buildCoverPageEl(fromStr, toStr, quotes) {
+    const div = document.createElement('div');
+    div.style.cssText = "width:800px;min-height:1131px;box-sizing:border-box;background:#f5f0e8;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem;font-family:'Cormorant Garamond',Georgia,serif;";
+    div.innerHTML = `
+        <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:5px; text-transform:uppercase; color:#b8913a; margin-bottom:1.5rem;">
+            English Department Wisdom Archive
+        </div>
+        <h1 style="font-style:italic; font-size:56px; margin:0 0 1.25rem; color:#1c1a16;">A Quote A Day</h1>
+        <div style="width:80px; height:2px; background:#b8913a; margin:0 0 1.5rem;"></div>
+        <div style="font-family:'DM Mono',monospace; font-size:13px; letter-spacing:3px; text-transform:uppercase; color:#6b3f10;">
+            ${formatDateLabel(fromStr)} &mdash; ${formatDateLabel(toStr)}
+        </div>
+        <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#888; margin-top:0.75rem;">
+            ${quotes.length} ${quotes.length === 1 ? 'Quote' : 'Quotes'}
+        </div>
+    `;
+    return div;
+}
+
+async function downloadRangeAsPDF(fromStr, toStr) {
+    const quotes = getQuotesInRange(fromStr, toStr);
+    if (quotes.length === 0) return alert('No quotes found in that date range.');
+
+    const stageHost = document.createElement('div');
+    stageHost.style.position = 'absolute';
+    stageHost.style.left = '-9999px';
+    stageHost.style.top = '0';
+    document.body.appendChild(stageHost);
+
+    try {
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF('p', 'pt', 'a4');
+        const pdfWidth  = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+
+        // Cover page, then one page per quote
+        const pages = [buildCoverPageEl(fromStr, toStr, quotes), ...quotes.map(buildQuotePageEl)];
+
+        for (let i = 0; i < pages.length; i++) {
+            stageHost.innerHTML = '';
+            stageHost.appendChild(pages[i]);
+            // Let webfonts settle on the freshly-mounted node
+            await new Promise(r => setTimeout(r, 60));
+
+            const canvas = await html2canvas(pages[i], {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: i === 0 ? '#f5f0e8' : '#ffffff',
+            });
+            const imgData = canvas.toDataURL('image/png');
+
+            if (i > 0) pdf.addPage();
+
+            // Fit each quote's canvas onto exactly one page, centered
+            const imgW = pdfWidth;
+            const imgH = (canvas.height * imgW) / canvas.width;
+
+            let offX = 0, offY = 0, drawW = imgW, drawH = imgH;
+            if (imgH <= pdfHeight) {
+                offY = (pdfHeight - imgH) / 2;
+            } else {
+                drawH = pdfHeight;
+                drawW = (canvas.width * drawH) / canvas.height;
+                offX = (pdfWidth - drawW) / 2;
+            }
+            pdf.addImage(imgData, 'PNG', offX, offY, drawW, drawH);
+
+            // Make the 🧩 button on quote pages clickable inside the PDF
+            const linkEl = pages[i].querySelector('a.puzzle-link');
+            if (linkEl) {
+                const pr = pages[i].getBoundingClientRect();
+                const lr = linkEl.getBoundingClientRect();
+                const k  = drawW / pr.width;
+                pdf.link(offX + (lr.left - pr.left) * k, offY + (lr.top - pr.top) * k,
+                         lr.width * k, lr.height * k, { url: pages[i].dataset.puzzleUrl });
+            }
+        }
+
+        pdf.save(`Quotes_${fromStr}_to_${toStr}.pdf`);
+
+    } catch (error) {
+        console.error('PDF Generation failed:', error);
+        alert('Failed to generate PDF.');
+    } finally {
+        document.body.removeChild(stageHost);
+    }
+}
+
+// ─── EVENT LISTENERS ─────────────────────────
+// The deck overlay's HTML/PDF buttons still export just the single day of
+// whichever quote is currently open, since they're tied to that one quote.
+
+document.getElementById('btnDownloadHtml').addEventListener('click', () => {
+    const currentQuote = currentView[deckIdx];
+    if (currentQuote) {
+        downloadRangeAsHTML(currentQuote.dateStr, currentQuote.dateStr);
+    }
+});
+
+document.getElementById('btnDownloadPdf').addEventListener('click', () => {
+    const currentQuote = currentView[deckIdx];
+    if (currentQuote) {
+        downloadRangeAsPDF(currentQuote.dateStr, currentQuote.dateStr);
+    }
+});

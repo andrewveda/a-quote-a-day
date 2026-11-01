@@ -63,8 +63,51 @@
                 <button class="filter-sheet-tab" data-tab="contributors">By Contributor</button>
                 <button class="filter-sheet-tab" data-tab="departments">By Dept</button>
             </div>
+
+            <div class="filter-sheet-divider"></div>
+
+            <div class="filter-sheet-title">Download by Date Range</div>
+            <div class="filter-sheet-download">
+                <div class="filter-date-row">
+                    <div class="filter-date-field">
+                        <label class="filter-date-label" for="sheetFromDateInput">From</label>
+                        <input type="date" id="sheetFromDateInput" class="filter-date-input" aria-label="From date"/>
+                    </div>
+                    <div class="filter-date-field">
+                        <label class="filter-date-label" for="sheetToDateInput">To</label>
+                        <input type="date" id="sheetToDateInput" class="filter-date-input" aria-label="To date"/>
+                    </div>
+                </div>
+                <div class="filter-download-actions">
+                    <button class="filter-download-btn" id="sheetDownloadHtmlBtn">Download HTML</button>
+                    <button class="filter-download-btn" id="sheetDownloadPdfBtn">Download PDF</button>
+                </div>
+            </div>
         </div>
     </div>
+
+    <style>
+        .filter-sheet-divider{height:1px;background:var(--gold-border,#d3cec4);margin:20px 0 16px;}
+        .filter-sheet-download{display:flex;flex-direction:column;gap:12px;}
+        .filter-date-row{display:flex;gap:10px;}
+        .filter-date-field{flex:1;display:flex;flex-direction:column;gap:6px;min-width:0;}
+        .filter-date-label{
+            font-family:var(--mono,monospace);font-size:9px;letter-spacing:2px;
+            text-transform:uppercase;color:var(--ink-muted,#8a837a);
+        }
+        .filter-date-input{
+            width:100%;box-sizing:border-box;padding:12px 14px;border-radius:10px;
+            border:1px solid var(--gold-border,#d3cec4);font-family:var(--sans,inherit);
+            font-size:15px;background:#fff;color:#1c1a16;
+        }
+        .filter-download-actions{display:flex;gap:10px;}
+        .filter-download-btn{
+            flex:1;padding:12px 10px;border-radius:30px;border:1px solid var(--gold-border,#d3cec4);
+            background:var(--gold,#b8913a);color:#fff;font-family:var(--sans,inherit);
+            font-size:13px;font-weight:600;letter-spacing:0.3px;cursor:pointer;
+        }
+        .filter-download-btn:active{opacity:0.85;}
+    </style>
 
     <!-- ═══ MAIN CONTENT ═══ -->
     <main class="newspaper-body" id="mainContent">
@@ -74,27 +117,38 @@
         </div>
     </main>
 
-    <!-- ═══ DECK OVERLAY ═══ -->
-    <div class="deck-overlay" id="deckOverlay" role="dialog" aria-modal="true" aria-label="Quote viewer">
-        <div class="deck-topbar">
-            <button class="deck-nav-btn" id="deckClose" aria-label="Close">✕</button>
-            <div class="deck-progress-wrap" id="deckProgressWrap"></div>
-            <div id="deckCounter" class="deck-counter">1 / 1</div>
+    <!-- ═══ QUOTE SIDEBAR ═══ -->
+    <div class="dir-backdrop" id="quoteBackdrop"></div>
+    <aside class="dir-panel quote-panel" id="quotePanel" role="dialog" aria-modal="true" aria-labelledby="quoteTitle">
+        <div class="dir-header">
+            <div class="dir-header-text">
+                <h2 id="quoteTitle" class="dir-title">Quote</h2>
+                <div id="quoteSub" class="dir-sub"></div>
+            </div>
+            <button id="quoteClose" class="dir-close-btn" aria-label="Close quote">✕</button>
         </div>
-        <div class="deck-nav-arrows">
-            <button class="arrow-btn" id="arrowPrev" aria-label="Previous">&#8592;</button>
-            <button class="arrow-btn" id="arrowNext" aria-label="Next">&#8594;</button>
+        <div id="quoteBody" class="dir-list quote-body"></div>
+        <div class="quote-footer" id="quoteFooter">
+            <button class="quote-step" id="quotePrev" aria-label="Previous quote">←</button>
+            <div class="quote-footer-mid">
+                <div id="quoteCounter" class="deck-counter">1 / 1</div>
+                <div class="quote-export">
+                    <button class="quote-export-btn" id="btnDownloadHtml">HTML</button>
+                    <button class="quote-export-btn" id="btnDownloadPdf">PDF</button>
+                </div>
+            </div>
+            <button class="quote-step" id="quoteNext" aria-label="Next quote">→</button>
         </div>
-        <div class="deck-track-wrap">
-            <div class="deck-track" id="deckTrack"></div>
-        </div>
-    </div>
+    </aside>
 
     <!-- ═══ DIRECTORY PANEL ═══ -->
     <div class="dir-backdrop" id="dirBackdrop"></div>
     <aside class="dir-panel" id="dirPanel" role="complementary">
         <div class="dir-header">
-            <h2 id="dirTitle" class="dir-title">Directory</h2>
+            <div class="dir-header-text">
+                <h2 id="dirTitle" class="dir-title">Directory</h2>
+                <div id="dirSub" class="dir-sub"></div>
+            </div>
             <button id="dirClose" class="dir-close-btn" aria-label="Close directory">✕</button>
         </div>
         <div id="dirList" class="dir-list"></div>
@@ -103,7 +157,9 @@
     <!-- ═══ SHARE CANVAS (offscreen) ═══ -->
     <div id="share-canvas-container" style="position:fixed;left:-9999px;top:0;z-index:-1;"></div>
 
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

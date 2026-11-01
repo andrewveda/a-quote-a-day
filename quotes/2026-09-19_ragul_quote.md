@@ -1,0 +1,6 @@
+---
+quote: "You don't need to be louder to be remembered; build something meaningful, and let your work speak when you are no longer in the room."
+author: "Ragul"
+---
+
+You don't need to be louder to be remembered; build something meaningful, and let your work speak when you are no longer in the room.

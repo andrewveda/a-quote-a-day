@@ -7,6 +7,8 @@ what_it_means_to_me: "This quote reminds me that we can create confusion within 
 
 contributor: "Lohendra V S"
 department: "EIE"
+
 source: "J. Krishnamurti"
 
 tags: ["self-awareness", "independent-thinking", "clarity", "self-discovery", "wisdom", "mindset"]
+---
