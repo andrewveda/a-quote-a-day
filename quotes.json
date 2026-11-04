@@ -1,5 +1,19 @@
 [
 {
+  "id": 216,
+  "quote": "Enjoy the little things, for one day you may look back and realize they were the big things.",
+  "author": "Robert Brault",
+  "contributor": "Kohulan",
+  "department": "CSE 2",
+  "about": "I believe we often overlook the little moments in life, thinking they are ordinary. But someday, we may realize that these simple moments were the ones that made life truly special.",
+  "tags": [
+    "life",
+    "memories",
+    "gratitude"
+  ],
+  "dateStr": "2026-11-03"
+},
+  {
   "id": 215,
   "quote": "Only those who dare to fail greatly can ever achieve greatly.",
   "author": "Robert F. Kennedy",
