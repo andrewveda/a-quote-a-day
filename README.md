@@ -1,43 +1,17 @@
-# A Quote A Day
+# ✨ A Quote a Day
 
-An archive of daily quotations submitted by students, valuing consistency over volume and personal contemplation and growth over the unrealised ideal of perfection.
+*A little inspiration, one quote at a time.*
 
-This repository supports a simple daily practice: reading a quote, thinking about it, and articulating why it matters.
+## About
 
----
+This is my daily quote collection. Through these quotes, I learn new thoughts, understand their meanings, and find little lessons that I can use in my everyday life.
 
-## Contributing a Quote
+**One day. One quote. One new perspective.** 🌱
 
-### 1. Create your file
+## Acknowledgement
 
-[Click here to add your quote on GitHub](https://github.com/AndrewVeda/a-quote-a-day/new/main/quotes) — it will fork the repo and open an editor automatically.
-
-### 2. Use this template
-
-```yaml
----
-quote: 
-author: 
-what_it_means_to_me: 
-contributor: 
-department: 
-source: 
-tags: 
----
-```
-
-Fill in all fields before submitting.
-
-### 3. Name your file correctly
-
-```
-YYYY-MM-DD_yourname_department.md
-```
-
-**Example:** `2026-02-04_meenz_cyber-security.md`
-
-> Files that don't follow this format cannot be processed.
+My sincere thanks to Andrew Veda Sir for introducing this initiative.
 
 ---
 
-That's it — submit a pull request and your quote joins the collection.
+*Keep learning. Keep growing.*
