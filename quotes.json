@@ -1,5 +1,20 @@
 [
 {
+  "id": 218,
+  "quote": "The mind is everything. What you think, you become.",
+  "author": "Buddha",
+  "contributor": "Ragavi",
+  "department": "CSE 2",
+  "about": "Our thoughts influence our actions and decisions. The way we think shapes our attitude, choices, and future. Therefore, we should develop positive and meaningful thoughts.",
+  "tags": [
+    "thinking",
+    "mindset",
+    "wisdom",
+    "self-improvement"
+  ],
+  "dateStr": "2026-11-07"
+},
+{
   "id": 217,
   "quote": "Don't let one bad chapter make you forget that you're writing the whole story.",
   "author": "Unknown",
@@ -11,7 +26,7 @@
     "growth",
     "resilience"
   ],
-  "dateStr": "2026-11-08"
+  "dateStr": "2026-11-07"
 },
 {
   "id": 216,
