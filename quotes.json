@@ -1,18 +1,18 @@
 [
 {
-  "id": "quote-219",
-  "num": 219,
-  "title": "Puzzle 219",
-  "sub": "Every victory over evil brings…",
-  "cols": 4,
-  "rows": 5,
-  "quoteData": {
-    "quote": "Every victory over evil brings a new light into the world.",
-    "author": "Unknown",
-    "contributor": "Kavitha",
-    "dept": "CSE-2",
-    "meaning": "The victory of Lord Krishna over Narakasura and Lord Rama's return to Ayodhya remind us that goodness always wins and every victory brings new hope and happiness."
-  }
+  "id": 219,
+  "quote": "Every victory over evil brings a new light into the world.",
+  "author": "Unknown",
+  "contributor": "Kavitha",
+  "department": "CSE-2",
+  "about": "The victory of Lord Krishna over Narakasura and Lord Rama's return to Ayodhya remind us that goodness always wins and every victory brings new hope and happiness.",
+  "tags": [
+    "Diwali",
+    "victory",
+    "hope",
+    "goodness"
+  ],
+  "dateStr": "2026-11-09"
 },
 {
   "id": 218,
