@@ -117,32 +117,38 @@
         </div>
     </main>
 
-    <!-- ═══ DECK OVERLAY ═══ -->
-    <div class="deck-overlay" id="deckOverlay" role="dialog" aria-modal="true" aria-label="Quote viewer">
-        <div class="deck-topbar">
-            <!-- Wrapped buttons in a left-aligned container for better spacing -->
-            <div class="deck-actions-left" style="display: flex; gap: 8px;">
-                <button class="deck-nav-btn" id="deckClose" aria-label="Close">✕</button>
-                <button class="deck-nav-btn" id="btnDownloadHtml" aria-label="Download HTML">HTML</button>
-                <button class="deck-nav-btn" id="btnDownloadPdf" aria-label="Download PDF">PDF</button>
+    <!-- ═══ QUOTE SIDEBAR ═══ -->
+    <div class="dir-backdrop" id="quoteBackdrop"></div>
+    <aside class="dir-panel quote-panel" id="quotePanel" role="dialog" aria-modal="true" aria-labelledby="quoteTitle">
+        <div class="dir-header">
+            <div class="dir-header-text">
+                <h2 id="quoteTitle" class="dir-title">Quote</h2>
+                <div id="quoteSub" class="dir-sub"></div>
             </div>
-            <div class="deck-progress-wrap" id="deckProgressWrap"></div>
-            <div id="deckCounter" class="deck-counter">1 / 1</div>
+            <button id="quoteClose" class="dir-close-btn" aria-label="Close quote">✕</button>
         </div>
-        <div class="deck-nav-arrows">
-            <button class="arrow-btn" id="arrowPrev" aria-label="Previous">&#8592;</button>
-            <button class="arrow-btn" id="arrowNext" aria-label="Next">&#8594;</button>
+        <div id="quoteBody" class="dir-list quote-body"></div>
+        <div class="quote-footer" id="quoteFooter">
+            <button class="quote-step" id="quotePrev" aria-label="Previous quote">←</button>
+            <div class="quote-footer-mid">
+                <div id="quoteCounter" class="deck-counter">1 / 1</div>
+                <div class="quote-export">
+                    <button class="quote-export-btn" id="btnDownloadHtml">HTML</button>
+                    <button class="quote-export-btn" id="btnDownloadPdf">PDF</button>
+                </div>
+            </div>
+            <button class="quote-step" id="quoteNext" aria-label="Next quote">→</button>
         </div>
-        <div class="deck-track-wrap">
-            <div class="deck-track" id="deckTrack"></div>
-        </div>
-    </div>
+    </aside>
 
     <!-- ═══ DIRECTORY PANEL ═══ -->
     <div class="dir-backdrop" id="dirBackdrop"></div>
     <aside class="dir-panel" id="dirPanel" role="complementary">
         <div class="dir-header">
-            <h2 id="dirTitle" class="dir-title">Directory</h2>
+            <div class="dir-header-text">
+                <h2 id="dirTitle" class="dir-title">Directory</h2>
+                <div id="dirSub" class="dir-sub"></div>
+            </div>
             <button id="dirClose" class="dir-close-btn" aria-label="Close directory">✕</button>
         </div>
         <div id="dirList" class="dir-list"></div>

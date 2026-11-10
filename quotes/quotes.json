@@ -1,0 +1,1676 @@
+[
+  {
+    "id": 186,
+    "quote": "\"The only true wisdom is in knowing you know nothing.\"",
+    "author": "\"Socrates\"",
+    "contributor": "Ragavi",
+    "department": "CSE",
+    "about": "\"It reminds me that true wisdom comes from understanding that there is always more to learn.\"",
+    "dateStr": "2026-10-04"
+  },
+  {
+    "id": 187,
+    "quote": "Man can do what he wills, but he cannot will what he wills.",
+    "author": "Arthur Schopenhauer",
+    "contributor": "Avi",
+    "department": "Cyber Security",
+    "about": "We can choose what we do, but we cannot always choose what we want. Our desires influence our choices, even when we don't consciously control those desires.",
+    "dateStr": "2026-10-04"
+  },
+  {
+    "id": 188,
+    "quote": "Some trees flourish, others die. Some cattle grow strong, others are taken by wolves. Some men are born rich enough and dumb enough to enjoy their lives. Ain’t nothing fair.",
+    "author": "John Marston",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Life does not distribute its rewards or suffering fairly. Some people thrive while others struggle through circumstances they never chose, and sometimes there is no deeper reason or justice behind it.",
+    "dateStr": "2026-10-04"
+  },
+  {
+    "id": 183,
+    "quote": "Simplicity is the keynote of all true elegance.",
+    "author": "Coco Chanel",
+    "contributor": "Avi",
+    "department": "Cyber Security",
+    "about": "True elegance doesn’t come from adding more; it comes from knowing what to leave out. Keeping things simple, clean, and purposeful can make them more refined and sophisticated.",
+    "dateStr": "2026-10-03"
+  },
+  {
+    "id": 184,
+    "quote": "No amount of money ever bought a second of time.",
+    "author": "Tony Stark (Iron Man)",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Money can buy many things, but it can never buy back the time we've lost. It reminds me to value the time I have instead of measuring life only by wealth.",
+    "dateStr": "2026-10-03"
+  },
+  {
+    "id": 185,
+    "quote": "Success is stumbling from failure to failure with no loss of enthusiasm.",
+    "author": "Winston Churchill",
+    "contributor": "Ragavi",
+    "department": "CSE-2",
+    "about": "Even when I fail, I can learn from it, improve myself, and keep moving forward without giving up.",
+    "dateStr": "2026-10-03"
+  },
+  {
+    "id": 180,
+    "quote": "It's not about if I can. I'm doing this because I want to.",
+    "author": "Monkey D. Luffy",
+    "contributor": "Kavitha",
+    "department": "CSE-2",
+    "about": "This quote reminds me that I don't need to prove anything to anyone. I do things because I want to, not because I have to show I'm capable.",
+    "dateStr": "2026-10-02"
+  },
+  {
+    "id": 181,
+    "quote": "Any fool can know. The point is to understand.",
+    "author": "Albert Einstein",
+    "contributor": "Avi",
+    "department": "Cyber Security",
+    "about": "Knowing something is not enough; truly understanding it is what matters. Real knowledge comes from understanding why and how, not just memorizing facts.",
+    "dateStr": "2026-10-02"
+  },
+  {
+    "id": 182,
+    "quote": "Our scars can destroy us, even after the physical wounds have healed. But if we survive them, they can transform us.",
+    "author": "Batman ( Bruce Wayne )",
+    "contributor": "Megam (Pacman jr)",
+    "department": "cse-2",
+    "about": "Painful experiences can either break us or help us grow, depending on how we deal with them.",
+    "dateStr": "2026-10-02"
+  },
+  {
+    "id": 179,
+    "quote": "Simplicity is the ultimate sophistication.",
+    "author": "Leonardo da Vinci",
+    "contributor": "Avi",
+    "department": "Cyber Security",
+    "about": "True sophistication comes from making things simple, clear, and purposeful. The more refined something becomes, the less unnecessary complexity it needs.",
+    "dateStr": "2026-10-01"
+  },
+  {
+    "id": 177,
+    "quote": "Not telling the truth is a lie, trying to make a lie into the truth is deception.",
+    "author": "Trivikram Srinivas",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "A lie hides the truth, but deception goes further by deliberately making that lie appear to be the truth. The difference lies in the intention behind the deception.",
+    "dateStr": "2026-09-30"
+  },
+  {
+    "id": 178,
+    "quote": "“If I win and then lose, I'll remember the loss. If I lose and then win, history remembers the victory. Because history remembers how you finish.”",
+    "author": "Lucky Bhaskar",
+    "contributor": "Megam (Pacman jr)",
+    "department": "cse-2",
+    "about": "\"Life is not remembered for how it begins, but for how it ends.",
+    "dateStr": "2026-09-30"
+  },
+  {
+    "id": 176,
+    "quote": "The value of a word changes depending on when you hear it and who says it.",
+    "author": "Trivikram Srinivas",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "The same words can carry different weight depending on the moment and the person who speaks them. Meaning is shaped not only by what is said, but also by when and by whom it is heard.",
+    "dateStr": "2026-09-29"
+  },
+  {
+    "id": 174,
+    "quote": "\"I don't fight because I think I can win,I fight because I have to win\"",
+    "author": "K. Narendran",
+    "contributor": "Anonymous",
+    "department": "CSE-2",
+    "about": "I may not know that I can win. But I know I have to keep going until I give myself the best chance to win.",
+    "dateStr": "2026-09-27"
+  },
+  {
+    "id": 175,
+    "quote": "Everyone fails at who they're supposed to be, Thor. The measure of a person, of a hero, is how well they succeed at being who they are.",
+    "author": "Frigga",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Nobody becomes exactly who they are expected to be. What matters is accepting who you are, learning from failure, and doing your best to live as the person you truly are.",
+    "dateStr": "2026-09-27"
+  },
+  {
+    "id": 172,
+    "quote": "\"Icarus laughed as he fell, for he knew to fall means is to once have soared. \"",
+    "author": "Fiona",
+    "contributor": "Madhukrishna",
+    "department": "CSE 2",
+    "about": "The man who fears the fall never touches the sky.",
+    "dateStr": "2026-09-24"
+  },
+  {
+    "id": 173,
+    "quote": "I don't know how much value I have in this universe, but I do know I made a few people happier than they would have been without me, and as long as I know that, I'm as rich as I ever need to be.",
+    "author": "Robin Williams (Mork)",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "True wealth isn't measured by money or status. Making someone's life a little better can be enough to make your own life feel rich.",
+    "dateStr": "2026-09-24"
+  },
+  {
+    "id": 170,
+    "quote": "Every story needs a fool because wisdom is born from mistakes",
+    "author": "K. Narendran",
+    "contributor": "K. Narendran",
+    "department": "CSE 2",
+    "about": "We often become wiser by making mistakes and learning from them.",
+    "dateStr": "2026-09-22"
+  },
+  {
+    "id": 167,
+    "quote": "\"The primary cause of disorder in ourselves is the seeking of reality promised by another.\"",
+    "author": "\"J. Krishnamurti\"",
+    "contributor": "\"Lohendra V S\"",
+    "department": "\"EIE\"",
+    "about": "\"This quote reminds me that we can create confusion within ourselves when we blindly accept someone else's idea of what life, success, or truth should be. Instead of simply following what others tell us, we should observe, question, and understand things for ourselves. True clarity comes from discovering our own understanding rather than depending entirely on another person's version of reality.\"",
+    "dateStr": "2026-09-21"
+  },
+  {
+    "id": 168,
+    "quote": "The hardest game to win is a won game.",
+    "author": "Emanuel Lasker",
+    "contributor": "Meenz",
+    "department": "Cyber Security",
+    "about": "Even when I have the advantage, I can't become careless. A winning position still requires focus, patience, and discipline. The game isn't over until it's actually over.",
+    "dateStr": "2026-09-21"
+  },
+  {
+    "id": 169,
+    "quote": "On planning There are only four rules you need to remember. Make the plan, execute the plan, expect the plan to go off the rails, throw away the plan.",
+    "author": "Leonard Snart(AKA Captain Cold)",
+    "contributor": "Megam (Pacman jr)",
+    "department": "cse-2",
+    "about": "While preparation is a necessary starting point, rigid adherence to a plan is useless because unpredictable things will inevitably go wrong. True success requires ultimate adaptability and the readiness to completely improvise in the moment.",
+    "dateStr": "2026-09-21"
+  },
+  {
+    "id": 165,
+    "quote": "It is not the answer that enlightens, but the question",
+    "author": "Eugène Ionesco",
+    "contributor": "Kohulan",
+    "department": "CSE-2",
+    "about": "This quote reminds me that I learn more when I question myself instead of just looking for answers. Asking questions helps me understand my mistakes, think differently, and learn from my experiences. I feel that real growth starts when I’m open to questioning myself and learning along the way.",
+    "dateStr": "2026-09-20"
+  },
+  {
+    "id": 166,
+    "quote": "The Particle Of God Permeates All Existence.",
+    "author": "Higgs",
+    "contributor": "Megam (Pacman jr)",
+    "department": "cse-2",
+    "about": "A divine essence or fundamental energy is woven into the physical and spiritual fabric of absolutely everything in the universe.",
+    "dateStr": "2026-09-20"
+  },
+  {
+    "id": 162,
+    "quote": "Until the breath leaves the body, defeat is only a rumour.",
+    "author": "Alexander the Great",
+    "contributor": "K. Narendran",
+    "department": "CSE-2",
+    "about": "It reminds me of someone who falls, looks at the situation, says Okay, that didn't work, learns from it, and gets back up.",
+    "dateStr": "2026-09-19"
+  },
+  {
+    "id": 163,
+    "quote": "Medicine, law, business, engineering—these are noble pursuits and necessary to sustain life. But poetry, beauty, romance, love—these are what we stay alive for.",
+    "author": "John Keating",
+    "contributor": "Megam (Pacman jr)",
+    "department": "cse-2",
+    "about": "Practical professions are the essential tools required to physically survive and maintain society.",
+    "dateStr": "2026-09-19"
+  },
+  {
+    "id": 164,
+    "quote": "\"You don't need to be louder to be remembered; build something meaningful, and let your work speak when you are no longer in the room.\"",
+    "author": "\"Ragul\"",
+    "contributor": "Anonymous",
+    "department": "English",
+    "about": "",
+    "dateStr": "2026-09-19"
+  },
+  {
+    "id": 159,
+    "quote": "Day one or one day, you decide.",
+    "author": "Anonymous",
+    "contributor": "Kohulan",
+    "department": "CSE",
+    "about": "It makes me realise my potential. Just a few simple words, arranged in an order that creates a huge impact on our thoughts. Inspiring! 🔥",
+    "dateStr": "2026-09-18"
+  },
+  {
+    "id": 160,
+    "quote": "\"Being happy doesn't mean you don't have issues. It just means that you're working on them.\"",
+    "author": "Oliver Queen(AKA Green Arrow)",
+    "contributor": "Megam (Pacman Jr)",
+    "department": "cse-2",
+    "about": "Happiness is not about living a perfect, problem-free life, as everyone has struggles. True contentment comes from actively facing your challenges and making progress to overcome them.",
+    "dateStr": "2026-09-18"
+  },
+  {
+    "id": 161,
+    "quote": "\"Greatest battles are with closest people. We always fight with people whom we feel like 'our' own.\"",
+    "author": "Ramachandra",
+    "contributor": "Megam (Pacman jr)",
+    "department": "cse-2",
+    "about": "We fight the hardest with our loved ones because our deep emotional bond makes us highly vulnerable to their words and actions.",
+    "dateStr": "2026-09-18"
+  },
+  {
+    "id": 158,
+    "quote": "Software, I've come to believe, is a kind of architecture, and a building oughtn't be ugly.",
+    "author": "Theo K Laurent",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "It reflects how I see software as more than something that merely works. Good software should have structure, proportion, clarity, and elegance; its internal design matters just as much as its visible result. Function without form may still stand, but it should not be the standard we aspire to.",
+    "dateStr": "2026-09-09"
+  },
+  {
+    "id": 157,
+    "quote": "I've learned something. There is no rest for me in this world.",
+    "author": "Thomas Shelby",
+    "contributor": "Avi",
+    "department": "Cyber Security",
+    "about": "There is always something new to learn, improve, and understand. Growth never truly stops; every experience becomes another lesson.",
+    "dateStr": "2026-09-02"
+  },
+  {
+    "id": 156,
+    "quote": "Make the plan, execute the plan, expect the plan to go off the rails, throw away the plan.",
+    "author": "Leonard Snart",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Make a plan and follow it, but be ready to abandon it when reality changes. The ability to adapt is often more important than sticking rigidly to a plan.",
+    "dateStr": "2026-09-01"
+  },
+  {
+    "id": 154,
+    "quote": "Just because someone stumbles and loses their path, doesn't mean they're lost forever. Sometimes, we all need a little help.",
+    "author": "Charles Xavier",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Losing your way or making mistakes doesn't mean you're lost forever. Sometimes, we all need a little help can guide us back to the right path.",
+    "dateStr": "2026-08-24"
+  },
+  {
+    "id": 153,
+    "quote": "\"The gem cannot be polished without friction, nor man perfected without trials.\"",
+    "author": "Seneca",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that difficulties are not just obstacles to overcome; they are experiences that shape me into a stronger and wiser person. Just as friction gives a gem its shine, struggles help develop patience, courage, resilience, and inner strength.\"",
+    "dateStr": "2026-08-12"
+  },
+  {
+    "id": 152,
+    "quote": "\"You have power over your mind—not outside events. Realize this, and you will find strength.\"",
+    "author": "Marcus Aurelius",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that life is full of events that I cannot control. However, I can always control my thoughts, actions, and attitude. True strength comes from mastering my own mind instead of trying to control everything around me.\"",
+    "dateStr": "2026-08-06"
+  },
+  {
+    "id": 151,
+    "quote": "You can't let the threat of losing tomorrow keep you from making the most of today",
+    "author": "Barry Allen (The Flash)",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Don't spend so much time worrying about what might happen tomorrow that you forget to enjoy, appreciate, and make the best of today.",
+    "dateStr": "2026-08-04"
+  },
+  {
+    "id": 150,
+    "quote": "\"The wound is the place where the light enters you.\"",
+    "author": "Rumi",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that pain and difficulties can become sources of growth and wisdom. The moments that hurt us the most often reveal our strength and teach us valuable lessons about life.\"",
+    "dateStr": "2026-08-03"
+  },
+  {
+    "id": 149,
+    "quote": "\"He who has a why to live can bear almost any how.\"",
+    "author": "Friedrich Nietzsche",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that a person who has a clear purpose can endure even the hardest struggles. When we know why we are moving forward, obstacles become challenges to overcome rather than reasons to give up.\"",
+    "dateStr": "2026-08-02"
+  },
+  {
+    "id": 147,
+    "quote": "\"Without labor nothing prospers.\"",
+    "author": "Sophocles",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that success is never built on talent or luck alone. Every meaningful achievement is rooted in consistent effort, patience, and the willingness to keep working even when progress is slow.\"",
+    "dateStr": "2026-07-28"
+  },
+  {
+    "id": 148,
+    "quote": "\"Life is a kind of Chess, with struggle, competition, good and ill events.\"",
+    "author": "Benjamin Franklin",
+    "contributor": "Meenz",
+    "department": "Cyber Security",
+    "about": "Life won't always go your way, but every setback is just another move. Keep playing, keep learning, and your next move can change everything.",
+    "dateStr": "2026-07-28"
+  },
+  {
+    "id": 146,
+    "quote": "\"Quality is more important than quantity. One home run is much better than two doubles.\"",
+    "author": "Steve Jobs",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that achieving one excellent result is more valuable than producing many average ones. It encourages me to focus on quality, give my best effort, and strive for excellence in everything I do.\"",
+    "dateStr": "2026-07-27"
+  },
+  {
+    "id": 144,
+    "quote": "\"It is our choices, Harry, that show what we truly are, far more than our abilities.\"",
+    "author": "Albus Dumbledore",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "It separates inherent talent from moral character. It reminds me that capability is meaningless without the integrity to direct it, and that our identity is forged by the difficult paths we choose to walk rather than the gifts we possess.",
+    "dateStr": "2026-07-23"
+  },
+  {
+    "id": 145,
+    "quote": "\"If you want to know what a man's like, take a good look at how he treats his inferiors, not his equals.\"",
+    "author": "Sirius Black",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "It exposes the difference between performance and authentic integrity. It reminds me that true character is revealed only when there is no transactional benefit to being decent, stripping away the mask of politeness that people wear around peers.",
+    "dateStr": "2026-07-23"
+  },
+  {
+    "id": 142,
+    "quote": "\"The clearest way into the Universe is through a forest wilderness.\"",
+    "author": "John Muir",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that nature is more than just trees and mountains—it is a gateway to understanding life itself. When I spend time in the quiet of a forest, away from distractions, I find peace, clarity, and a deeper appreciation for the beauty and balance of the world. Nature teaches me humility and reminds me that I am a small but meaningful part of something far greater than myself.\"",
+    "dateStr": "2026-07-22"
+  },
+  {
+    "id": 143,
+    "quote": "Death is inevitable. Our fear of it makes us play safe, blocks out emotion. It’s a losing game. Without passion, you are already dead.",
+    "author": "Max Payne",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "It exposes the danger of existence without intensity. It reminds me that avoiding risks to escape pain is a slow self-destruction, because a life guarded against everything is a life stripped of its fire.",
+    "dateStr": "2026-07-22"
+  },
+  {
+    "id": 141,
+    "quote": "\"A river cuts through rock not because of its power, but because of its persistence.\"",
+    "author": "James N. Watkins",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote teaches me that success is not determined by strength or talent alone, but by the ability to keep moving forward despite obstacles. Just as a river shapes solid rock through continuous flow, consistent effort and perseverance can overcome even the greatest challenges. It reminds me that small actions repeated every day create extraordinary results over time.\"",
+    "dateStr": "2026-07-20"
+  },
+  {
+    "id": 140,
+    "quote": "\"The observer is the observed.\"",
+    "author": "Jiddu Krishnamurti",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote teaches me that I am not separate from my thoughts, emotions, and actions. Instead of blaming or fighting them, I should understand that they are a part of me. True self-awareness begins when I observe myself without judgment, leading to inner clarity and personal transformation.\"",
+    "dateStr": "2026-07-19"
+  },
+  {
+    "id": 138,
+    "quote": "Anyone who has never made a mistake has never tried anything new.",
+    "author": "Albert Einstein",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "This quote reminds me that mistakes are not signs of failure but proof that I am learning and exploring new possibilities. Every mistake teaches a valuable lesson, builds experience, and brings me one step closer to success. Instead of fearing failure, I should embrace it as a natural part of growth and innovation.",
+    "dateStr": "2026-07-18"
+  },
+  {
+    "id": 139,
+    "quote": "\"If you don't take risks, you can't create a future.\"",
+    "author": "Monkey D. Luffy",
+    "contributor": "Meenz",
+    "department": "Cyber Security",
+    "about": "Growth requires stepping into the unknown.",
+    "dateStr": "2026-07-18"
+  },
+  {
+    "id": 137,
+    "quote": "\"Whatever comes our way, whatever battle we have raging inside us, we always have a choice.\"",
+    "author": "Peter Parker",
+    "contributor": "Meenz",
+    "department": "Cyber Security",
+    "about": "No matter what challenges I face, I choose to keep doing what's right.",
+    "dateStr": "2026-07-17"
+  },
+  {
+    "id": 136,
+    "quote": "Life is a tragedy when seen in close-up, but a comedy in long-shot",
+    "author": "Charlie Chaplin",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "When life feels like a tragedy or you're facing a serious problem, taking a step back and looking at the bigger picture can change your perspective. What feels overwhelming now may one day seem much less serious or even something you can laugh about.",
+    "dateStr": "2026-07-16"
+  },
+  {
+    "id": 135,
+    "quote": "\"Why do we fall? So that we can learn to pick ourselves up.\"",
+    "author": "Alfred Pennyworth",
+    "contributor": "Meenz",
+    "department": "Cyber Security",
+    "about": "Every setback is a lesson. I become stronger every time I get back up.",
+    "dateStr": "2026-07-11"
+  },
+  {
+    "id": 134,
+    "quote": "\"Happiness can be found even in the darkest of times, if one only remembers to turn on the light.\"",
+    "author": "Albus Dumbledore",
+    "contributor": "Meenz",
+    "department": "Cyber Security",
+    "about": "No matter how hard life gets, there's always a light to find.",
+    "dateStr": "2026-07-09"
+  },
+  {
+    "id": 132,
+    "quote": "\"I've failed over and over and over again in my life. And that is why I succeed.\"",
+    "author": "\"Michael Jordan\"",
+    "contributor": "\"Johint\"",
+    "department": "\"Computer Science and Engineering\"",
+    "about": "\"Failure is part of success. Every mistake teaches me something and helps me improve.\"",
+    "dateStr": "2026-07-08"
+  },
+  {
+    "id": 133,
+    "quote": "\"There are two paths you can take: yours, or the path others choose for you.\"",
+    "author": "Eudoria Holmes",
+    "contributor": "Meenz",
+    "department": "Cyber Security",
+    "about": "Be the author of your own story.",
+    "dateStr": "2026-07-08"
+  },
+  {
+    "id": 131,
+    "quote": "Silence is a source of great strength.",
+    "author": "Lao Tzu",
+    "contributor": "Azeema Fareen",
+    "department": "Cyber Security",
+    "about": "Explanation is always not necessary, sometimes silence gives the answer that our words don't.",
+    "dateStr": "2026-07-04"
+  },
+  {
+    "id": 130,
+    "quote": "\"A good laugh and a long sleep are the best cures in the doctor's book.\"",
+    "author": "\"Irish Proverb\"",
+    "contributor": "\"Johint\"",
+    "department": "\"Computer Science and Engineering\"",
+    "about": "\"My doctor might prescribe medicine, but my bed keeps insisting that 10 more minutes of sleep is the real cure.\"",
+    "dateStr": "2026-07-02"
+  },
+  {
+    "id": 128,
+    "quote": "\"Being weak is nothing to be ashamed of... Staying weak is.\"",
+    "author": "\"Asta\"",
+    "contributor": "\"Johint\"",
+    "department": "\"Computer Science and Engineering\"",
+    "about": "\"This quote reminds me that everyone starts somewhere. What matters is the determination to keep improving instead of accepting limitations.\"",
+    "dateStr": "2026-07-01"
+  },
+  {
+    "id": 129,
+    "quote": "Where there is loyalty, weapons are of no use.",
+    "author": "Paulo Coelho",
+    "contributor": "Azeema Fareen",
+    "department": "Cyber Security",
+    "about": "Loyalty is not a choice, it is a basic need. On contrary, today’s people are making judgements on loyalty and taking it for granted. Loyalty is a gift, it is a powerful weapon in any relationship.",
+    "dateStr": "2026-07-01"
+  },
+  {
+    "id": 126,
+    "quote": "Do not let the behavior of others destroy your own inner peace.",
+    "author": "Dalai Lama",
+    "contributor": "Azeema Fareen",
+    "department": "Cyber Security",
+    "about": "Keep your energy and aura for the ones who are worth it. Let other’s behavior not disturb you at any cost, You know who you are and master yourself to be the best at any time.",
+    "dateStr": "2026-06-30"
+  },
+  {
+    "id": 127,
+    "quote": "Annihilating is easy. Razing things to the ground is easy. Trying to fix what's broken is hard. Hope is hard.",
+    "author": "Loki",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Destroying things and giving up on ideas is easy. Fixing them and holding onto hope is hard.",
+    "dateStr": "2026-06-30"
+  },
+  {
+    "id": 125,
+    "quote": "Love all, Trust a few, do wrong to none.",
+    "author": "William Shakespeare",
+    "contributor": "Azeema Fareen",
+    "department": "Cyber Security",
+    "about": "This is a quote which I personally loved. Loving everyone takes nothing and trusting a few takes something, and doing wrong to anyone means everything. Give your best in everything that you do, that nobody questions you!",
+    "dateStr": "2026-06-29"
+  },
+  {
+    "id": 123,
+    "quote": "\"Time and Tide waits for none.\"",
+    "author": "Geofrey Chaucer",
+    "contributor": "Azeema Fareen",
+    "department": "Cyber Security",
+    "about": "Not every oppurtunity waits for us everytime",
+    "dateStr": "2026-06-28"
+  },
+  {
+    "id": 124,
+    "quote": "\"An eye for an eye and the world goes blind... We won't punish a crime with another crime.\"",
+    "author": "Connor",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "It highlights the trap of righteous fury. It reminds me that returning hate with hate doesn't erase the original pain; it just doubles the amount of darkness in the world.",
+    "dateStr": "2026-06-28"
+  },
+  {
+    "id": 122,
+    "quote": "Tomorrow, and tomorrow, and tomorrow, Creeps in this petty pace from day to day, To the last syllable of recorded time; And all our yesterdays have lighted fools The way to dusty death. Out, out, brief candle! It is a tale told by an idiot, Full of sound and fury, Signifying nothing.",
+    "author": "William Shakespeare",
+    "contributor": "Amritha",
+    "department": "AI-DS-1",
+    "about": "A poor player struts and frets their time upon the stage, awaiting the curtain uncalled for.",
+    "dateStr": "2026-06-21"
+  },
+  {
+    "id": 121,
+    "quote": "How happy is the blameless vestal's lot! The world forgetting, by the world forgot. Eternal sunshine of the spotless mind! Each pray'r accepted, and each wish resign'd.",
+    "author": "Alexander Pope",
+    "contributor": "Amritha",
+    "department": "AI-DS",
+    "about": "\"Blessed are the forgetful, but I wouldn't trade the spots in my mind to get them erased.\"",
+    "dateStr": "2026-06-20"
+  },
+  {
+    "id": 120,
+    "quote": "\"And yet it moves.\"",
+    "author": "\"Galileo Galilei\"",
+    "contributor": "\"SSP\"",
+    "department": "\"CSE\"",
+    "about": "\"Even when evidence is denied or ignored, reality remains true. It reminds me to trust facts, reason, and careful observation rather than popular opinion.\"",
+    "dateStr": "2026-06-19"
+  },
+  {
+    "id": 118,
+    "quote": "The moment you think there’s no way out, you stop looking.",
+    "author": "The Professor",
+    "contributor": "Avi",
+    "department": "Cyber Security",
+    "about": "when you believe a problem has no solution, you stop trying to solve it. As long as you keep believing a way exists, you'll continue looking, learning, and creating new possibilities.",
+    "dateStr": "2026-06-10"
+  },
+  {
+    "id": 119,
+    "quote": "Never forget what you are. The rest of the world will not. Wear it like armor, and it can never be used to hurt you.",
+    "author": "Tyrion Lannister",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Accept who you are and be proud of it. When you own your strengths and flaws, no one can use them against you.",
+    "dateStr": "2026-06-10"
+  },
+  {
+    "id": 117,
+    "quote": "It always seems impossible until it's done",
+    "author": "Nelson Mandela",
+    "contributor": "Sujith K",
+    "department": "Cyber Security",
+    "about": "If we want to achieve something, we should not only think about it but also take action",
+    "dateStr": "2026-06-05"
+  },
+  {
+    "id": 116,
+    "quote": "\"When you reach the end of your rope, tie a knot in it and hang on.\"",
+    "author": "Franklin D. Roosevelt",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that even when life becomes extremely difficult and I feel like giving up, I should stay strong, hold on to hope, and keep moving forward. Persistence during hard times often leads to growth and success.\"",
+    "dateStr": "2026-06-02"
+  },
+  {
+    "id": 115,
+    "quote": "\"You cannot stop the waves, but you can learn to surf.\"",
+    "author": "Jon Kabat-Zinn",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote teaches me that in life we cannot control problems or challenges, but we can learn to adapt, stay calm, and handle them with patience and skill.\"",
+    "dateStr": "2026-05-24"
+  },
+  {
+    "id": 114,
+    "quote": "You cannot ask fate for the life you want while neglecting the man who must deserve it.",
+    "author": "Seneca",
+    "contributor": "SUNANDA V K",
+    "department": "EIE",
+    "about": "This means that the input we give in reflects in our result. Praying for our results to be amazing requires the same and more about of hardwork as the feed. Without hardwork, success doesn't arrive. Thus, to achieve success and expected results, one must put in the same and a lot amount of hardwork, sincerity and consistency.",
+    "dateStr": "2026-05-23"
+  },
+  {
+    "id": 111,
+    "quote": "Whoever fights monsters should see to it that in the process he does not become a monster. And if you gaze long enough into an abyss, the abyss will gaze back into you.",
+    "author": "Friedrich Nietzsche",
+    "contributor": "Avantika A D",
+    "department": "AI&DS",
+    "about": "Fighting problems is important, but protecting your values and humanity matters too.",
+    "dateStr": "2026-05-22"
+  },
+  {
+    "id": 112,
+    "quote": "\"Success is not about being perfect, it's about learning, growing, and never giving up.\"",
+    "author": "\"Priya Dharshini S\"",
+    "contributor": "\"Priya Dharshini S\"",
+    "department": "\"AI&DS\"",
+    "about": "\"This quote reminds me to stay confident, learn from mistakes, and keep improving step by step in both academics and life.\"",
+    "dateStr": "2026-05-22"
+  },
+  {
+    "id": 113,
+    "quote": "\"To accomplish great things we must not only act, but also dream; not only plan, but also believe.\"",
+    "author": "\"Anatole France\"",
+    "contributor": "Sathiya T",
+    "department": "AI&DS",
+    "about": "\"This quote reminds me that success comes from a combination of action, planning, dreams, and self-confidence. It inspires me to believe in my goals and work hard to achieve them.\"",
+    "dateStr": "2026-05-22"
+  },
+  {
+    "id": 110,
+    "quote": "\"The greatest friend of truth is Time, her greatest enemy is Prejudice, and her constant companion is Humility.\"",
+    "author": "Charles Caleb Colton",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote teaches me that truth becomes clearer over time, prejudice can block understanding, and humility helps us stay open to learning and wisdom.\"",
+    "dateStr": "2026-05-21"
+  },
+  {
+    "id": 109,
+    "quote": "Scar Tissue : The hard thing to do is the that has to be done, and by hard I mean impossible now there's no comfort.",
+    "author": "Mobius",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "The quote means that the right choices in life are often the hardest, sometimes feeling almost impossible to make. Even when there’s no comfort or easy path, facing those struggles instead of avoiding them is what leads to growth. “Scar tissue” symbolizes the pain and experiences that stay with you and shape who you become.",
+    "dateStr": "2026-05-18"
+  },
+  {
+    "id": 106,
+    "quote": "\"A smooth sea never made a skilled sailor.\"",
+    "author": "Franklin D. Roosevelt",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote teaches me that challenges and struggles in life help us grow stronger, wiser, and more capable. Without difficulties, we cannot truly develop strength and experience.\"",
+    "dateStr": "2026-05-15"
+  },
+  {
+    "id": 107,
+    "quote": "Great players know when the Queen must disappear for victory.",
+    "author": "Mikhail Tal",
+    "contributor": "Meenz",
+    "department": "Cyber Security",
+    "about": "Winning sometimes means letting go of what matters most.",
+    "dateStr": "2026-05-15"
+  },
+  {
+    "id": 108,
+    "quote": "Goodbye, V. And never stop fightin’.",
+    "author": "Johnny Silverhand",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "Some battles never truly end. Survival itself becomes an act of defiance, and perseverance becomes the final form of identity.",
+    "dateStr": "2026-05-15"
+  },
+  {
+    "id": 105,
+    "quote": "\"The wound is the place where the Light enters you.\"",
+    "author": "Rumi",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote teaches me that pain and struggles are not just suffering; they can become the source of growth, wisdom, and inner strength.\"",
+    "dateStr": "2026-05-14"
+  },
+  {
+    "id": 103,
+    "quote": "\"Your appearance gives the world a clue to your inner world.\"",
+    "author": "Leonardo da Vinci",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote teaches me that the way we present ourselves often reflects our thoughts, personality, and emotions. True appearance is not just about looks, but about the character and confidence within us.\"",
+    "dateStr": "2026-05-13"
+  },
+  {
+    "id": 104,
+    "quote": "Dreams make good stories, but everything important happens when we're awake because that's when we make things happen.",
+    "author": "Duncan Idaho",
+    "contributor": "Avi",
+    "department": "Cyber Security",
+    "about": "Dreams and ideas are inspiring, but real change happens through action.",
+    "dateStr": "2026-05-13"
+  },
+  {
+    "id": 102,
+    "quote": "No cost too great.",
+    "author": "Hollow Knight",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "It reminds me that greatness often comes from people willing to give up parts of themselves for what they love. Sometimes inspiring. Sometimes tragic. Usually both.",
+    "dateStr": "2026-05-12"
+  },
+  {
+    "id": 101,
+    "quote": "\"Without courage, wisdom bears no fruit.\"",
+    "author": "Baltasar Gracián",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote teaches me that wisdom alone is not enough. Without the courage to act on what we know, our knowledge and understanding cannot create real impact.\"",
+    "dateStr": "2026-05-10"
+  },
+  {
+    "id": 99,
+    "quote": "\"Courage starts with showing up and letting ourselves be seen.\"",
+    "author": "Brené Brown",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that courage is not about being fearless, but about being willing to be vulnerable and present. Showing up, even when it feels uncomfortable, is the first step toward growth and connection.\"",
+    "dateStr": "2026-05-06"
+  },
+  {
+    "id": 100,
+    "quote": "\"No need to hurry, No need to sparkle. No need to be anybody but oneself\"",
+    "author": "Virginia Woolf",
+    "contributor": "SUNANDA V K",
+    "department": "EIE",
+    "about": "\"To me, it means that creating a new path is more better and unique than to copy someone else. This is because each person lives in their own world at their own pace and their own timeline. Copying someone else is an unnecessary task that wastes time, energy and whatnot\"",
+    "dateStr": "2026-05-06"
+  },
+  {
+    "id": 96,
+    "quote": "The ability to speak several languages is an asset, but the ability to keep your mouth shut in any language is priceless.",
+    "author": "Anonymous",
+    "contributor": "Aurelian Grey",
+    "department": "ECE",
+    "about": "\"Speaking is a skill, but silence is wisdom. In a world that rewards constant noise and immediate reaction, the power to pause and withhold speech is a rare and valuable discipline. Whether in negotiation, conflict, or casual conversation, knowing when not to speak protects you from regret and preserves your influence. This quote reminds me that true mastery isn't just about what you can say, but about the strategic restraint to say nothing at all when it matters most.\"",
+    "dateStr": "2026-05-05"
+  },
+  {
+    "id": 97,
+    "quote": "You cannot swim for new horizons until you have the courage to lose sight of the shore.",
+    "author": "William Faulkner",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "This quote reminds me that growth requires letting go of comfort. To achieve something new, I must be willing to leave behind what feels safe and familiar.",
+    "dateStr": "2026-05-05"
+  },
+  {
+    "id": 98,
+    "quote": "Power resides where men believe it resides.",
+    "author": "Varys",
+    "contributor": "Avi",
+    "department": "Cyber Security",
+    "about": "Power isn't something fixed. It comes from people's belief. Whoever people accept as powerful becomes powerful. If that belief is gone, that power disappears.",
+    "dateStr": "2026-05-05"
+  },
+  {
+    "id": 95,
+    "quote": "\"You don’t have to control your thoughts. You just have to stop letting them control you.\"",
+    "author": "Dan Millman",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that thoughts are natural and uncontrollable, but I have the power to decide how much influence they have over my actions and emotions. True peace comes when I stop reacting to every thought.\"",
+    "dateStr": "2026-05-03"
+  },
+  {
+    "id": 94,
+    "quote": "\"Life shrinks or expands in proportion to one's courage.\"",
+    "author": "Anaïs Nin",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote teaches me that courage shapes how big and meaningful our life becomes. Being brave helps us grow, while fear limits us.\"",
+    "dateStr": "2026-05-02"
+  },
+  {
+    "id": 93,
+    "quote": "\"Sell your cleverness and buy bewilderment; cleverness is mere opinion, bewilderment is intuition.\"",
+    "author": "Rumi",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that true wisdom doesn’t come from overthinking or showing intelligence, but from staying open, curious, and humble. Sometimes, letting go of certainty helps us understand life more deeply.\"",
+    "dateStr": "2026-04-28"
+  },
+  {
+    "id": 91,
+    "quote": "\"A dream may open the door, but only truth deserves to stay.\"",
+    "author": "Barid",
+    "contributor": "\"Barid Baran V I\"",
+    "department": "\"EIE\"",
+    "about": "This quote highlights the difference between  attraction and sustainability. In modern life, people are often drawn to ideas, images or promises like a dream. However, long term success depends mainly on authenticity and real value which is truth. In short, while perceptions can create opportunities, only substance maintain them, making truth essential for lasting success.",
+    "dateStr": "2026-04-27"
+  },
+  {
+    "id": 92,
+    "quote": "\"Life is like riding a bicycle. To keep your balance, you have to keep moving\"",
+    "author": "Albert Einstein",
+    "contributor": "SUNANDA V K",
+    "department": "EIE",
+    "about": "\"\"A bicycle needs to be pedalled continuously to keep it running. To visualize this in our lives, the bicycle acts as a metaphor. Consistency and effort beat talent, and discipline helps us complete our work\"",
+    "dateStr": "2026-04-27"
+  },
+  {
+    "id": 89,
+    "quote": "Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning.",
+    "author": "Albert Einstein",
+    "contributor": "SUNANDA V K",
+    "department": "EIE",
+    "about": "The act of asking 'why' or 'how' pushes the boundaries of human understanding. It helps us question and improve our critical thinking. Whatever happens in our life, we need to learn from it, whether it is a mistake, a success, or both.",
+    "dateStr": "2026-04-26"
+  },
+  {
+    "id": 90,
+    "quote": "\"In three words I can sum up everything I've learned about life: It goes on\"",
+    "author": "Robert Frost",
+    "contributor": "SUNANDA V K",
+    "department": "EIE",
+    "about": "He remainds us that no matter how hard life is and how many challenges arise, life goes on. Other's opinions and thoughts doesn't matter. Resilience, endurance, consistency and stoic appearance helps us to understand and win in life, which matters the most.",
+    "dateStr": "2026-04-26"
+  },
+  {
+    "id": 88,
+    "quote": "\"Stay curious like the universe—there’s always more beyond what you see.\"",
+    "author": "Anonymous",
+    "contributor": "SSP",
+    "department": "CSE",
+    "about": "\"This means that no matter how much we think we know, there is always something more to discover. Just like the universe keeps expanding, knowledge and possibilities are endless. Staying curious helps us grow, learn, and see beyond our current limits.\"",
+    "dateStr": "2026-04-25"
+  },
+  {
+    "id": 87,
+    "quote": "“Until you make the unconscious conscious, it will direct your life and you will call it fate.”",
+    "author": "Carl Jung",
+    "contributor": "Aurelian Grey",
+    "department": "ECE",
+    "about": "We often believe we are in control thinking clearly, acting with maturity, and understanding ourselves. But much of what drives us comes from parts of the mind we don’t even see. We mistake hidden patterns, fears, and unresolved thoughts for “who we are.” This quote wakes me up to the fact that unless I confront what lies beneath, I am not truly in control, I am just unaware.",
+    "dateStr": "2026-04-21"
+  },
+  {
+    "id": 86,
+    "quote": "“Even a brick wants to be something.”",
+    "author": "Louis Kahn",
+    "contributor": "Aurelian Grey",
+    "department": "ECE",
+    "about": "\"A brick is never just a brick. It has the potential to become a weapon, a path, a shelter, or part of something extraordinary. What it becomes is shaped by how it is used. We are no different. Our mind holds the same raw potential capable of building, creating, and rising beyond limits. The difference lies in intention and choice. We shouldn’t drift into becoming something by chance. Like that brick, we must decide what we want to become and shape ourselves with purpose until we get there.\"",
+    "dateStr": "2026-04-20"
+  },
+  {
+    "id": 85,
+    "quote": "\"The moment you stop chasing what you think your life should be, you begin to discover what it truly is.\"",
+    "author": "Jiddu Krishnamurti",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This reminds me that peace comes when I stop forcing life to match my expectations and start understanding it as it is. Letting go brings clarity and helps me discover my true path.\"",
+    "dateStr": "2026-04-13"
+  },
+  {
+    "id": 84,
+    "quote": "\"The best way out is always through\"",
+    "author": "Robert Frost",
+    "contributor": "SUNANDA V K",
+    "department": "EIE",
+    "about": "To me, this quote means that toughness and grit helps us pave our path. Going through difficulties and hardships can make us a better person than trying to escape out of the situation. This way of enduring toughness can make us stronger and even create opportunities.",
+    "dateStr": "2026-04-08"
+  },
+  {
+    "id": 82,
+    "quote": "\"Freedom from the desire for an answer is essential to the understanding of a problem.\"",
+    "author": "Jiddu Krishnamurti",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that true understanding comes when I stop rushing for immediate answers and instead take time to deeply observe and understand the problem itself.\"",
+    "dateStr": "2026-04-03"
+  },
+  {
+    "id": 80,
+    "quote": "\"A warm smile is the universal language of kindness.\"",
+    "author": "William Arthur Ward",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that kindness does not always require words or big actions. A simple smile can spread warmth, create connection, and make someone’s day better.\"",
+    "dateStr": "2026-04-02"
+  },
+  {
+    "id": 81,
+    "quote": "What Is Not Yours Is Not Yours",
+    "author": "Helen Oyeyemi",
+    "contributor": "Avi",
+    "department": "Cyber Security",
+    "about": "What doesn’t belong to you will never truly stay with you. Accepting that helps you find peace and move forward.",
+    "dateStr": "2026-04-02"
+  },
+  {
+    "id": 79,
+    "quote": "\"The function of education is to teach one to think intensively and to think critically. Intelligence plus character — that is the goal of true education.\"",
+    "author": "Martin Luther King Jr.",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that education is not just about gaining knowledge, but about developing the ability to think deeply, question wisely, and build strong character along with intelligence.\"",
+    "dateStr": "2026-04-01"
+  },
+  {
+    "id": 77,
+    "quote": "\"The best portion of a good person’s life is their little, nameless acts of kindness.\"",
+    "author": "William Wordsworth",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that true goodness is not shown through big achievements alone, but through small and unnoticed acts of kindness that positively impact others' lives every day.\"",
+    "dateStr": "2026-03-31"
+  },
+  {
+    "id": 78,
+    "quote": "You will have bad times, but they will always wake you up to the good stuff you weren’t paying attention to.",
+    "author": "Sean Maguire",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Bad situations can sometimes overwhelm us so much that we fail to notice the good things around us, because our focus is completely taken over by the problems we are facing.",
+    "dateStr": "2026-03-31"
+  },
+  {
+    "id": 76,
+    "quote": "The world isn't perfect. But it's there for us, doing the best it can.",
+    "author": "Roy Mustang",
+    "contributor": "Avi",
+    "department": "Cyber Security",
+    "about": "The world isn’t perfect and has many flaws.But it still gives us chances to live and move forward.",
+    "dateStr": "2026-03-28"
+  },
+  {
+    "id": 74,
+    "quote": "We are not free in what we do because we are not free in what we want.",
+    "author": "Arthur Schopenhauer",
+    "contributor": "Avi",
+    "department": "Cyber Security",
+    "about": "We think we’re free because we can choose what we do, but our desires and wants are not truly under our control.",
+    "dateStr": "2026-03-19"
+  },
+  {
+    "id": 75,
+    "quote": "We all make choices. But in the end, our choices make us.",
+    "author": "Reverse Flash",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Your life isn’t defined by luck or fate alone, it’s shaped by the decisions you make. Over time, those choices build your identity and determine who you become.",
+    "dateStr": "2026-03-19"
+  },
+  {
+    "id": 72,
+    "quote": "“Success usually comes to those who are too busy to be looking for it.”",
+    "author": "Henry David Thoreau",
+    "contributor": "SUNANDA V K",
+    "department": "EIE",
+    "about": "True success comes to those who do not focus on instant gratification and immediate success. Rather they come to those who work upon consistency and dedication towards their work instead of chasing results",
+    "dateStr": "2026-03-18"
+  },
+  {
+    "id": 73,
+    "quote": "Which is worse? To die, or to be the one who survives? To grieve? Or to be grieved?",
+    "author": "The Fading Man",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "This quote, a reflection on mortality and loss. Death affects both the one who dies and those left behind, raising difficult questions about grief, survival, and the emotional cost of living on.",
+    "dateStr": "2026-03-18"
+  },
+  {
+    "id": 69,
+    "quote": "Carpe diem. Seize the day, boys. Make your lives extraordinary.",
+    "author": "John Keating",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Live in the present, take opportunities, and make your life meaningful and remarkable instead of ordinary.",
+    "dateStr": "2026-03-17"
+  },
+  {
+    "id": 70,
+    "quote": "I believe the things that are meant to happen always find a way to happen. Sometimes they make sense, sometimes they don’t, and sometimes they really hurt. But that’s okay, because those moments put us on the path to becoming who we’re meant to be.",
+    "author": "Spider-man",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Life doesn’t always make sense, and some moments hurt, but everything, good or bad, helps shape who we become.",
+    "dateStr": "2026-03-17"
+  },
+  {
+    "id": 71,
+    "quote": "Is it a blessing to understand your darkest nature… Or a curse to which we turn a blind eye? We lie to ourselves all the time, don’t we? About things we’d rather not admit. Or confront.",
+    "author": "The Fading Man",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "Self-awareness requires confronting uncomfortable truths about human nature. Ignoring our darker impulses may feel safer, but understanding them is essential to mastering them.",
+    "dateStr": "2026-03-17"
+  },
+  {
+    "id": 66,
+    "quote": "\"No man is rich enough to buy back his past\"",
+    "author": "Oscar Wilde",
+    "contributor": "SUNANDA V K",
+    "department": "EIE",
+    "about": "Time, a one-way street, cannot help us to redo our mistakes and relive in moments.  Even the richest man in this world can't do that. One who uses this wealth wisely is the richest man in this world.",
+    "dateStr": "2026-03-16"
+  },
+  {
+    "id": 67,
+    "quote": "People come and people go but the only one that will be there for you is you. Little one there is more to life, if only you knew how big the sky truly is. Reach out your hand, and it's yours.",
+    "author": "Unknown Journal Entry (Renoir)",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "I find this compelling because it transforms the existential weight of solitude into a source of absolute freedom. It moves beyond the fear of being alone to reveal that when \"only you are there for you,\" you become the sole architect of a world as vast as you dare to imagine.",
+    "dateStr": "2026-03-16"
+  },
+  {
+    "id": 68,
+    "quote": "Art can be a Window and art can be a Mirror. And great art… Great art is both. So, you’ll never be a true artist if there’s always a mask between you and the viewer, especially when the viewer is you…",
+    "author": "Unknown Journal Entry (Renoir)",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "I like this quote because it highlights the dual nature of art as both an escape and a confrontation, a window to the infinite and a mirror to the soul. It’s an existentialist’s reminder that true creation requires the courage to look outward and inward simultaneously, stripping away every mask until only the raw truth remains.",
+    "dateStr": "2026-03-16"
+  },
+  {
+    "id": 62,
+    "quote": "\"The person you want to become is on the other side of the pain you are trying to avoid.\"",
+    "author": "Sanjay N",
+    "contributor": "Sanjay N",
+    "department": "EIE",
+    "about": "\"This quote means that true growth and transformation come from facing and overcoming our fears, not avoiding them.\"",
+    "dateStr": "2026-03-15"
+  },
+  {
+    "id": 63,
+    "quote": "When the whole world tells you to move, your job is to plant yourself like a tree beside the river of truth and tell the whole world — ‘No, you move.’",
+    "author": "Captain America",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Even if everyone pressures you to give up your beliefs, you should stand firm in what you know is right. True strength is having the courage to defend the truth, even when you stand alone.",
+    "dateStr": "2026-03-15"
+  },
+  {
+    "id": 64,
+    "quote": "There is a natural order to things. Things happen the way they do. We may not know why at the time, but there must always be a reason.",
+    "author": "Henry Allen",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Life follows a natural order. Even when events seem confusing or unfair, they happen for a reason that may only become clear later. It reflects the idea that every event has a purpose, even if it isn’t understood at the moment.",
+    "dateStr": "2026-03-15"
+  },
+  {
+    "id": 65,
+    "quote": "You speak to me of perfection, but is there really any such thing? Or is it a siren, leading us astray. I happily predict that neither of us will ever summit that elusive peak, but I care little, as long as we walk together. Art gives us the perception of control. For a moment, as I paint, I find order among the chaos. That is, for me, a moment of pure contentment. And that is truly better than perfection.",
+    "author": "Unknown Journal Entry (Renoir)",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "It reminds me that contentment found in the journey is far more meaningful than the pursuit of a perfect end.",
+    "dateStr": "2026-03-15"
+  },
+  {
+    "id": 58,
+    "quote": "\"Life can only be understood backwards; but it must be lived forwards.\"",
+    "author": "Søren Kierkegaard",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that we often understand the meaning of our experiences only after they happen. Even though we reflect on the past to learn, we must continue moving forward with courage and hope.\"",
+    "dateStr": "2026-03-14"
+  },
+  {
+    "id": 59,
+    "quote": "\"Sometimes you gotta run before you can walk.\"",
+    "author": "Tony Stark",
+    "contributor": "Sanjay N",
+    "department": "EIE",
+    "about": "\"Sometimes, to achieve greatness or innovate, you have to skip the safe, beginner steps and take a massive leap of faith.\"",
+    "dateStr": "2026-03-14"
+  },
+  {
+    "id": 60,
+    "quote": "It’s not who I am underneath, but what I do that defines me.",
+    "author": "Batman",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Who you truly are is shown by your actions, not just your thoughts or intentions.",
+    "dateStr": "2026-03-14"
+  },
+  {
+    "id": 61,
+    "quote": "Sometimes the only way to move forward is to go back and face the past.",
+    "author": "Barry Allen (The Flash)",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "To truly progress in life, you must confront and accept your past instead of avoiding it.",
+    "dateStr": "2026-03-14"
+  },
+  {
+    "id": 53,
+    "quote": "\"An investment in knowledge pays the best interest.\"",
+    "author": "Benjamin Franklin",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that gaining knowledge is one of the most valuable things a person can do. The time and effort we spend learning will always benefit us in the future through wisdom, opportunities, and personal growth.\"",
+    "dateStr": "2026-03-13"
+  },
+  {
+    "id": 54,
+    "quote": "The best roles are the ones that scare you a little.",
+    "author": "Cillian Murphy",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "The most rewarding opportunities are often the ones that push you out of your comfort zone and challenge your abilities.",
+    "dateStr": "2026-03-13"
+  },
+  {
+    "id": 55,
+    "quote": "\"When you have eliminated the impossible, whatever remains, however improbable, must be the truth\"",
+    "author": "Sherlock Holmes",
+    "contributor": "Meenz",
+    "department": "Cyber Security",
+    "about": "This quote means that if you remove all the things that cannot be true, the remaining answer even if it seems unlikely must be the real truth.",
+    "dateStr": "2026-03-13"
+  },
+  {
+    "id": 56,
+    "quote": "A man chooses. A slave obeys.",
+    "author": "Andrew Ryan",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "Human dignity lies in the ability to choose. Autonomy and responsibility define freedom, while blind obedience strips away agency.",
+    "dateStr": "2026-03-13"
+  },
+  {
+    "id": 57,
+    "quote": "Finding a rock and losing it is better than never finding a rock in the first place.",
+    "author": "Esquie",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "Temporary experiences still hold value. Even if something is eventually lost, the meaning and joy it once brought remain worthwhile.",
+    "dateStr": "2026-03-13"
+  },
+  {
+    "id": 52,
+    "quote": "Hope is what makes us strong. It is why we are here. It is what we fight with when all else is lost.",
+    "author": "Pandora",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "Hope is the force that keeps people moving forward even when victory seems impossible. It fuels resilience and gives meaning to struggle.",
+    "dateStr": "2026-03-12"
+  },
+  {
+    "id": 50,
+    "quote": "The right man in the wrong place can make all the difference in the world.",
+    "author": "G-Man",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "Individual actions can change the course of events. One capable person placed in the right moment can shift the trajectory of entire systems or histories.",
+    "dateStr": "2026-03-11"
+  },
+  {
+    "id": 51,
+    "quote": "A sword wields no strength unless the hand that holds it has courage.",
+    "author": "The Hero's Shade",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "Tools and power mean nothing without the courage to act. True strength comes from the will behind the weapon, not the weapon itself.",
+    "dateStr": "2026-03-11"
+  },
+  {
+    "id": 48,
+    "quote": "The darkest night comes just before the dawn.",
+    "author": "Harvey Dent",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Sometimes life feels hardest and most hopeless right before things begin to improve. The quote reminds us to stay strong and not give up, because better times may be closer than we think.",
+    "dateStr": "2026-03-10"
+  },
+  {
+    "id": 49,
+    "quote": "The closer you get to the light, the greater your shadow becomes.",
+    "author": "Squall Leonhart",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "Success, power, and ambition magnify both strengths and flaws. The brighter someone shines, the larger the consequences of their mistakes.",
+    "dateStr": "2026-03-10"
+  },
+  {
+    "id": 46,
+    "quote": "Real learning comes about when the competitive spirit has ceased.",
+    "author": "Jiddu Krishnamurti",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "This quote reminds me that true learning happens when we focus on understanding rather than competing with others. When the pressure to be better than others disappears, the mind becomes calm, curious, and open to real knowledge.",
+    "dateStr": "2026-03-09"
+  },
+  {
+    "id": 47,
+    "quote": "No matter how dark the night, morning always comes.",
+    "author": "Jin Sakai",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "A reminder that hardship and darkness are temporary. No matter how overwhelming things feel in the moment, time continues forward and change is inevitable.",
+    "dateStr": "2026-03-09"
+  },
+  {
+    "id": 44,
+    "quote": "\"You gain strength, courage, and confidence by every experience in which you really stop to look fear in the face.\"",
+    "author": "Eleanor Roosevelt",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that facing fears and challenges helps us grow stronger. Every difficult situation teaches us courage and builds confidence to overcome bigger obstacles in life.\"",
+    "dateStr": "2026-03-07"
+  },
+  {
+    "id": 45,
+    "quote": "Yesterday is history, tomorrow is a mystery, but today is a gift. That is why it is called the present.",
+    "author": "Master Oogway",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "The past is already gone and cannot be changed, and the future is uncertain. So the only time we truly have control over is today—this moment—so we should value it and use it wisely.",
+    "dateStr": "2026-03-07"
+  },
+  {
+    "id": 42,
+    "quote": "\"In the end, it’s not the years in your life that count. It’s the life in your years.\"",
+    "author": "Abraham Lincoln",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that the true value of life is not measured by how long we live, but by how meaningfully and joyfully we live each day. It encourages me to make the most of my time, create good memories, help others, and live a life filled with purpose rather than simply counting the years.\"",
+    "dateStr": "2026-03-06"
+  },
+  {
+    "id": 43,
+    "quote": "Stay hungry. Stay foolish.",
+    "author": "Steve Jobs",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Always keep the desire to learn and never be afraid to try new or unconventional things.",
+    "dateStr": "2026-03-06"
+  },
+  {
+    "id": 39,
+    "quote": "\"It's not that I'm so smart, it's just that I stay with problems longer.\"",
+    "author": "Albert Einstein",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote teaches that success does not always come from intelligence alone. It comes from patience, persistence, and the willingness to keep trying until the problem is solved.\"",
+    "dateStr": "2026-03-05"
+  },
+  {
+    "id": 40,
+    "quote": "\"Things may come to those who wait,but only the things left by those who hustle\"",
+    "author": "Find out!",
+    "contributor": "SUNANDA V K",
+    "department": "EIE",
+    "about": "This means that opportunities, chances and success has to be grabbed upon instead of waiting passively without any action. Though patience has value, waiting doesn't yield any results.",
+    "dateStr": "2026-03-05"
+  },
+  {
+    "id": 41,
+    "quote": "Oh yes, the past can hurt. But the way I see it, you can either run from it… or learn from it.",
+    "author": "Rafiki",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "The past may hurt, but you either avoid it or grow stronger by learning from it.",
+    "dateStr": "2026-03-05"
+  },
+  {
+    "id": 36,
+    "quote": "Any fool can turn a blind eye but who knows what the ostrich sees in the sand.",
+    "author": "Samuel Beckett",
+    "contributor": "Dheeksha",
+    "department": "EIE",
+    "about": "It means it's easy to ignore things (turn a blind eye), but understanding the hidden truths or realities (what the ostrich sees in the sand) is much harder and requires insight. 😊",
+    "dateStr": "2026-03-04"
+  },
+  {
+    "id": 37,
+    "quote": "A person should not be too honest. Straight trees are cut first and honest people are screwed first.",
+    "author": "Chanakya",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "This quote reminds me that while honesty is a virtue, being overly naive or blindly idealistic can make one vulnerable. Wisdom involves balancing integrity with practical awareness of the world.",
+    "dateStr": "2026-03-04"
+  },
+  {
+    "id": 38,
+    "quote": "\"Mistakes are a fact of life. It is the response to the error that counts.\"",
+    "author": "Nikki Giovanni",
+    "contributor": "SUNANDA V K",
+    "department": "EIE",
+    "about": "\"Mistakes happening in our life is the one we respond to, immediately, as it occurs. But finding the error counts as it shows our failures and helps us to learn.\"",
+    "dateStr": "2026-03-04"
+  },
+  {
+    "id": 34,
+    "quote": "\"The greatest glory in living lies not in never falling, but in rising every time we fall.\"",
+    "author": "Nelson Mandela",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that failure is not the end. True success comes from learning from mistakes, standing up again, and continuing with strength and determination.\"",
+    "dateStr": "2026-03-01"
+  },
+  {
+    "id": 35,
+    "quote": "“If you have two friends in your lifetime, you're lucky. If you have one good friend, you're more than lucky.”",
+    "author": "S.E. Hinton",
+    "contributor": "Sanjay N",
+    "department": "EIE",
+    "about": "This quote means that true friendship is rare and valuable, and we should cherish the good friends we have in our lives.",
+    "dateStr": "2026-03-01"
+  },
+  {
+    "id": 33,
+    "quote": "The hardest choices require the strongest wills.",
+    "author": "Thanos",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "The most difficult decisions in life can only be made by those with strong determination and mental strength.",
+    "dateStr": "2026-02-28"
+  },
+  {
+    "id": 30,
+    "quote": "\"It is no measure of health to be well adjusted to a profoundly sick society.\"",
+    "author": "\"Jiddu Krishnamurti\"",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote teaches me that just because everyone accepts something, it does not mean it is right. I should think independently and not blindly follow society if it goes against truth and wisdom.\"",
+    "dateStr": "2026-02-27"
+  },
+  {
+    "id": 31,
+    "quote": "\"Why do we fall sir? So that we can learn to pick ourselves up.\"",
+    "author": "Alfred Pennyworth",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Falling isn't weakness. Staying down is.",
+    "dateStr": "2026-02-27"
+  },
+  {
+    "id": 32,
+    "quote": "Everything that lives is designed to end. They are perpetually trapped in a never-ending spiral of life and death. However, life is all about the struggle within this cycle. That is what 'we' believe.",
+    "author": "Pod 153",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "It acknowledges mortality without falling into nihilism, asserting that meaning is created through struggle within life’s ongoing cycle rather than beyond it.",
+    "dateStr": "2026-02-27"
+  },
+  {
+    "id": 29,
+    "quote": "\"Success is nothing more than a few simple disciplines, practiced every day.\"",
+    "author": "Jim Rohn",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote teaches me that success is not something big that happens suddenly. It is the result of small, simple disciplines that I practice daily. If I stay consistent and committed, I can achieve great things over time.\"",
+    "dateStr": "2026-02-25"
+  },
+  {
+    "id": 24,
+    "quote": "\"When the mind is free of fear, life unfolds in clarity.\"",
+    "author": "\"Jiddu Krishnamurti\"",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote teaches me that fear limits my thinking. When I remove fear, I can see life clearly and act with confidence and understanding.\"",
+    "dateStr": "2026-02-24"
+  },
+  {
+    "id": 25,
+    "quote": "Win in life by avoiding two things. Trying to change others and expecting from others.",
+    "author": "life",
+    "contributor": "Valan Ezhilan D",
+    "department": "EIE",
+    "about": "Trying to change people Who don't listen is like trying to build a building without basement",
+    "dateStr": "2026-02-24"
+  },
+  {
+    "id": 26,
+    "quote": "It’s not how well you play that matters, but when you stop. If you lose after winning, the loss will be remembered. But if you win after losing, that victory will be remembered in history, because history only remembers how you finished.",
+    "author": "Baskhar kumar",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "What truly defines a person is their final outcome. Early victories or failures don’t matter as much as how the journey ends, because people and history remember the final result.",
+    "dateStr": "2026-02-24"
+  },
+  {
+    "id": 27,
+    "quote": "The only easy day was yesterday.",
+    "author": "US Navy SEALs",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "life doesn’t get easier, You grow stronger each day.",
+    "dateStr": "2026-02-24"
+  },
+  {
+    "id": 28,
+    "quote": "Nothing lasts forever. Not even the world. But we gotta keep it going as long as we can, right? Patch the holes, change the parts, all that. So we can say we had a good run. That we lived.",
+    "author": "Sam",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "This quote values persistence and care in an impermanent world, even when survival itself feels temporary, which I think is poignant, in a 'bitter-sweet' way.",
+    "dateStr": "2026-02-24"
+  },
+  {
+    "id": 22,
+    "quote": "Die to everything of yesterday so that your mind is always fresh, always young.",
+    "author": "Jiddu Krishnamurti",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "This quote teaches me to let go of past mistakes and old habits so that I can live each day with a fresh mind, fully present and open to life.",
+    "dateStr": "2026-02-22"
+  },
+  {
+    "id": 23,
+    "quote": "I don’t believe in psychology. I believe in good moves.",
+    "author": "Bobby Fischer",
+    "contributor": "Meenz",
+    "department": "Cyber Security",
+    "about": "To me, this quote means I don’t waste time playing mind games. I let my moves do the talking. If my chess is strong, I don’t need psychology I need precision.",
+    "dateStr": "2026-02-22"
+  },
+  {
+    "id": 19,
+    "quote": "Mistakes are a fact of life. It is the response to the error that counts.",
+    "author": "NIKKI GIOVANNI",
+    "contributor": "Dheeksha",
+    "department": "EIE",
+    "about": "The quote means that everyone makes mistakes, and it's not the mistake itself that's important, but how you respond to it. Instead of dwelling on the mistake or beating yourself up over it, focus on what you can do to fix it, learn from it, and move forward. It's all about taking responsibility and growing from the experience 💡.",
+    "dateStr": "2026-02-21"
+  },
+  {
+    "id": 20,
+    "quote": "It's not what happens to you, but how you react to it that matters.",
+    "author": "Epictetus",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "This quote teaches me that I cannot control every situation in life, but I can control my reaction. It also reminds me to maintain patience, because patience helps me respond calmly and wisely instead of reacting emotionally.",
+    "dateStr": "2026-02-21"
+  },
+  {
+    "id": 21,
+    "quote": "A future is not given to you. It is something you must take for yourself.",
+    "author": "Pod 042",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "I like this quote because it rejects destiny and reinforces the idea that the future is shaped through agency, responsibility, and deliberate action.",
+    "dateStr": "2026-02-21"
+  },
+  {
+    "id": 18,
+    "quote": "Bullet chess kills your ideas",
+    "author": "Hikaru Nakamura",
+    "contributor": "Meenz",
+    "department": "Cyber Security",
+    "about": "This quote means that in bullet chess, there’s no time to overthink. It teaches me to trust my instincts and stay calm under pressure.",
+    "dateStr": "2026-02-20"
+  },
+  {
+    "id": 15,
+    "quote": "When you're in the shit up to your neck, there's nothing left to do but sing.",
+    "author": "Samuel Beckett.",
+    "contributor": "Dheeksha",
+    "department": "EIE",
+    "about": "The quote means that when you’re totally overwhelmed and stuck—up to your neck in trouble—there’s no practical way out, so the only thing left to do is keep your spirit alive, like singing, and face the situation with whatever expression or resilience you can muster.",
+    "dateStr": "2026-02-19"
+  },
+  {
+    "id": 16,
+    "quote": "There is nothing noble in being superior to your fellow man. True nobility is being superior to your former self.",
+    "author": "Ernest Hemingway",
+    "contributor": "Valan Ezhilan D",
+    "department": "EIE",
+    "about": "Failure is the stepping stone to success",
+    "dateStr": "2026-02-19"
+  },
+  {
+    "id": 17,
+    "quote": "I seek to learn and adopt all facets of humanity! Some desire love! Others family! Only then did I realize the truth...the core of humanity... is conflict. They fight. Steal. Kill. This is humanity in its purest form!",
+    "author": "Adam",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "It resonates with my belief that conflict is fundamental to humanity and often acts as the driving force behind progress, innovation, and societal change. There isn't an example greater than the two world wars for this.",
+    "dateStr": "2026-02-19"
+  },
+  {
+    "id": 12,
+    "quote": "Every disiciplined day is an asset for your future greatness.",
+    "author": "Lohendra V S",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "This quote reminds me that daily discipline builds long-term success and shape my future achievements.",
+    "dateStr": "2026-02-17"
+  },
+  {
+    "id": 13,
+    "quote": "Change brings opportunity.",
+    "author": "Nido Qubein",
+    "contributor": "Valan Ezhilan D",
+    "department": "EIE",
+    "about": "Life needs a little change",
+    "dateStr": "2026-02-17"
+  },
+  {
+    "id": 14,
+    "quote": "There is more treasure in books than in all the pirate's loot on treasure island.",
+    "author": "Walt Disney",
+    "contributor": "SUNANDA V K",
+    "department": "EIE",
+    "about": "It means that the knowledge, the lessons and the ideas screaming by the books makes us wiser and expands our life more than anything else!!",
+    "dateStr": "2026-02-17"
+  },
+  {
+    "id": 10,
+    "quote": "It does not matter how slowly you go as long as you do not stop.",
+    "author": "Confucius",
+    "contributor": "Valan Ezhilan",
+    "department": "EIE",
+    "about": "At least, start.  Rather than Waiting For the right moment",
+    "dateStr": "2026-02-16"
+  },
+  {
+    "id": 11,
+    "quote": "So often, a visit to a bookshop has cheered me, and remainded me that there are good things in the world.",
+    "author": "Vincent Van Gogh",
+    "contributor": "SUNANDA V K",
+    "department": "EIE",
+    "about": "A bookshop is more than just a place to sell books. It is the place where the heart of pages printed in ink beat and the soul and spirit lifts up to a high cheerful mood. It gives us a reassurance that the world still holds beauty and goodness in it.",
+    "dateStr": "2026-02-16"
+  },
+  {
+    "id": 9,
+    "quote": "Yhwach, the world that you desired to create may indeed have been devoid of fear. However, in a world without the fear of death, men could not face that fear and seek out hope. Certainly, they could keep walking onward by merely living, but that would be very different from walking onward while conquering their own fears. That is why we give the act of walking onward a special name. We call it 'courage'.",
+    "author": "Aizen Sosuke",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "The quote matters to me because it argues that fear, struggle, and mortality are what give rise to courage, urgency, and meaningful direction in life.",
+    "dateStr": "2026-02-10"
+  },
+  {
+    "id": 4,
+    "quote": "Not every journey becomes a chapter of life but each one leaves us with memories and lessons that shape our present and guide our future.",
+    "author": "Simon Peter",
+    "contributor": "Anesh",
+    "department": "Cyber Security",
+    "about": "It reflects on how experiences—whether big or small—contribute lessons and memories that influence who we are and who we become.",
+    "dateStr": "2026-02-08"
+  },
+  {
+    "id": 5,
+    "quote": "Life doesn't give us purpose. We give life purpose.",
+    "author": "Barry Allen (The Flash)",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Meaning isn't handed to you by fate. You create it through your choices and your actions.",
+    "dateStr": "2026-02-08"
+  },
+  {
+    "id": 6,
+    "quote": "The more you fear something happening, the more likely it is to occur.",
+    "author": "Murphy’s Law",
+    "contributor": "Cath",
+    "department": "CSE",
+    "about": "Anything that can go wrong, will go wrong. Fear and overthinking can increase mistakes, making what we dread more likely to happen. Calm preparation and adaptability turn possible failures into learning opportunities.",
+    "dateStr": "2026-02-08"
+  },
+  {
+    "id": 7,
+    "quote": "Feel Pain. Accept Pain . Know Pain. One who does not know pain, does not know True Peace.",
+    "author": "Pain",
+    "contributor": "KARTHIKEYAN",
+    "department": "Cyber Security",
+    "about": "Pain teaches us need for peace",
+    "dateStr": "2026-02-08"
+  },
+  {
+    "id": 8,
+    "quote": "Stories allow you to experience places you could never go—the past, the future, or distant worlds. You can become a different ethnicity or gender. Even when you’re reading all by yourself, you're sharing those stories as they unfold before you with countless people whom you’ve never met. We are alone, but we are connected.",
+    "author": "Hideo Kojima",
+    "contributor": "Theo K Laurent",
+    "department": "Cyber Security",
+    "about": "It explains why fiction and art matter, as they create shared emotional experiences that build empathy beyond direct lived reality.",
+    "dateStr": "2026-02-08"
+  },
+  {
+    "id": 2,
+    "quote": "As long as I live, there are infinite chances.",
+    "author": "Monkey D. Luffy",
+    "contributor": "Meenz",
+    "department": "Cyber Security",
+    "about": "Life itself gives endless opportunities",
+    "dateStr": "2026-02-04"
+  },
+  {
+    "id": 3,
+    "quote": "Failure doesn't mean game over. It means try again.",
+    "author": "Game Wisdom",
+    "contributor": "Meenz",
+    "department": "Cyber Security",
+    "about": "It is a lesson, not a defeat.",
+    "dateStr": "2026-02-04"
+  },
+  {
+    "id": 1,
+    "quote": "\"Waste no more time arguing what a good man should be. Be one.\"",
+    "author": "Marcus Aurelius",
+    "contributor": "Lohendra V S",
+    "department": "EIE",
+    "about": "\"This quote reminds me that instead of debating about ideals or waiting for the right moment, we should focus on living with integrity and acting with kindness and responsibility every day.\"",
+    "dateStr": "2023-03-28"
+  },
+  {
+    "id": 189,
+    "quote": "Intelligence is a very valuable thing, innit, my friend? And usually it comes far too late.",
+    "author": "Alfie Solomons",
+    "contributor": "Megam (Pacman jr)",
+    "department": "cse-2",
+    "about": "wisdom and understanding are extremely valuable, but people often gain them only after they've already made mistakes or faced the consequences of their actions.",
+    "dateStr": "Unknown"
+  }
+]
