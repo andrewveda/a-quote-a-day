@@ -1,5 +1,18 @@
 [
 {
+  "id": 221,
+  "quote": "If you hit a wrong note, it's the next note that you play that determines if it's good or bad.",
+  "author": "Miles Davis",
+  "contributor": "Kohulan",
+  "department": "CSE 2",
+  "about": "I believe mistakes don't define us; what matters is how we respond to them. Instead of panicking over a wrong step, we should learn from it and move forward. Sometimes, the way we correct our mistakes makes the journey even more meaningful.",
+  "tags": [
+    "optimism",
+    "perception"
+  ],
+  "dateStr": "2026-11-15"
+},
+{
   "id": 220,
   "quote": "It's not about how much we lost. It's about how much we have left.",
   "author": "Tony Stark",
