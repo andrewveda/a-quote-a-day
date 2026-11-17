@@ -1,4 +1,35 @@
 [
+  {
+    "id": 222,
+    "quote": "A true warrior needs no sword.",
+    "author": "Thors",
+    "contributor": "Kavitha",
+    "department": "CSE-2",
+    "about": "True strength comes from wisdom, self-control, and choosing peace instead of violence.",
+    "tags": [
+      "wisdom",
+      "self-control",
+      "peace",
+      "strength"
+    ],
+    "dateStr": "2026-11-16"
+  },
+  {
+    "id": 223,
+    "quote": "Do not measure your progress by how far you have gone, but by how much you have learned along the way.",
+    "author": "Unknown",
+    "contributor": "Ragavi",
+    "department": "CSE 2",
+    "about": "This quote reminds me that learning is more important than rushing towards success. Every experience teaches us something valuable.",
+    "tags": [
+      "learning",
+      "growth",
+      "progress",
+      "wisdom"
+    ],
+    "dateStr": "2026-11-17"
+  },
+
 {
   "id": 221,
   "quote": "If you hit a wrong note, it's the next note that you play that determines if it's good or bad.",
