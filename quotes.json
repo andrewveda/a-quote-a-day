@@ -1,4 +1,20 @@
-[
+[{
+  "id": 224,
+  "quote": "Believe in your dreams, learn from your mistakes, and turn every challenge into an opportunity to shine.",
+  "author": "A.P.J. Abdul Kalam",
+  "contributor": "Lavanya G",
+  "department": "CSE 2",
+  "about": "It reminds me to stay confident, learn from failures, and work towards achieving my goals.",
+  "tags": [
+    "dreams",
+    "self-confidence",
+    "learning",
+    "mistakes",
+    "opportunities",
+    "success"
+  ],
+  "dateStr": "2026-11-18"
+},
   {
     "id": 222,
     "quote": "A true warrior needs no sword.",
