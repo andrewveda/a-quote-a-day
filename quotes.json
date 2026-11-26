@@ -1,4 +1,66 @@
-[{
+[
+  {
+    "id": 228,
+    "quote": "There is no peak, keep evolving till your last breath.",
+    "author": "Unknown",
+    "contributor": "KM",
+    "department": "CSE-2",
+    "about": "Success is not a finish line. I should keep learning and improving every day.",
+    "tags": [
+      "growth",
+      "motivation",
+      "continuous-learning",
+      "self-improvement"
+    ],
+    "dateStr": "2026-11-25"
+  },
+  {
+    "id": 227,
+    "quote": "Sometimes the greatest action of love is no action at all.",
+    "author": "Malcolm Merlyn",
+    "contributor": "Megam (The Glorious)",
+    "department": "CSE-2",
+    "about": "True love sometimes requires the restraint to step back, letting go or giving space instead of trying to fix or control. It means prioritising someone else's peace and freedom over your own impulse to act.",
+    "tags": [
+      "dc-comics",
+      "true-love",
+      "self-reflection",
+      "restraint",
+      "respect"
+    ],
+    "dateStr": "2026-11-25"
+  },
+  {
+    "id": 226,
+    "quote": "Those who run looking sideways will never win. Those who look ahead will.",
+    "author": "Trivikram Srinivas",
+    "contributor": "Barry (Pacman)",
+    "department": "Cyber Security",
+    "about": "Progress comes from keeping your focus ahead and continuing towards your goal rather than comparing yourself with or overlooking others.",
+    "tags": [
+      "focus",
+      "success",
+      "determination",
+      "progress"
+    ],
+    "dateStr": "2026-11-22"
+  },
+  {
+    "id": 225,
+    "quote": "No one is born into this world to be alone.",
+    "author": "Jaguar D. Saul",
+    "contributor": "Kavitha",
+    "department": "CSE-2",
+    "about": "Everyone deserves love, friendship, and a place where they feel accepted. No one should feel that they have to face the world alone.",
+    "tags": [
+      "one-piece",
+      "friendship",
+      "hope",
+      "kindness"
+    ],
+    "dateStr": "2026-11-22"
+  },
+  {
   "id": 224,
   "quote": "Believe in your dreams, learn from your mistakes, and turn every challenge into an opportunity to shine.",
   "author": "A.P.J. Abdul Kalam",
